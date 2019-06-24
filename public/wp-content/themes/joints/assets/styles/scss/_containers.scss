@@ -1,0 +1,80 @@
+.background-image-container {
+    background-position: center;
+    background-size: cover;
+    box-shadow: inset 0 4px 20px 0 rgba(0, 0, 0, .6), inset 0 -4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.background-blue-container {
+    background-color: $kanakuk-blue-secondary;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.6);
+    position: relative;
+}
+
+.background-blue-container-triangle {
+    width: 0;
+    height: 0;
+    border-width: 56px 50px 0;
+    border-color: #003a5c transparent transparent;
+    border-style: solid;
+    position: absolute;
+    top: 14.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+
+    @include breakpoint(mobile) {
+        display: none;
+    }
+}
+
+.right-triangle {
+    width: 0;
+    height: 0;
+    border-width: 56px 50px 0;
+    border-color: $body-background transparent transparent;
+    border-style: solid;
+    position: absolute;
+    top: 50%;
+    left: rem-calc(-22);
+    transform: translateY(-50%) rotate(270deg);
+    z-index: 1;
+
+    @include breakpoint(mobile) {
+        display: none;
+    }
+}
+
+.container-padding-small {
+    padding: rem-calc(80) 0;
+
+    @include breakpoint(mobile) {
+        padding: rem-calc(40) 0;
+    }
+}
+
+.container-padding-medium {
+    padding: rem-calc(110) 0;
+
+    @include breakpoint(mobile) {
+        padding: rem-calc(55) 0;
+    }
+}
+
+.container-padding-large {
+    padding: rem-calc(165) 0;
+
+    @include breakpoint(mobile) {
+        padding: rem-calc(80) 0;
+    }
+}
+
+.blue-overlay-content-container {
+    background-color: rgba($kanakuk-blue-secondary, .5);
+    padding: rem-calc(74) rem-calc(110);
+    text-align: center;
+    border-radius: $global-radius;
+
+    @include breakpoint(mobile) {
+        padding: 1.5rem 1rem;
+    }
+}

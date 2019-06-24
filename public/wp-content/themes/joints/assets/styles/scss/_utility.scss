@@ -1,0 +1,293 @@
+// Media mixin
+$mobile_width: 640px;
+$tablet_width: 1024px;
+$desktop_width: 1200px;
+$wide_width: 1440px;
+
+@mixin breakpoint($point) {
+    @if $point==mobile {
+        @media (max-width: $mobile_width) {
+            @content ;
+        }
+    }
+
+    @else if $point==tablet {
+        @media (max-width: $tablet_width) {
+            @content ;
+        }
+    }
+
+    @else if $point==desktop {
+        @media (max-width: $desktop_width) {
+            @content ;
+        }
+    }
+
+    @else if $point==wide {
+        @media (max-width: $wide_width) {
+            @content ;
+        }
+    }
+}
+
+.padding-top-header {
+    padding-top: 98px !important;
+}
+
+.padding-top {
+    padding-top: 15px !important;
+}
+
+.padding-bottom {
+    padding-bottom: 15px !important;
+}
+
+.padding-left {
+    padding-left: 15px !important;
+}
+
+.padding-right {
+    padding-right: 15px !important;
+}
+
+.mobile-padding-left {
+    @include breakpoint(mobile) {
+        padding-left: $mobile-padding !important;
+    }
+}
+
+.mobile-padding-right {
+    @include breakpoint(mobile) {
+        padding-right: $mobile-padding !important;
+    }
+}
+
+.padding-vertical {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+.padding-horizontal {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+.white {
+    color: $white !important;
+}
+
+.primary {
+    color: $kanakuk-blue !important;
+}
+
+.dark-blue {
+    color: $kanakuk-blue-secondary !important;
+}
+
+.medium-gray {
+    color: $medium-gray !important;
+}
+
+.dark-gray {
+    color: $dark-gray !important;
+}
+
+.basic-gray {
+    color: $basic-gray !important;
+}
+
+.light-gray {
+    color: $light-gray !important;
+}
+
+.red {
+    color: $kanakuk-red !important;
+}
+
+.green {
+    color: $kanakuk-lime !important;
+}
+
+@each $kamp_type,
+$color in $kamps_map {
+    .kamp-#{$kamp_type} {
+        color: $color;
+    }
+}
+
+// Flex box utility classes not available through Foundation
+.justify-flex-end {
+    justify-content: flex-end;
+}
+
+.justify-flex-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.align-center,
+.card.align-center {
+    align-items: center;
+}
+
+.align-flex-start,
+.icon.align-flex-start {
+    align-items: flex-start !important;
+}
+
+.flex-column,
+.card.flex-column {
+    flex-direction: column;
+}
+
+.flex-row,
+.card.flex-row,
+.card.flat.flex-row {
+    flex-direction: row;
+}
+
+@for $i from 0 through 12 {
+    .flex-#{$i} {
+        flex: $i;
+    }
+}
+
+// Typography & Icons
+
+.tiny-text {
+    font-size: rem-calc(12);
+}
+
+.small-text {
+    font-size: rem-calc(14);
+}
+
+.medium-text {
+    font-size: rem-calc(16);
+}
+
+.medium-sub-text {
+    font-size: rem-calc(22);
+    margin-bottom: 0;
+
+    @include breakpoint(mobile) {
+        font-size: rem-calc(12);
+    }
+}
+
+.large-sub-text {
+    font-size: rem-calc(24);
+    margin-bottom: 0;
+
+    @include breakpoint(mobile) {
+        font-size: rem-calc(16);
+    }
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.italic {
+    font-style: italic !important;
+}
+
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+.titlecase {
+    text-transform: capitalize !important;
+}
+
+.underline {
+    text-decoration: underline !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.icon.small {
+    font-size: rem-calc(25) !important;
+}
+
+.icon.medium {
+    font-size: rem-calc(35) !important;
+}
+
+.icon.large {
+    font-size: rem-calc(52) !important;
+
+    @include breakpoint(mobile) {
+        font-size: rem-calc(42) !important;
+    }
+}
+
+@each $dir in top,
+right,
+bottom,
+left {
+    @for $i from 0 through 15 {
+        .margin-#{$dir}-#{$i*5} {
+            margin-#{$dir}: $i * 5px !important;
+        }
+
+        .padding-#{$dir}-#{$i*5} {
+            padding-#{$dir}: $i * 5px !important;
+        }
+    }
+}
+
+@each $dir in top,
+right,
+bottom,
+left {
+    @for $i from 0 through 15 {
+        .mobile-margin-#{$dir}-#{$i*5} {
+            @include breakpoint(mobile) {
+                margin-#{$dir}: $i * 5px !important;
+            }
+        }
+
+        .mobile-padding-#{$dir}-#{$i*5} {
+            @include breakpoint(mobile) {
+                padding-#{$dir}: $i * 5px !important;
+            }
+        }
+    }
+}
+
+// Icons
+
+.icon.small {
+    font-size: 1rem;
+}
+
+.icon.medium {
+    font-size: rem-calc(35);
+}
+
+.icon.large {
+    font-size: rem-calc(65);
+}
+
+.blue-bg {
+    background-color: $kanakuk-blue-secondary;
+}
+
+.gray-bg,
+.no-hero.gray-bg {
+    background-color: $body-background;
+}
+
+.full-width {
+    width: 100%;
+}

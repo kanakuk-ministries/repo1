@@ -1,0 +1,259 @@
+.list-grid-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-left: 0;
+}
+
+.list-grid-section-sub-header-container {
+  height: rem-calc(100);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list-grid-section-sub-header {
+  flex: 1;
+  height: rem-calc(18);
+  margin-left: rem-calc(20);
+
+  @each $kamp_type,
+  $color in $kamps_map {
+    &.kamp-#{$kamp_type} {
+      background-color: $color;
+    }
+  }
+}
+
+.list-grid-item {
+  display: flex;
+  flex-direction: column;
+  width: calc(25% - 15px);
+  padding-top: calc(25% - 15px);
+  margin-right: 20px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+
+  &:nth-child(4n) {
+    margin-right: 0;
+
+    @include breakpoint(mobile) {
+      margin-right: 10px;
+    }
+  }
+
+  &:nth-child(2n) {
+    @include breakpoint(mobile) {
+      margin-right: 0;
+    }
+  }
+
+  @include breakpoint(mobile) {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: calc(50% - 10px);
+    padding-top: calc(50% - 10px);
+  }
+}
+
+.list-grid-item img {
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.list-grid-item-overlay {
+  opacity: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba($kanakuk-blue-secondary, .35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  padding: rem-calc(10 32);
+  transition: .2s all ease;
+}
+
+.list-grid-item.visible .list-grid-item-overlay {
+  opacity: 1;
+}
+
+.list-grid-item.visible img {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  -moz-filter: blur(8px);
+  -o-filter: blur(8px);
+  -ms-filter: blur(8px);
+}
+
+.list-grid-accordion-title-container.accordion-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: $global-radius;
+}
+
+.list-grid-accordion-title-container .accordion-title-text-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.list-grid-accordion-title-container .list-grid-accordion-title-header {
+  margin-bottom: -14px;
+}
+
+.list-grid-accordion-container {
+  &.accordion {
+    background: $body-background;
+  }
+
+  .accordion-item {
+    margin-bottom: rem-calc(50);
+  }
+
+  .accordion-content {
+    background-color: $body-background;
+    margin-left: 0;
+  }
+
+  .accordion-item:first-child>:first-child,
+  :last-child:not(.is-active)>.accordion-title {
+    border-radius: $global-radius;
+  }
+}
+
+.summer-staff-cta {
+  min-width: rem-calc(200);
+  margin-left: rem-calc(50);
+  display: block;
+
+  @include breakpoint(mobile) {
+    margin-left: 0;
+    margin-top: rem-calc(40);
+    margin-bottom: rem-calc(40);
+    width: 100%;
+  }
+}
+
+.summer-staff-introduction-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-bottom: rem-calc(40);
+
+  @include breakpoint(mobile) {
+    flex-direction: column;
+  }
+}
+
+.summer-staff-information-grid-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  @include breakpoint(mobile) {
+    flex-direction: column;
+  }
+}
+
+.summer-staff-information-container {
+  margin-right: rem-calc(72);
+  width: calc(33.3% - 48px);
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @include breakpoint(mobile) {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.summer-staff-information-section-title {
+  padding: rem-calc(20 0);
+  border-top: 2px solid $kanakuk-blue-secondary;
+  border-bottom: 2px solid $kanakuk-blue-secondary;
+  margin-bottom: rem-calc(20);
+}
+
+.page-template-about-all-activities,
+.page-template-about-teams {
+
+  .accordion-title:before,
+  .is-active>.accordion-title:before {
+    display: none;
+
+  }
+
+  .list-grid-item-overlay {
+    @include breakpoint(mobile) {
+      padding: rem-calc(10);
+    }
+
+    .button {
+      margin-bottom: rem-calc(5);
+    }
+  }
+
+  .video-modal-button {
+    white-space: nowrap;
+  }
+}
+
+.list-grid-item-member-title {
+  line-height: 1.2;
+
+  @include breakpoint(desktop) {
+    font-size: rem-calc(16);
+    margin-bottom: 10px;
+  }
+  @include breakpoint(mobile) {
+    font-size: rem-calc(12);
+    margin-bottom: 5px;
+  }
+}
+
+.list-grid-item-member-name {
+  line-height: 1.2;
+  margin-bottom: 20px;
+
+  @include breakpoint(desktop) {
+    font-size: rem-calc(18);
+    margin-bottom: 10px;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: rem-calc(14);
+    margin-bottom: 5px;
+  }
+}
+
+.page-template-transportation .accordion-title:before {
+  content: " ";
+}
+
+.page-template-transportation .is-active > .accordion-title:before {
+  content: " ";
+}
+
+.page-template-about .wp-block-column ul,
+.page-template-about .grid-container ul {
+  list-style: disc;
+}

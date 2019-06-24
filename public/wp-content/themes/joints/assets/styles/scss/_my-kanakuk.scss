@@ -1,0 +1,104 @@
+.my-kan-container {
+  margin-bottom: rem-calc(70);
+}
+
+.my-kan-content-container {
+  background-color: $body-background;
+  position: relative;
+}
+
+.my-kan-header {
+  height: rem-calc(455);
+}
+
+.my-kan-right-container {
+  position: absolute;
+  top: rem-calc(-390);
+  right: 0;
+}
+
+.my-kan-tabs-container .tabs-content {
+  border-radius: $global-radius;
+}
+
+// .my-kan-left-container {
+//   overflow-y: scroll;
+// }
+
+.my-kan-user-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-balance-card {
+  width: calc(100% - 20px);
+  margin-right: 20px;
+}
+
+.card.my-kan-task-card {
+  padding: rem-calc(15 15 15 25);
+}
+
+.my-kan-calendar-container {
+  overflow-y: scroll;
+}
+
+.my-kan-info-card {
+  padding: rem-calc(15 25);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: rem-calc(20);
+}
+
+.my-kan-info-card.fixed-height {
+  height: rem-calc(175);
+}
+
+.my-kan-card-padding {
+  padding: rem-calc(15 25);
+}
+
+.my-kan-tabs-content-container {
+  padding: rem-calc(40 28);
+  min-height: rem-calc(883);
+}
+
+.my-kan-registration-heading {
+  padding: rem-calc(10 40);
+  background-color: $dark-gray;
+  width: 100%;
+}
+
+.my-kan-registration-heading p,
+.my-kan-registration-heading .button {
+  margin-bottom: 0;
+}
+
+.my-kan-registration-heading .kamp-title {
+  position: relative;
+}
+
+.my-kan-registration-heading .icon {
+  position: absolute;
+  top: rem-calc(-7);
+}
+
+.my-kan-calendar-container::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+  background-color: $white;
+  border-radius: 6px;
+}
+
+.my-kan-calendar-container::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: rgba($medium-gray, .8);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+.page-template-my-kanakuk .reveal-overlay {
+  z-index: 2000;
+}

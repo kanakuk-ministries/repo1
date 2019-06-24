@@ -1,0 +1,117 @@
+.faqs-content-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  color: $kanakuk-blue-secondary;
+  max-height: rem-calc(800);
+  overflow: hidden;
+  padding-top: rem-calc(30);
+
+  @include breakpoint(mobile) {
+    padding: 0 $mobile-padding;
+    max-height: none;
+    flex-direction: column;
+  }
+}
+
+.faq-search-input {
+  align-self: flex-end;
+  margin-right: rem-calc(55);
+  margin-top: rem-calc(20);
+
+  @include breakpoint(mobile) {
+    align-self: center;
+    width: calc(100% - 40px);
+    margin: 10px $mobile-padding;
+  }
+}
+
+.faqs-content-categories-container {
+  width: rem-calc(310);
+  padding: rem-calc(0 30 0 0);
+  border-right: 1px solid $light-gray;
+  max-height: 100%;
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  @include breakpoint(mobile) {
+    display: none;
+    padding-right: 0;
+    border-right: none;
+    width: 100%;
+  }
+}
+
+.faqs-content-categories-container.mobile-menu-open {
+  @include breakpoint(mobile) {
+    display: block;
+    padding-right: 0;
+    border-right: none;
+    width: 100%;
+    margin-top: $mobile-padding;
+  }
+}
+
+.faqs-content-category {
+  cursor: pointer;
+  padding-bottom: rem-calc(30);
+
+  &:hover {
+    font-weight: bold;
+  }
+
+  &.hide-on-mobile {
+    @include breakpoint(mobile) {
+      display: none;
+    }
+  }
+}
+
+.faqs-content-faqs-container {
+  flex: 1;
+  padding: rem-calc(0 0 0 60);
+  max-height: rem-calc(690);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  @include breakpoint(mobile) {
+    padding: rem-calc(20 0);
+    width: 100%;
+  }
+}
+
+.faqs-content-question {
+  font-weight: bold;
+}
+
+.faqs-content-question-title.accordion-title {
+  display: flex;
+  align-items: center;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: $kanakuk-blue-secondary;
+  }
+}
+
+.faqs-content-answer.accordion-content {
+  font-weight: normal;
+  padding-left: rem-calc(35);
+  word-break: break-word;
+}

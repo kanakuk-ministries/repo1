@@ -1,0 +1,122 @@
+/******************************************************************
+
+Stylesheet: Login Stylesheet
+
+This stylesheet is loaded is only on the login page. This way you can style
+the login page. It won't affect any other page, admin or front-end.
+
+Make sure functions/login.php is activated in your functions.php file.
+
+This stylesheet is turned off by default.
+
+For more info, check out the codex:
+http://codex.wordpress.org/Creating_Admin_Themes
+
+******************************************************************/
+
+body.login {}
+
+#login {}
+
+// Change the login logo
+.login h1 a {
+  background: url(../images/login-logo.png) no-repeat top center;
+  width: 326px;
+  height: 67px;
+  text-indent: -9999px;
+  overflow: hidden;
+  padding-bottom: 15px;
+  display: block;
+}
+
+form {}
+
+body form .input {}
+
+// Login Button Style
+#wp-submit {}
+
+
+.login-page-content {
+  margin-top: rem-calc(98);
+  margin-bottom: rem-calc(98);
+}
+
+.login-page-content .main {
+  position: relative;
+}
+
+.login-form-image-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+
+  @include breakpoint(mobile) {
+    display: none;
+  }
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  padding: rem-calc(40 55);
+  background-color: $white;
+  border-radius: $global-radius;
+}
+
+.login-form-button-container {
+  display: flex;
+
+  @include breakpoint(mobile) {
+    flex-direction: column;
+  }
+
+  .button-container:first-of-type {
+    margin-right: rem-calc(10);
+
+    @include breakpoint(mobile) {
+      margin-right: 0;
+    }
+  }
+
+  .button-container:last-of-type {
+    margin-left: rem-calc(10);
+
+    @include breakpoint(mobile) {
+      margin-left: 0;
+    }
+  }
+}
+
+.login-heading {
+  margin-bottom: rem-calc(-25);
+}
+
+.login-form-container [type=checkbox]+label[for],
+[type=radio]+label[for] {
+  font-size: rem-calc(14);
+}
+
+.login-form-extras-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  @include breakpoint(mobile) {
+    flex-direction: column;
+  }
+}
+
+.login-form-welcome-container p {
+  @include breakpoint(mobile) {
+    margin-top: rem-calc(20);
+    font-size: rem-calc(14);
+  }
+}
+
+.error-message {
+  border: 1px solid rgba( $kanakuk-orange, .25);
+  font-size: rem-calc(14);
+}

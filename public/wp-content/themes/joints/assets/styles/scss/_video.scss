@@ -1,0 +1,270 @@
+.embed-container {
+  height: 100% !important;
+}
+
+.video-modal,
+.modal-embed-container.video-center {
+  height: 100% !important;
+}
+
+.video-modal {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.video-modal .modal-embed-container.video-center,
+.embed-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container.inner .hero-media-container .embed-container>div,
+.media-container .video-modal .modal-embed-container.video-center>div {
+  max-height: none !important;
+  max-width: none !important;
+  height: 100% !important;
+  margin-bottom: 0 !important;
+  background-size: cover !important;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto !important;
+  min-width: 100% !important;
+}
+
+.hero-media-container .embed-container .wp-video {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.wp-video .mejs-container.mejs-video {
+  max-width: none;
+  width: 100%;
+  background: white;
+  min-height: 100% !important;
+  object-fit: fill !important;
+  min-width: 217px;
+  max-height: 100% !important;
+  height: auto !important;
+  overflow: hidden;
+}
+
+.wp-video-shortcode video,
+video.wp-video-shortcode {
+  max-width: none !important;
+  min-height: 100% !important;
+  background: white;
+  object-fit: fill !important;
+  min-width: 100% !important;
+  height: auto !important;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 100% !important;
+  width: auto !important;
+}
+
+.team-video .wp-video-shortcode video,
+.team-video video.wp-video-shortcode {
+  position: static;
+  transform: translateY(0);
+}
+
+.team-video .wp-video {
+  width: 100% !important;
+  // max-height: 670px !important;
+  overflow: hidden;
+}
+
+.embed-container .wp-video-shortcode video,
+.embed-container video.wp-video-shortcode {
+  bottom: 50%;
+  transform: translateX(-50%) translateY(50%);
+}
+
+.video-modal .modal-embed-container .wp-video-shortcode video,
+.video-modal .modal-embed-container video.wp-video-shortcode {
+  max-height: 100% !important;
+  max-width: none;
+}
+
+// Controls
+
+.mejs-time-rail,
+.mejs-time.mejs-currenttime-container,
+.mejs-button.mejs-volume-button.mejs-mute,
+.mejs-button.mejs-fullscreen-button,
+.mejs-time.mejs-duration-container,
+.mejs-overlay-button,
+.mejs-button.mejs-fullscreen-button {
+  display: none !important;
+}
+
+.mejs-container .mejs-controls {
+  background: transparent !important;
+  position: absolute;
+  z-index: 9 !important;
+  left: auto;
+
+  @include breakpoint(mobile) {
+    right: $mobile-padding;
+    top: rem-calc(95);
+  }
+}
+
+.modal-embed-container .mejs-container .mejs-controls {
+  width: rem-calc(150);
+  height: rem-calc(150);
+  padding: 0;
+  top: 50%;
+  right: 50%;
+  transform: translateX(50%) translateY(-50%);
+}
+
+.embed-container .mejs-container .mejs-controls {
+  top: rem-calc(150);
+  right: rem-calc(100);
+  height: rem-calc(40);
+  width: auto;
+
+  @include breakpoint(mobile) {
+    right: $mobile-padding;
+    top: rem-calc(118);
+  }
+}
+
+.modal-embed-container .mejs-button,
+.embed-container .mejs-button {
+  width: rem-calc(150);
+  height: rem-calc(150);
+  overflow: hidden;
+  position: relative;
+}
+
+.embed-container .mejs-button {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: rem-calc(125);
+  justify-content: flex-end;
+}
+
+.modal-embed-container .mejs-button>button,
+.embed-container .mejs-button>button {
+  background: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  z-index: 10;
+}
+
+.embed-container .mejs-button {
+  // display: flex;
+  // align-items: center;
+}
+
+.modal-embed-container .mejs-button.mejs-play:after,
+.embed-container .mejs-button.mejs-play:after {
+  content: "\78";
+}
+
+.embed-container .mejs-button.mejs-play:before {
+  content: 'Play Video' !important;
+  font-family: $body-font-family;
+  font-size: rem-calc(14);
+  margin-right: rem-calc(6);
+  font-weight: bold;
+}
+
+.modal-embed-container .mejs-button.mejs-pause:after,
+.embed-container .mejs-button.mejs-pause:after {
+  content: "\76";
+}
+
+.embed-container .mejs-button.mejs-pause:before {
+  content: 'Pause Video' !important;
+  font-family: $body-font-family;
+  font-size: rem-calc(14);
+  margin-right: rem-calc(6);
+  font-weight: bold;
+}
+
+.embed-container .mejs-button:before {
+  color: $light-gray;
+}
+
+.modal-embed-container .mejs-button:after,
+.embed-container .mejs-button:after {
+  color: $light-gray;
+  font-size: rem-calc(150);
+  font-family: "kanakuk" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.embed-container .mejs-button:after {
+  font-size: rem-calc(16);
+}
+
+// CUSTOM
+
+.custom-video-controls.controls button[data-state="play"]:before,
+.custom-video-controls.controls button[data-state="pause"]:before {
+  color: $light-gray;
+  font-size: rem-calc(150);
+  font-family: "kanakuk" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.custom-video-controls.controls button[data-state="play"]:before {
+  content: "\78";
+}
+
+.custom-video-controls.controls button[data-state="pause"]:before {
+  opacity: 0;
+  content: "\76";
+}
+
+.custom-video-container:hover .custom-video-controls.controls button[data-state="pause"]:before {
+  opacity: 1;
+}
+
+.custom-video-controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.basic-video.custom-video {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  max-height: none;
+  min-width: 100%;
+}
+
+#video-modal-close-button {
+  @include breakpoint(mobile) {
+    top: 90px;
+    z-index: 10;
+  }
+}

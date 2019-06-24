@@ -1,0 +1,180 @@
+.top-nav-header-combined-container {
+    position: absolute;
+    z-index: 9 !important;
+    top: 0 !important;
+    width: 100%;
+    // background-color: $kanakuk-blue-secondary;
+
+    // @include breakpoint(mobile) {
+    //     background-color: transparent;
+    // }
+}
+
+.kamp-header-container {
+    background-color: white;
+    width: 100%;
+    // margin-top: 98px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    position: relative;
+    border-left: 10px solid;
+
+    @include breakpoint(mobile) {
+        border-left: none;
+    }
+}
+
+.kamp-header-container-background {
+    background-color: $kanakuk-blue-secondary;
+    padding-top: rem-calc(98);
+
+    @include breakpoint(mobile) {
+        padding-top: rem-calc(70);
+    }
+}
+
+.kamp-header-inner-container,
+.kamp-header-right-container,
+.kamp-header-left-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.kamp-header-inner-container {
+    justify-content: space-between;
+
+    @include breakpoint(mobile) {
+        padding-left: rem-calc(35);
+        padding-right: rem-calc(35);
+    }
+}
+
+.kamp-header-right-container {
+    justify-content: flex-end;
+}
+
+.kamp-header-left-container {
+    justify-content: flex-start;
+}
+
+.kamp-sub-header-container {
+    background-color: rgba($kanakuk-blue-secondary, 0.55);
+    width: 100%;
+    padding: rem-calc(10);
+}
+
+.icon.kamp-icon {
+    font-size: rem-calc(65);
+
+    @include breakpoint(mobile) {
+        font-size: rem-calc(30);
+    }
+}
+
+.kamp-header-back-link {
+    margin-left: rem-calc(-30);
+}
+
+// Contact Block Section
+
+.kamp-contact-container {
+    flex-direction: row;
+    justify-content: center;
+
+    @include breakpoint(mobile) {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+.kamp-contact-directors-grid-container {
+    display: flex;
+    flex-basis: 65%;
+}
+
+.kamp-contact-contact-info-container {
+    display: flex;
+    flex-basis: 35%;
+}
+
+
+.kamp-contact-directors-grid-container {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: rem-calc(0 80 0 20);
+
+    @include breakpoint(mobile) {
+        padding: 0;
+    }
+}
+
+.kamp-contact-contact-info-container {
+    padding: rem-calc(0 20 0 80);
+
+    @include breakpoint(mobile) {
+        padding: 0;
+        text-align: center;
+    }
+}
+
+.kamp-contact-contact-info-text {
+    font-size: rem-calc(24);
+    color: $kanakuk-blue-secondary;
+
+    @include breakpoint(mobile) {
+        font-size: rem-calc(20);
+    }
+}
+
+.contact-director-info {
+    flex: 1;
+    margin: rem-calc(0 10 50);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: calc(50% - #{rem-calc(20)});
+    max-width: calc(50% - #{rem-calc(20)});
+    text-align: center;
+}
+
+.contact-director-info-name {
+    font-weight: bold;
+    font-size: rem-calc(22);
+    color: $kanakuk-blue-secondary;
+    margin-bottom: 0;
+    margin-top: rem-calc(10);
+
+    @include breakpoint(mobile) {
+        font-size: rem-calc(18);
+    }
+}
+
+.contact-director-info-title {
+    font-size: rem-calc(18);
+    color: $kanakuk-blue-secondary;
+
+    @include breakpoint(mobile) {
+        font-size: rem-calc(16);
+    }
+}
+
+.contact-director-learn-more-link {
+    padding: 0 5rem 0 1.25rem;
+    text-align: center;
+    flex: 1 100%;
+
+    @include breakpoint(mobile) {
+        padding: 0;
+        margin-bottom: rem-calc(40);
+        text-align: left;
+    }
+}
+
+.kamp-contact-contact-info-top {
+    margin-bottom: rem-calc(70);
+
+    @include breakpoint(mobile) {
+        margin-bottom: rem-calc(20);
+    }
+}

@@ -1,0 +1,216 @@
+.multi-image-block-content-container.grid-container {
+    width: auto;
+}
+
+.multi-image-block-content.mod-odd {
+    opacity: 0;
+    transition: .3s all ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: rem-calc(75) rem-calc(55);
+
+    @include breakpoint(mobile) {
+        padding: $mobile-padding;
+    }
+}
+
+.multi-image-block-content.mod-odd p,
+.multi-image-block-content.mod-odd a {
+    @include breakpoint(mobile) {
+        font-size: .75rem;
+    }
+}
+
+.multi-image-block-section-container {
+    height: rem-calc(470);
+    position: relative;
+    overflow: hidden;
+
+    @include breakpoint(mobile) {
+        height: auto;
+    }
+}
+
+.multi-image-block-section-container.mod-odd {
+    height: 100%;
+
+    @include breakpoint(mobile) {
+        max-height: rem-calc(350);
+    }
+}
+
+.multi-image-block-section-container.mod-vertical {
+    height: 50%;
+}
+
+.multi-image-block-section-container img {
+    min-height: 100%;
+    min-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+.title-overlay {
+    background-color: rgba($kanakuk-blue-secondary, .5);
+    padding: rem-calc(20);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transition: .3s all ease;
+}
+
+.title-overlay.mod-content {
+    height: rem-calc(103);
+    align-items: center;
+    transition: .3s all ease;
+
+    @include breakpoint(mobile) {
+        height: rem-calc(60);
+    }
+}
+
+.title-overlay.mod-content .icon.caret-icon {
+    cursor: pointer;
+}
+
+.title-overlay .icon.kamp-icon,
+.title-overlay .icon.caret-icon {
+    font-size: rem-calc(80);
+    transition: .3s all ease;
+    display: inline-flex;
+    z-index: 9;
+
+    @include breakpoint(mobile) {
+        font-size: rem-calc(32);
+    }
+}
+
+.title-overlay-title {
+    margin-bottom: rem-calc(-23);
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include breakpoint(mobile) {
+        margin-bottom: rem-calc(-11);
+    }
+}
+
+.learn-more-link {
+    font-size: rem-calc(24);
+    display: none;
+    align-items: center;
+
+    @include breakpoint(mobile) {
+        font-size: 1rem;
+    }
+}
+
+.learn-more-link .icon {
+    @include breakpoint(mobile) {
+        font-size: rem-calc(25);
+    }
+}
+
+.multi-image-block-image-overlay-container {
+    // display: none;
+    display: flex;
+    opacity: 0;
+    transition: .3s all ease;
+    background-color: rgba($kanakuk-blue-secondary, .5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    padding: rem-calc(100) rem-calc(55);
+    width: 100%;
+    height: calc(100% - 120px);
+
+    @include breakpoint(mobile) {
+        padding: $mobile-padding;
+        height: calc(100% - 71px);
+    }
+}
+
+.multi-image-block-section-container.has-hover:hover {
+    img {
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+        -moz-filter: blur(8px);
+        -o-filter: blur(8px);
+        -ms-filter: blur(8px);
+    }
+
+    .multi-image-block-image-overlay-container {
+        opacity: 1;
+    }
+
+    .title-overlay {
+        background-color: $kanakuk-yellow;
+    }
+
+    @each $kamp_type,
+    $color in $kamps_map {
+        .title-overlay.kamp-#{$kamp_type} {
+            background-color: $color;
+        }
+    }
+
+    .title-overlay.mod-content {
+        background-color: rgba($kanakuk-blue-secondary, .5);
+    }
+
+    .icon.kamp-icon {
+        display: none;
+    }
+
+    .learn-more-link {
+        display: inline-flex;
+    }
+}
+
+.multi-image-block-section-container.expanded {
+    img {
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+        -moz-filter: blur(8px);
+        -o-filter: blur(8px);
+        -ms-filter: blur(8px);
+    }
+
+    .title-overlay.mod-content {
+        background-color: rgba($kanakuk-blue-secondary, .5);
+        height: 100%;
+
+        .title-overlay-title,
+        .icon.caret-icon {
+            display: none;
+        }
+
+        .icon.caret-icon.icon-caret-large-down {
+            position: absolute;
+            top: rem-calc(20);
+            right: rem-calc(20);
+            z-index: 999;
+            display: block;
+        }
+
+    }
+
+    .multi-image-block-content.mod-odd {
+        opacity: 1;
+    }
+
+    .learn-more-link {
+        display: inline-flex;
+    }
+}

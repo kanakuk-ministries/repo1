@@ -1,0 +1,36 @@
+.is-reveal-open header {
+    z-index: 1500;
+    background-color: $kanakuk-blue-secondary;
+}
+
+.mobile-nav.tiny.reveal {
+    min-height: auto;
+    top: rem-calc(69) !important;
+    height: auto;
+    padding: 0;
+}
+
+.top-bar .menu-header-navigation-container .menu .active>a {
+    background: rgba($white, .5);
+    border-radius: $global-radius;
+}
+
+.top-bar .menu-header-navigation-container .menu a {
+    padding: rem-calc(15 25) !important;
+    padding-right: 3rem !important;
+}
+
+.top-bar .menu-header-navigation-container .dropdown.menu>li.is-dropdown-submenu-parent>a:after,
+.top-bar .menu-header-navigation-container .dropdown.menu.medium-horizontal>li.is-dropdown-submenu-parent>a:after {
+    right: 45px !important;
+}
+
+.mobile-nav .menu .active>a,
+.mobile-nav .menu .is-active>a {
+    background: $light-gray;
+    color: $kanakuk-blue;
+}
+
+.mobile-nav .is-accordion-submenu li.current-menu-item {
+    background: $light-gray;
+}

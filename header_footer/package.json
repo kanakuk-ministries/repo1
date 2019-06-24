@@ -1,0 +1,17 @@
+{
+  "name": "header_footer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-purgecss": "^1.1.1",
+    "gulp-replace": "^1.0.0"
+  }
+}
