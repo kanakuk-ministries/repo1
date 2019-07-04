@@ -7,22 +7,22 @@
 
 // get the WP_Post Object ID
 $kamp_id = get_field('kamp');
-
 // the fields
 $fields = get_fields();
 $kamp = get_fields($kamp_id);
 $kamp_directors = reset($kamp['directors']);
-
 $directorsIds = array_map(function ($director) {
     return $director->ID;
 }, $kamp_directors);
-
-$contact_staff = get_staff($directorsIds);
-
-// write data to console for debugging purposes
-console_log(__FILE__, $fields);
-
-?>
+    //filter the k-kauai directors
+    if($kamp_id==280){
+        $directorsIds = [420,432,433,442];
+    }
+    $contact_staff = get_staff($directorsIds);
+    // write data to console for debugging purposes
+    console_log(__FILE__, $fields);
+    
+    ?>
 
 <div class="multi-image-block-container container-padding-small">
   <div class="grid-x grid-container">

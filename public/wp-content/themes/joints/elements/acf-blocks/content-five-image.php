@@ -22,7 +22,7 @@ console_log(__FILE__, $fields);
     </div>
 
     <div class="grid-x grid-container multi-image-block-content-container">
-        <div class="cell small-12 medium-6 multi-image-block-section-container mod-odd block-1">
+        <div class="cell small-12 medium-6 multi-image-block-section-container mod-odd custom-img block-1">
             <img src="<?php echo $fields['nw_image']['url']; ?>" />
             <div class="title-overlay flex-container justify-space-between align-center mod-content">
                 <h3 class="white title-overlay-title">
@@ -36,7 +36,7 @@ console_log(__FILE__, $fields);
                     </p>
                     <p class="large-sub-text white bold">
                         <?php echo $fields['nw_body']; ?>
-                        <a class="white learn-more-link underline" href="<?php echo $fields['nw_url']; ?>">Learn More</a>
+                        <!-- <a class="white learn-more-link underline" href="<?php echo $fields['nw_url']; ?>">Learn More</a> -->
                     </p>
                 </div>
             </div>

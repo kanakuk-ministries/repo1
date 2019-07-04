@@ -13,14 +13,22 @@ get_header();?>
         <main class="main small-12 medium-12 large-12 cell tabs-view" role="main">
             <div class="hero-tabs-container">
                 <ul class="tabs hero-tabs kamp-types-tabs" id="kamp-types-tabs">
-                    <?php foreach ($kamp_types as $key => $value): ?>
+                    <?php foreach ($kamp_types as $key => $value){ 
+                        switch(true){
+                            case $value['title']=="Overnight": $value['url'] = "/overnight-kamp/"; break;
+                            case $value['title']=="Day": $value['url'] = "/day-kamp/"; break;
+                            case $value['title']=="Family": $value['url'] = "/family-kamp/"; break;
+                            case $value['title']=="Specialty": $value['url'] = "/kamp-types-specialty-kamps/"; break;
+                            default : break;
+                        }
+                        ?>
                     <li class="tabs-title <?php if ($key === 0) {echo 'is-active';}?>">
                         <a href="<?php echo $value['url']; ?>" class="<?php echo $value['icon_name']; ?>-tab-link">
                             <?php echo $value['title']; ?> Kamp
                             <i class="tabs-title-icon icon icon-<?php echo $value['icon_name']; ?>"></i>
                         </a>
                     </li>
-                    <?php endforeach;?>
+                    <?php } ?>
                 </ul>
 
             </div>
