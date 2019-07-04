@@ -15,27 +15,50 @@
 
 
 // if no tab specified, redirect back to this page with tab=0 (the default state)
-if (!isset($_GET['tab'])) {
-    header("Location: /search-results?tab=0");
-    exit;
-}
-
+// if (!isset($_GET['tab'])) {
+//     header("Location: /search-results?tab=0");
+//     exit;
+// }
 // get the current registration to display
 $registration = array_extract($_SESSION, 'registrations.' . $_GET['tab']);
+//echo "step 1<pre>"; print_r($registration); 
+if (isset($_GET['kamp_type'])) {
+$kamp_session = array();
+$kamp_age= $_GET['kamp_age'];
+ $sessionArray =  array(
+           'type' => "child",
+            "age" => $kamp_age,
+            "gender" => "male"
+        
+        );
+ array_push($kamp_session,$sessionArray);
+    
+    $registration =  array(
+        'type' => "child",
+        "age" => $kamp_age,
+        "gender" => "male" 
+        
+    );
+    
+ }
+
 
 // if no registration matched the tab specified, redirect back to the homepage
-if (!$registration) {
-    header("Location: /");
-    exit;
-}
-
+// if (!$registration) {
+//     header("Location: /");
+//     exit;
+// }
 // get a list of kamp titles
 $kamp_titles = get_kamp_titles();
+//echo "step 1<pre>"; print_r($kamp_titles);
+if (isset($_GET['kamp_type'])) {
+    $kamp_titles = array($_GET['kamp_type']);
+}
 $kamps = array_flip($kamp_titles);
-
+//echo "step 1b<pre>"; print_r($kamps);
 // the kamps from the API
 $ct_kamps = kan_get_circuitree_kamps();
-
+//echo "step 1c<pre>"; print_r($kamps);
 /*
                    .
          /^\     .
@@ -57,8 +80,10 @@ _/j  L l\_!  _//^---^\\_
 
 // we are merging the local custom post type data with the api data
 // this code is NOT optimized, but probably adequate
+
 foreach ($kamps as $key => $val) {
     $kamps[$key] = get_kamp_by_title($key);
+   // echo "insideforeach <pre>"; print_r($kamps);
     $kamps[$key]['circuitree'] = [];
     $kamps[$key]['type'] = get_kamp_type($kamps[$key]['kamp_type']);
     $kamps[$key]['visible'] = true;
@@ -67,6 +92,7 @@ foreach ($kamps as $key => $val) {
         $short_title = substr($ct_kamp_event['CostCenterName'], 0, strpos($ct_kamp_event['CostCenterName'], ' '));
         if (stripos($key, $short_title) !== false) {
             $ct_kamp_event['KampName'] = $key;
+            //echo "<pre>"; print_r($ct_kamp_event);
             $ct_kamp_event['Month'] = date('F', strtotime($ct_kamp_event['BeginDate']));
             $ct_kamp_event['visible'] = true;
             $ct_kamp_event['CityState'] = $ct_kamp_event['City'] . ', ' . $ct_kamp_event['StateAbbreviation'];
@@ -96,6 +122,7 @@ foreach ($kamps as $key => $kamp) {
 
 // filter out empties
 $kamps = array_filter($kamps);
+//echo "step 1d<pre>"; print_r($kamps);
 
 // make overnight kamps show up first
 uasort($kamps, function($a, $b) {
@@ -112,7 +139,7 @@ $kamps = array_filter($kamps, function($kamp) use ($registration) {
     $current_age = $registration['age'];
     return ($kamp['min_age'] <= $current_age && $kamp['max_age'] >= $current_age);
 });
-
+    //echo "step 1e<pre>"; print_r($kamps);
 // console_log('ct_kamps', $ct_kamps);
 // console_log('registration', $registration);
 // console_log('kamps', $kamps);
@@ -120,6 +147,7 @@ $kamps = array_filter($kamps, function($kamp) use ($registration) {
 
 // the kamp custom post types
 $cpt_kamps = get_kamps();
+
 
 get_header();?>
 
@@ -130,10 +158,23 @@ get_header();?>
         <main class="main small-12 medium-12 large-12 cell no-hero" role="main">
             <div class="grid-container mobile-full">
                 <div id="search-results-tabs-container" class="grid-x mobile-light-gray">
-                    <?php echo element('search-results/tabs', [
-                        'registrations' => $_SESSION['registrations'],
-                        'current'       => $_GET['tab']
-                    ]); ?>
+                
+                    <?php 
+                    if (isset($_GET['kamp_type'])) {
+                        
+                        echo element('search-results/tabs', [
+                            'registrations' => $kamp_session,
+                            'current'       => $_GET['tab']
+                        ]); 
+                        
+                    }else{
+                        echo element('search-results/tabs', [
+                            'registrations' => $_SESSION['registrations'],
+                            'current'       => $_GET['tab']
+                        ]);
+                        
+                    }
+                   ?>
                 </div>
             </div>
             <div class="grid-x gray-bg" id="search-results" v-cloak>
@@ -165,13 +206,30 @@ get_header();?>
                                 <?php echo element('search-results/your-selection', [
                                     'kamps'        => $kamps,
                                     'registration' => $registration
-                                ]); ?>
+                                    
+                                ]); 
+                               // echo "step 3";
+                                ?>
                             </div>
 
                             <!-- Register Now Button -->
-                            <?php echo element('search-results/register-now', [
-                                'registrations' => $_SESSION['registrations']
-                            ]); ?>
+                            <?php 
+                           
+                            if (isset($_GET['kamp_type'])) {
+                                
+                                echo element('search-results/register-now', [
+                                    'registrations' => $kamp_session
+                                    
+                                ]);
+                                
+                            }else{
+                                echo element('search-results/register-now', [
+                                    'registrations' => $_SESSION['registrations']
+                                ]);
+                                
+                            }
+                           
+                            ?>
 
                         </div>
                         <div class="grid-container search-filter-outer-container">
@@ -315,6 +373,8 @@ get_header();?>
 
         <script type="text/javascript">
             var kamps = <?php echo json_encode($kamps); ?>;
+            str = JSON.stringify(kamps);
+            console.log("kamps"+str);
         </script>
 
         

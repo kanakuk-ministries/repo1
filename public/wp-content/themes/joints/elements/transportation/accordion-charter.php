@@ -9,9 +9,33 @@ $charters = kan_get_charter_availability();
 
     <ul class="accordion list-grid-accordion-container" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
     <?php
+    
+    $cityBusList = [];
+   foreach ($charters as $value) {
+        foreach ($value['CharterAvailabilityList'] as $value) {
+            array_push($cityBusList,$value);
+        }
+    }
+    
+    $charters = [];
+    foreach ($cityBusList as $key => $city){
+        $tempArray = array(
+            'StartDate' => $city['StartDate'],
+            'EndDate' => $city['EndDate'],
+            'LoadTime' => $city['LoadTime'],
+            'LocationNotes' => $city['LocationNotes'],
+            'AddressName' => $city['AddressName'],
+            'Address1' => $city['Address1'],
+            'Fee' => $city['Fee'],
+            'LoadDetails' => $city['LoadDetails']
+        );
+
+        $charters[$city['DepartureCity']]['locations'][] =  $tempArray;
+    }
       $index = 0;
-      foreach ($charters as $key => $value): ?>
-      <li class="accordion-item" data-accordion-item>
+      foreach ($charters as $key => $value): 
+      ?>
+    <li class="accordion-item" data-accordion-item>
         <!-- Accordion title -->
         <a href="#" class="accordion-title list-grid-accordion-title-container" style="background-color: <?php echo $colors[$index]; ?>">
           <div class="accordion-title-icon-container"><i class="icon large white"></i></div>
@@ -23,30 +47,50 @@ $charters = kan_get_charter_availability();
 
         <!-- Accordion content: use `is-active` state class to start in open position. -->
         <ul class="accordion-content" data-tab-content>
-          <?php foreach ($value['CharterAvailabilityList'] as $i => $charter): ?>
-            <div class="list-grid-section-container">
+       		<div class="list-grid-section-container">
               <div class="flex-container align-center list-grid-section-sub-header-container">
-                <h4 class="margin-bottom-0 margin-top-15"><?php echo $charter['DepartureCity']; ?> - $<?php echo $charter['Fee']; ?></h4>
+                 <h4 class="margin-bottom-0 margin-top-15">Locations</h4>
                 <div class="list-grid-section-sub-header" style="background-color: <?php echo $colors[$index]; ?>"></div>
               </div>
               <div class="card">
                 <div class="card-section">
                   <p>
-                    Address:
-                    <?php echo $charter['AddressName']; ?>
-                    <?php echo $charter['Address1']; ?>
-                    <?php echo $charter['DepartureCity']; ?>,
-                    <?php echo $charter['DepartureState']; ?>
-                    <?php echo $charter['Zip']; ?>
+                   <strong>FEE:</strong>
+                    <?php echo $value['locations'][0]['Fee']; ?>
+                    <br/>
+                    <strong>Address:</strong>
+                    <?php echo $value['locations'][0]['AddressName']; ?>
+                     <br/>
+                    <?php echo $value['locations'][0]['Address1']; ?>
                   </p>
                   <p>
-                    Notes:
-                    <?php echo $charter['LocationNotes']; ?>
+                   <strong>Notes:</strong>
+                    <?php echo $value['locations'][0]['LocationNotes']; ?>
                   </p>
                 </div>
               </div>
             </div>
+            <div class="list-grid-section-container">
+              <div class="flex-container align-center list-grid-section-sub-header-container">
+                 <h4 class="margin-bottom-0 margin-top-15">Timings</h4>
+                <div class="list-grid-section-sub-header" style="background-color: <?php echo $colors[$index]; ?>"></div>
+              </div>
+          <?php foreach ($value['locations'] as $location):
+          
+          ?>
+            
+              <div class="card">
+                <div class="card-section">
+                  <p>
+                    <strong>Date:</strong>
+                     <?php echo $location['StartDate']; ?>
+                     <br/>
+                     <strong>Time:</strong>                
+                     <?php echo $location['LoadTime']; ?>
+               </div>
+              </div>
           <?php endforeach;?>
+            </div>
         </ul>
       </li>
     <?php

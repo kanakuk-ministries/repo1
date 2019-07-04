@@ -458,6 +458,28 @@ function my_acf_init()
             'icon' => 'admin-comments',
             'keywords' => ['kan', 'kanakuk', 'kamp'],
         ]);
+        
+        // register a kamp card block
+        acf_register_block([
+            'name' => 'kaui-speakers',
+            'title' => __('Speakers Sections'),
+            'description' => __('A section for K-Kauakui block.'),
+            'render_callback' => 'my_acf_block_render_callback',
+            'category' => 'formatting',
+            'icon' => 'admin-comments',
+            'keywords' => ['kan', 'kanakuk', 'kamp'],
+        ]);
+        
+        // register a kamp card block
+        acf_register_block([
+            'name' => 'speakers-group',
+            'title' => __('Speakers Group'),
+            'description' => __('A section for K-Kauakui block.'),
+            'render_callback' => 'my_acf_block_render_callback',
+            'category' => 'formatting',
+            'icon' => 'admin-comments',
+            'keywords' => ['kan', 'kanakuk', 'kamp'],
+        ]);
 
         // register a kamp trait card block
         acf_register_block([
