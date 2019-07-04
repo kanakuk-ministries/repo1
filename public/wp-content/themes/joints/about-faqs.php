@@ -13,6 +13,7 @@ get_header();?>
 
 <div class="content">
 
+
     <div class="inner-content grid-x grid-margin-x">
 
         <main class="main small-12 medium-12 large-12 cell tabs-view about-page-main" role="main">
