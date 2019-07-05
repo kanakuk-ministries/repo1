@@ -32,10 +32,10 @@ $list_items_array = explode(',', $fields['list_items']);
                 <h6 class="secondary dark-blue margin-bottom-0">
                     <?php if ($fields['subtitle']): ?>
                     <?php echo $fields['subtitle'] ?>
-                    <?php else: ?>
-                    Favorite
-                    <?php echo $kamp['kamp_title'] ?>
-                    <?php echo $fields['title'] ?>
+                    <?php //else: ?>
+                     
+                    <?php //echo $kamp['kamp_title'] ?>
+                    <?php //echo $fields['title'] ?>
                     <?php endif;?>
                 </h6>
             </div>
