@@ -33,9 +33,11 @@ console_log(__FILE__, $fields);
                 <?php echo $fields['body']; ?>
                 
             </p>
+            <?php if($fields['site_link']){ ?>
             <div class="mt-30">            
             	<a href="<?php echo $fields['site_link']; ?>" class="link-btn">Read More</a>
             </div>
+            <?php }?>
         </div>
     </div>
 </div>
