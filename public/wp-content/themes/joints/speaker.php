@@ -29,12 +29,12 @@ get_header(); ?>
                             2019 Speakers
                         </a>
                     </li>
-                    <li class="tabs-title <?php if ($key === 0) {echo 'is-active';}?>">
+                    <li class="tabs-title <?php if ($key === 1) {echo 'is-active';}?>">
                         <a href="/k-kauai/2020-speakers/" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
                             2020 Speakers
                         </a>
                     </li>
-                    <li class="tabs-title <?php if ($key === 0) {echo 'is-active';}?>">
+                    <li class="tabs-title <?php if ($key === 3) {echo 'is-active';}?>">
                         <a href="/k-kauai/excursions/" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
                             Excursions
                         </a>

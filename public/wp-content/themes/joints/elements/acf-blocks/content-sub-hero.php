@@ -12,7 +12,7 @@ $fields = get_fields();
 console_log(__FILE__, $fields);
 ?>
 
-<div class="sub-hero-container">
+<div class="sub-hero-container mb-0">
     <div class="hero-sub-section text-center <?php if(empty($fields['title']) && empty($fields['subtitle'])) { echo 'empty-sub-section'; } ?>">
         <div class="grid-container">
             <p class="white hero-sub-section-text">
