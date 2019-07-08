@@ -25,7 +25,6 @@ console_log(__FILE__, $fields);
                  &bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;
                 </p>
 				<a class="link-btn" href="#myModal1" data-toggle="modal">Read More</a>
-                <?php endif;?>
    <div id="myModal1" class="modal fade" tabindex="-1">
 					<div class="modal-dialog modal-lg aboutInfoModal">
 						<div class="modal-content">
@@ -40,6 +39,7 @@ console_log(__FILE__, $fields);
 					<!-- /.modal-dialog -->
 				</div>
 				<!-- /.modal -->
+				 <?php endif;?>
 			</div>
 		</div>
 		<div class="media-container <?php echo clean($fields['title']); ?>" style="background-image: url(<?php echo $fields['about_card_image']['url']; ?>)">
