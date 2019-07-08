@@ -26,6 +26,7 @@
     <!-- Icons & Favicons -->
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
     <link href="<?php echo get_template_directory_uri(); ?>/assets/images/apple-icon-touch.png" rel="apple-touch-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <?php } ?>
 
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">

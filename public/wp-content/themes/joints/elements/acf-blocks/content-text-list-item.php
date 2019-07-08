@@ -12,9 +12,9 @@ $fields = get_fields();
 console_log(__FILE__, $fields);
 ?>
 
-<div class="simple-text-block-container container-padding-large">
+<div class="simple-text-block-container">
     <div class="grid-container grid-x">
-        <div class="cell dark-blue small-12">
+        <div class="cell dark-blue small-12 mt-50">
             <h3 class="text-left">
                 <?php echo $fields['title']; ?>
             </h1>

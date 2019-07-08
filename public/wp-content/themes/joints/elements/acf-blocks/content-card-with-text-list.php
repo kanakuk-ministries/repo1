@@ -12,7 +12,7 @@ $fields = get_fields();
 console_log(__FILE__, $fields);
 ?>
 
-<div class="grid-container grid-x card flat donate-card">
+<div class="grid-container grid-x card flat donate-card my-0">
   <?php foreach ($fields['content_list'] as $key => $value): ?>
     <div class="cell small-12 margin-bottom-30">
         <h6 class="text-left secondary dark-blue bold">
