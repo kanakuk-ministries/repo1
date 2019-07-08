@@ -1,3 +1,4 @@
+    
 <?php /* Template Name: Kamp */ ?>
 <?php 
 /**
@@ -5,7 +6,6 @@
  *
  * This is the template that is used by all kamps by default.
  */
-
 get_header(); ?>
 
 <?php
@@ -15,31 +15,21 @@ get_header(); ?>
 	setup_postdata($kamp_card);
 	$kamp = get_kamp($kamp_card->kamp_title)[0];
 	// pr($kamp);
-
 	$kamp_type = get_kamp_type($kamp['kamp_type'])[0];
 	// pr($kamp_type);
-
 	wp_reset_postdata();
-
 	$directors = get_field('directors');
 	if ($directors) {
 		foreach ($directors as $director) {
 			$director->Image = get_field('member_image', $director->ID);
 		}
 	}
-
 	// pr(get_field('directors'));
-
 	$kamp_type_title_lowercase = strtolower($kamp_type['title']);
-
     ?>
 
 
-<head>
-<script src="https://code.jquery.com/jquery-3.3.1.js"
-	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-	crossorigin="anonymous"></script>
-</head>
+
 <div class="content" data-sticky-container>
 
     <div class="inner-content grid-x grid-margin-x">
@@ -50,11 +40,11 @@ get_header(); ?>
                     <div class="kamp-header-container" style="border-color: <?php echo $kamp_type['color'] ?>;">
                         <div class="kamp-header-inner-container grid-container">
                             <div class="kamp-header-left-container">
-                                <a class="show-for-medium kamp-header-back-link margin-right-60 flex-container align-center kamp-<?php echo $kamp_type_title_lowercase ?>" href="/<?php echo $kamp_type_title_lowercase ?>-kamp" class="kamp-header-back-link">
+                                <a class="show-for-medium kamp-header-back-link margin-right-60 flex-container align-center kamp-<?php echo $kamp_type_title_lowercase ?>" href="/kamp-types-<?php echo $kamp_type_title_lowercase ?>-kamp" class="kamp-header-back-link">
                                     <i class="icon large icon-caret-large-left kamp-<?php echo $kamp_type_title_lowercase ?>"></i>
                                     <span>Back to Kamps</span>
                                 </a>
-                                <h3 class="kamp-<?php echo $kamp_type_title_lowercase ?> margin-bottom-0 custom-heading-size ">
+                                <h3 class="kamp-<?php echo $kamp_type_title_lowercase ?> margin-bottom-0 margin-top-15">
                                     <?php echo $kamp['kamp_title'] ?>
                                 </h3>
                                 <i class="icon kamp-icon icon-<?php echo $kamp_type_title_lowercase ?> kamp-<?php echo $kamp_type_title_lowercase ?>"></i>
@@ -77,11 +67,10 @@ get_header(); ?>
                                         <span>Week</span>
                                     </h5>
                                 </div>
-                                
-								<?php if($kamp['max_age']==''){?>
+                                <?php if($kamp['max_age']=='') {?>
                                  <a id="kamp-selection" href="https://register.kanakuk.com/registration/EventSelection.aspx" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
                                 <?php }else{?>
-                              <a id="kamp-selection" href="/search-results/?tab=0&kamp_type=<?php echo $kamp['kamp_title'];?>&kamp_age=<?php echo $kamp['max_age']?>" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
+                                 <a id="kamp-selection" href="/search-results/?tab=0&kamp_type=<?php echo $kamp['kamp_title'];?>&kamp_age=<?php echo $kamp['max_age']?>" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
                               <?php }?>
                             </div>
                         </div>
@@ -98,7 +87,6 @@ get_header(); ?>
 
             <?php 
 					$post = get_post(); 
-
 					if ( has_blocks( $post->post_content ) ) {
 						$blocks = gutenberg_parse_blocks( $post->post_content );
 					
@@ -119,6 +107,3 @@ get_header(); ?>
 </div> <!-- end #content -->
 
 <?php get_footer(); ?>
-
-
-
