@@ -85,6 +85,21 @@ video::-webkit-media-controls-panel {
 	background:#003a5c;
 	color:#fff !important;	
 }
-.kamp-page .sub-hero-container{
-	margin-bottom:0;
+
+.mt-0{
+	margin-top:0 !important;
+}
+.my-0{
+	margin-top:0 !important;
+	margin-bottom:0 !important;
+}
+.mx-0{
+	margin-left:0 !important;
+	margin-right:0 !important;
+}
+.mb-0{
+	margin-bottom:0 !important;
+}
+.card-with-background-image{
+	background-size: auto 100%;
 }
