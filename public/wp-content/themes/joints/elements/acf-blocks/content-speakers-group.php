@@ -18,7 +18,10 @@ console_log(__FILE__, $fields);
 			<div
 				class="white margin-bottom-0 hero-sub-section-requirement-text speaker-image-section">
               <?php if($imageUrl):?>
+               	<div
+				class="speakerImgWrapper">
                <img src="<?php echo $imageUrl; ?>" alt="speaker-image">
+               </div>
                <?php endif;?>
             </div>
 			<div class="white hero-sub-section-text">
