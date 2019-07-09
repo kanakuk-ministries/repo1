@@ -56,12 +56,12 @@ $charters = kan_get_charter_availability();
                 <div class="card-section">
                   <p>
                    <strong>FEE:</strong>
-                    <?php echo $value['locations'][0]['Fee']; ?>
+                    <?php echo "$".$value['locations'][0]['Fee']; ?>
                     <br/>
                     <strong>Address:</strong>
-                    <?php echo $value['locations'][0]['AddressName']; ?>
+                    <?php echo $value['locations'][0]['AddressName'];"."  ?>
                      <br/>
-                    <?php echo $value['locations'][0]['Address1']; ?>
+                    <?php echo $value['locations'][0]['Address1'];"." ?>
                   </p>
                   <p>
                    <strong>Notes:</strong>
