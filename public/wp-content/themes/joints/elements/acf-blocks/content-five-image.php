@@ -36,7 +36,9 @@ console_log(__FILE__, $fields);
                     </p>
                     <p class="large-sub-text white bold">
                         <?php echo $fields['nw_body']; ?>
-                        <!-- <a class="white learn-more-link underline" href="<?php echo $fields['nw_url']; ?>">Learn More</a> -->
+                        <?php if ($fields['nw_url']): ?>                          
+                        <a class="white learn-more-link underline" href="<?php echo $fields['nw_url']; ?>">Learn More</a>
+                        <?php endif; ?>
                     </p>
                 </div>
             </div>
@@ -55,7 +57,9 @@ console_log(__FILE__, $fields);
                     </p>
                     <p class="large-sub-text white bold">
                         <?php echo $fields['ne_body']; ?>
-                        <a class="white learn-more-link underline" href="<?php echo $fields['ne_url']; ?>">Learn More</a>
+                        <?php if ($fields['ne_url']): ?>
+                         <a class="white learn-more-link underline" href="<?php echo $fields['ne_url']; ?>">Learn More</a>
+                         <?php endif;?>
                     </p>
                 </div>
             </div>
@@ -74,7 +78,9 @@ console_log(__FILE__, $fields);
                     </p>
                     <p class="large-sub-text white bold">
                         <?php echo $fields['sw_body']; ?>
+                        <?php if ($fields['sw_url']): ?>
                         <a class="white learn-more-link underline" href="<?php echo $fields['sw_url']; ?>">Learn More</a>
+                        <?php endif;?>
                     </p>
                 </div>
             </div>
@@ -95,7 +101,9 @@ console_log(__FILE__, $fields);
                             </p>
                             <p class="large-sub-text white bold">
                                 <?php echo $fields['e_body']; ?>
-                                <a class="white learn-more-link underline" href="<?php echo $fields['e_url']; ?>">Learn More</a>
+                               <?php if ($fields['e_url']): ?>
+                               <a class="white learn-more-link underline" href="<?php echo $fields['e_url']; ?>">Learn More</a>
+                            <?php endif;?>
                             </p>
                         </div>
                     </div>
@@ -114,7 +122,9 @@ console_log(__FILE__, $fields);
                             </p>
                             <p class="large-sub-text white bold">
                                 <?php echo $fields['se_body']; ?>
+                                <?php if ($fields['se_url']): ?>
                                 <a class="white learn-more-link underline" href="<?php echo $fields['se_url']; ?>">Learn More</a>
+                            <?php endif;?>
                             </p>
                         </div>
                     </div>
