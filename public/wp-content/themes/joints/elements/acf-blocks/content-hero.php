@@ -15,14 +15,19 @@ $fields = get_fields();
 // write data to console for debugging purposes
 console_log(__FILE__, $fields);
 $imageUrl = $fields['image']['url'];
+ $video = $fields['video'];
+ $autoplay = " "."autoplay";
+ $video = substr_replace($video, $autoplay, 6, 0);
 ?>
 
 <div class="hero-container <?php echo $fields['size']; ?> mb-0">
     <div class="hero-container inner">
-        <div class="parallax-slider">
+        <div class="parallax-sliderhh">
             <div class="hero-media-container hero-<?php echo $fields['size']; ?>" style="background-image: url(<?php echo $imageUrl; ?>)">
                 <?php if(isSet($fields['video'])): ?>
                     <div class="embed-container <?php echo strval($post_id); ?>">
+                    	
+                    	
                         <?php echo do_shortcode($fields['video']); ?>
                         <?php #echo do_shortcode($fields['video_shortcode']); ?>
                     </div>

@@ -176,6 +176,11 @@ video::-webkit-media-controls-panel {
 .m-0{
 	margin:0px !important;
 }
+.hero-media-container.hero-small {
+    height: 773px;
+    background-attachment: fixed;
+    background-position: top center;
+}
 
 
 
