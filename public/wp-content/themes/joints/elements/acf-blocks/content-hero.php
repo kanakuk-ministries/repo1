@@ -72,4 +72,6 @@ $imageUrl = $fields['image']['url'];
     var image_url = fields.image.url;
     var video_element = jQuery('.embed-container.' + post_id + ' video');
     video_element.attr('poster', image_url);
+    video_element.attr('autoplay', '');
+    video_element.attr('loop', '');
 </script>
