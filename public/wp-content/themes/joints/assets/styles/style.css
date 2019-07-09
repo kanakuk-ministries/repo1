@@ -181,6 +181,9 @@ video::-webkit-media-controls-panel {
     background-attachment: fixed;
     background-position: top center;
 }
+.hero-container.small .inner{
+	overflow: hidden;
+}
 
 
 
