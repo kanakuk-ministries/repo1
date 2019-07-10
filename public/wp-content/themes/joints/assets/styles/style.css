@@ -180,6 +180,11 @@ video::-webkit-media-controls-panel {
     background-attachment: fixed;
     background-position: top center;
 }
+body.page-id-2396 .hero-media-container.hero-small,
+body.page-id-2396 .hero-media-container.hero-large,
+body.page-id-2396 .hero-media-container.hero-medium{
+	background-position: center -30px;
+}
 .hero-container.small .inner{
 	overflow: hidden;
 }
