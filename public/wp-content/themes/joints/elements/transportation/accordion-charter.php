@@ -52,6 +52,7 @@ $charters = kan_get_charter_availability();
                  <h4 class="margin-bottom-0 margin-top-15">Locations</h4>
                 <div class="list-grid-section-sub-header" style="background-color: <?php echo $colors[$index]; ?>"></div>
               </div>
+              <div class="cardwrapper">
               <div class="card">
                 <div class="card-section">
                   <p>
@@ -68,6 +69,7 @@ $charters = kan_get_charter_availability();
                     <?php echo $value['locations'][0]['LocationNotes']; ?>
                   </p>
                 </div>
+              </div>
               </div>
             </div>
             <div class="list-grid-section-container">
