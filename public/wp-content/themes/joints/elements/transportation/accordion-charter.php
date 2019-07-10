@@ -77,6 +77,7 @@ $charters = kan_get_charter_availability();
                  <h4 class="margin-bottom-0 margin-top-15">Timings</h4>
                 <div class="list-grid-section-sub-header" style="background-color: <?php echo $colors[$index]; ?>"></div>
               </div>
+          <div class="card-date-wrapper">
           <?php foreach ($value['locations'] as $location):
           
           ?>
@@ -92,6 +93,7 @@ $charters = kan_get_charter_availability();
                </div>
               </div>
           <?php endforeach;?>
+            </div>
             </div>
         </ul>
       </li>
