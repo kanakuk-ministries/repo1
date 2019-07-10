@@ -173,7 +173,9 @@ video::-webkit-media-controls-panel {
 .m-0{
 	margin:0px !important;
 }
-.hero-media-container.hero-small {
+.hero-media-container.hero-small,
+.hero-media-container.hero-large,
+.hero-media-container.hero-medium {
     height: 773px;
     background-attachment: fixed;
     background-position: top center;
@@ -205,6 +207,11 @@ video::-webkit-media-controls-panel {
 .kamp-trait-card-container:nth-child(odd) .card-with-background-image {
     background-position: 170%;
 }*/
-
-
+.embed-container .wp-video-shortcode video, .embed-container video.wp-video-shortcode {
+    bottom: 65%;
+}
+.mejs-overlay-loading {
+    position: relative;
+    top: -15%;
+}
 
