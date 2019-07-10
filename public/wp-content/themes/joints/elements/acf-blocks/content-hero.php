@@ -22,7 +22,7 @@ $imageUrl = $fields['image']['url'];
 ?>
 
 <div class="hero-container <?php echo $fields['size']; ?> mb-0">
-    <div class="hero-container inner">
+    <div class="hero-container inner mb-0">
         <div class="parallax-sliderhh">
             <div class="hero-media-container hero-<?php echo $fields['size']; ?>" style="background-image: url(<?php echo $imageUrl; ?>)">
                 <?php if(isSet($fields['video'])): ?>
