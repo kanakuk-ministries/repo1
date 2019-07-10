@@ -40,7 +40,7 @@ get_header(); ?>
                     <div class="kamp-header-container" style="border-color: <?php echo $kamp_type['color'] ?>;">
                         <div class="kamp-header-inner-container grid-container">
                             <div class="kamp-header-left-container">
-                                <a class="show-for-medium kamp-header-back-link margin-right-60 flex-container align-center kamp-<?php echo $kamp_type_title_lowercase ?>" href="/kamp-types-<?php echo $kamp_type_title_lowercase ?>-kamp" class="kamp-header-back-link">
+                                <a class="show-for-medium kamp-header-back-link margin-right-60 flex-container align-center kamp-<?php echo $kamp_type_title_lowercase ?>" href="<?php echo $kamp_type_title_lowercase ?>-kamp" class="kamp-header-back-link">
                                     <i class="icon large icon-caret-large-left kamp-<?php echo $kamp_type_title_lowercase ?>"></i>
                                     <span>Back to Kamps</span>
                                 </a>
