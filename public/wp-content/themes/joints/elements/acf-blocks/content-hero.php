@@ -9,6 +9,7 @@
 // $kamp_id = get_field('kamp');
 $post_id = get_the_ID();
 $kauai_menu = array('2019 Speakers', '2020 Speakers', 'Excursions');
+$safety_page_menu = array('Child protection plan', 'Healthy Environment', 'Healthy Relationships');
 // the fields
 $fields = get_fields();
 
@@ -38,6 +39,19 @@ $imageUrl = $fields['image']['url'];
         <div class="hero-tabs-container about-page margin-bottom-60">
                 <ul class="tabs hero-tabs about-page-tabs" id="about-page-tabs">
                     <?php foreach ($kauai_menu as $key => $value): ?>
+                    <li class="tabs-title <?php if ($key === 0) {echo 'is-active';}?>">
+                        <a href="<?php echo str_replace(' ', '-', strtolower($value)); ?>" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
+                            <?php echo $value; ?>
+                        </a>
+                    </li>
+                    <?php endforeach;?>
+                </ul>
+		</div>
+		 <?php endif ?>
+		  <?php if($post_id=="2089"):?>
+        <div class="hero-tabs-container about-page margin-bottom-60">
+                <ul class="tabs hero-tabs about-page-tabs" id="about-page-tabs">
+                    <?php foreach ($safety_page_menu as $key => $value): ?>
                     <li class="tabs-title <?php if ($key === 0) {echo 'is-active';}?>">
                         <a href="<?php echo str_replace(' ', '-', strtolower($value)); ?>" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
                             <?php echo $value; ?>
