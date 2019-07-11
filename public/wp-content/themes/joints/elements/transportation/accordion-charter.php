@@ -9,31 +9,31 @@ $charters = kan_get_charter_availability();
 
     <ul class="accordion list-grid-accordion-container" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
     <?php
-    
-    $cityBusList = [];
-   foreach ($charters as $value) {
-        foreach ($value['CharterAvailabilityList'] as $value) {
-            array_push($cityBusList,$value);
+        
+       $cityBusList = [];
+       foreach ($charters as $value) {
+            foreach ($value['CharterAvailabilityList'] as $value) {
+                array_push($cityBusList,$value);
+            }
         }
-    }
+        
+        $charters = [];
+        foreach ($cityBusList as $key => $city){
+            $tempArray = array(
+                'StartDate' => $city['StartDate'],
+                'EndDate' => $city['EndDate'],
+                'LoadTime' => $city['LoadTime'],
+                'LocationNotes' => $city['LocationNotes'],
+                'AddressName' => $city['AddressName'],
+                'Address1' => $city['Address1'],
+                'Fee' => $city['Fee'],
+                'LoadDetails' => $city['LoadDetails']
+            );
     
-    $charters = [];
-    foreach ($cityBusList as $key => $city){
-        $tempArray = array(
-            'StartDate' => $city['StartDate'],
-            'EndDate' => $city['EndDate'],
-            'LoadTime' => $city['LoadTime'],
-            'LocationNotes' => $city['LocationNotes'],
-            'AddressName' => $city['AddressName'],
-            'Address1' => $city['Address1'],
-            'Fee' => $city['Fee'],
-            'LoadDetails' => $city['LoadDetails']
-        );
-
-        $charters[$city['DepartureCity']]['locations'][] =  $tempArray;
-    }
-      $index = 0;
-      foreach ($charters as $key => $value): 
+            $charters[$city['DepartureCity']]['locations'][] =  $tempArray;
+        }
+          $index = 0;
+          foreach ($charters as $key => $value): 
       ?>
     <li class="accordion-item" data-accordion-item>
         <!-- Accordion title -->
@@ -49,7 +49,7 @@ $charters = kan_get_charter_availability();
         <ul class="accordion-content" data-tab-content>
        		<div class="list-grid-section-container">
               <div class="flex-container align-center list-grid-section-sub-header-container">
-                 <h4 class="margin-bottom-0 margin-top-15">Locations</h4>
+                 <h4 class="margin-bottom-0 margin-top-15">Location</h4>
                 <div class="list-grid-section-sub-header" style="background-color: <?php echo $colors[$index]; ?>"></div>
               </div>
               <div class="cardwrapper">
@@ -74,7 +74,7 @@ $charters = kan_get_charter_availability();
             </div>
             <div class="list-grid-section-container">
               <div class="flex-container align-center list-grid-section-sub-header-container">
-                 <h4 class="margin-bottom-0 margin-top-15">Timings</h4>
+                 <h4 class="margin-bottom-0 margin-top-15">Dates</h4>
                 <div class="list-grid-section-sub-header" style="background-color: <?php echo $colors[$index]; ?>"></div>
               </div>
           <div class="card-date-wrapper">
