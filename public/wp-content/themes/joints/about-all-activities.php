@@ -68,6 +68,7 @@ get_header(); ?>
 														<div class="kamp-<?php echo $value['icon_name']; ?> list-grid-section-sub-header"></div>
 													</div>
 													<?php if (isset($kamp['activities']) && reset($kamp['activities'])): ?>
+														<div class="activity-grid">
 														<ul class="list-grid-container">
 															<?php
 																$i = 0;
@@ -83,16 +84,18 @@ get_header(); ?>
 																?>
 																<div class="list-grid-item block-<?php echo $i; ?>">
 																	<img src="<?php echo $this_activity['activity_image']['url']; ?>">
-																	<div class="list-grid-item-overlay">
+																	<div class="list-grid-item-overlays">
 																		<h6 class="secondary bold white text-center titlecase margin-bottom-20"><?php echo $this_activity['activity_name']; ?></h6>
 																		<?php //if(true): ?>
 <!-- 																			<button class="button expanded white hollow">Watch Video</button> -->
 																		<?php //endif; ?>
 																	</div>
 																</div>
+																
 															<?php endforeach; ?>
 														</ul>
 													<?php endif; ?>
+												</div>
 												</div>
 											<?php endif; ?>
 										<?php endforeach;?>
