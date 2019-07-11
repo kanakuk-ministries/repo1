@@ -51,11 +51,7 @@ get_header(); ?>
 								<h1 class="dark-blue">Executive Team</h1>
 								<a class="button" href="/contact-us">Contact Us</a>
 							</div>
-							<p class="dark-blue margin-bottom-30">Kanakuk&apos;s Executive Team serve alongside each other to carry out our mission of &ldquo;Equipping Next
-Generation Leaders&rdquo; through our seven summer camp experiences, local outreach ministries, and
-international relief ministries. Kamp Director Copy: Our Kamp leadership teams are responsible for the 26,000+ Kampers we welcome to our Kamps each
-summer and the daily management of over 2,000 collegiate staff members who carry out daily
-operations at our Kamps..</p>
+							<p class="dark-blue margin-bottom-30">One of the surprising things about Kanakuk is the large number of full-time staff, more than 100, and the more than 1800 incredible summer staff! These numbers represent hundreds of years of Christian summer camp experience and dedication. You can get to know our Executive Team and Camp Directors or contact them below.</p>
 							<ul class="list-grid-container">
 								<?php
 									$i = 0;
