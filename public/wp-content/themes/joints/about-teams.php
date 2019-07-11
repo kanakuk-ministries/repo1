@@ -79,7 +79,7 @@ get_header(); ?>
 							<h1 class="dark-blue">Camp Directors</h1>
 							<p class="dark-blue margin-bottom-30">One of the surprising things about Kanakuk is the large number of full-time staff, more than 100, and the more than 1800 incredible summer staff! These numbers represent hundreds of years of Christian summer camp experience and dedication. You can get to know our Executive Team and Camp Directors or contact them below.</p>
 							<ul class="accordion list-grid-accordion-container" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
-								<?php foreach ($kamp_types as $key => $value): ?>
+								<?php foreach ($kamp_types as $key => $value):?>
 									<li class="accordion-item is-active" data-accordion-item>
 										<!-- Accordion title -->
 										<a href="#" class="accordion-title list-grid-accordion-title-container" style="background-color: <?php echo $value['color']; ?>">
@@ -92,7 +92,8 @@ get_header(); ?>
 
 										<!-- Accordion content: use `is-active` state class to start in open position. -->
 										<ul class="accordion-content" data-tab-content>
-											<?php foreach ($kamps as $kamp_key => $kamp): ?>
+											<?php foreach ($kamps as $kamp_key => $kamp): 
+											?>
 												<?php if ($kamp['kamp_type']->post_title === $value['title']) : ?>
 													<div class="list-grid-section-container">
 														<div class="flex-container align-center list-grid-section-sub-header-container">
@@ -100,7 +101,7 @@ get_header(); ?>
 															<div class="kamp-<?php echo $value['icon_name']; ?> list-grid-section-sub-header"></div>
 														</div>
 														<?php if (reset($kamp['directors'])): ?>
-															<ul class="list-grid-container">
+															<ul class="list-grid-container team-grid">
 																<?php
 																	$i = 0;
 																	foreach ((reset($kamp['directors'])) as $director_key => $director):
