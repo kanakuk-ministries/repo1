@@ -47,3 +47,14 @@
 </body>
 
 </html> <!-- end page -->
+<script type="text/javascript">
+//faq js 
+window.onload=function(){
+jQuery('li.faqs-content-question').click(function(){
+ var displayProp = jQuery(this).children('div').css('display');
+ displayProp = displayProp=='none' ? 'block' : 'none';
+ jQuery(this).children('div').css('display',displayProp); 
+}); 
+}
+ 
+</script>
