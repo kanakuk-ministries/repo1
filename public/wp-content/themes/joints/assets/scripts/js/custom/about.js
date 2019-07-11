@@ -20,6 +20,8 @@ jQuery(document).ready(function($) {
     }
   });
 
+  
+  
   // prevent video opening on first click on mobile
   $('.staff-grid-item button').click(function(e) {
     e.preventDefault();
