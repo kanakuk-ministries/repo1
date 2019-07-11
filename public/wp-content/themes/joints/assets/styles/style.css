@@ -223,18 +223,21 @@ body.page-id-2396 .hero-media-container.hero-medium{
 /*---2019-07-11---*/
 .back-kanakuk{
 	position: fixed;
-    top: 400px;
+    top: 265px;
     right: 0;
     z-index: 99;
 }
 .back-kanakuk .btn{
 	background: #2275ff;
     color: #fff !important;
-    padding: 15px;
-    text-decoration:none;
+    padding: 14px 10px;
+    font-size: 12px;
+    text-decoration: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 .back-kanakuk .btn:hover{	   
-    text-decoration:none;
+    text-decoration:none;     
+    background:#0850c8;
 }
 
 
