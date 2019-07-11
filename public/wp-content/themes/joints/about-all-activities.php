@@ -85,9 +85,9 @@ get_header(); ?>
 																	<img src="<?php echo $this_activity['activity_image']['url']; ?>">
 																	<div class="list-grid-item-overlay">
 																		<h6 class="secondary bold white text-center titlecase margin-bottom-20"><?php echo $this_activity['activity_name']; ?></h6>
-																		<?php if(true): ?>
-																			<button class="button expanded white hollow">Watch Video</button>
-																		<?php endif; ?>
+																		<?php //if(true): ?>
+<!-- 																			<button class="button expanded white hollow">Watch Video</button> -->
+																		<?php //endif; ?>
 																	</div>
 																</div>
 															<?php endforeach; ?>
