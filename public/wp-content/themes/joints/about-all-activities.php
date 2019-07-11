@@ -68,8 +68,7 @@ get_header(); ?>
 														<div class="kamp-<?php echo $value['icon_name']; ?> list-grid-section-sub-header"></div>
 													</div>
 													<?php if (isset($kamp['activities']) && reset($kamp['activities'])): ?>
-														<div class="activity-grid">
-														<ul class="list-grid-container">
+														<ul class="list-grid-container activity-grid">
 															<?php
 																$i = 0;
 																foreach ((reset($kamp['activities'])) as $activity_key => $activity):
@@ -91,11 +90,9 @@ get_header(); ?>
 																		<?php //endif; ?>
 																	</div>
 																</div>
-																
 															<?php endforeach; ?>
 														</ul>
 													<?php endif; ?>
-												</div>
 												</div>
 											<?php endif; ?>
 										<?php endforeach;?>
