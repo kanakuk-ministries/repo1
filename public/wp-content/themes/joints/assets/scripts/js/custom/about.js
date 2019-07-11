@@ -19,9 +19,7 @@ jQuery(document).ready(function($) {
       window.location = $(this).attr('href')
     }
   });
-
-  
-  
+    
   // prevent video opening on first click on mobile
   $('.staff-grid-item button').click(function(e) {
     e.preventDefault();
