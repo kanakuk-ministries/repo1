@@ -7,8 +7,8 @@
 
 // the fields
 $fields = get_fields();
-//echo "<pre>"; print_r($fields);
 $id= $fields['about_card_image']['id'];
+$id = uniqid($id);
 // write data to console for debugging purposes
 console_log(__FILE__, $fields);
 ?>
@@ -20,10 +20,17 @@ console_log(__FILE__, $fields);
 				<h3 class="dark-blue">
                     <?php echo $fields['title']; ?>
                 </h3>
+                <?php if(count_words($fields['description']) < 40 ):?>
+                    <p class="dark-blue about-card-description">
+    					
+    				   <?php echo $fields['description']; ?>
+    				</p> 
+                <?php else:?>
 				<p class="dark-blue about-card-description">
-				   <?php echo $fields['description']; ?>
+					
+				   <?php echo content($fields['description'], 40); ?>
 				</p>               
-            	<?php if($fields['read_more_description']):?>   
+            	
                 <a class="link-btn" href="#myModal<?php echo $id;?>" data-toggle="modal">Read More</a>
               <div id="myModal<?php echo $id;?>" class="modal fade">
 					<div class="modal-dialog modal-lg aboutInfoModal">
@@ -32,7 +39,7 @@ console_log(__FILE__, $fields);
 								<button class="close" type="button" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
 								<h4 class="modal-title card-section"><?php echo $fields['title']; ?></h4>
 							</div>
-							<div class="modal-body customModalBody"><?php echo $fields['read_more_description']; ?></div>
+							<div class="modal-body customModalBody"><?php echo $fields['description']; ?></div>
 						</div>
 						<!-- /.modal-content -->
 					</div>
