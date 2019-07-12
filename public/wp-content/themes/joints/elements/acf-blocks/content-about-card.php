@@ -8,8 +8,7 @@
 // the fields
 $fields = get_fields();
 $id= $fields['about_card_image']['id'];
-$title= $fields['title'];
-//echo "<pre>"; print_r($fields);
+$id = uniqid($id);
 // write data to console for debugging purposes
 console_log(__FILE__, $fields);
 ?>
