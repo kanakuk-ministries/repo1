@@ -62,6 +62,35 @@ function underscore_array_keys($array)
     return $array;
 }
 
+
+function content($content = '', $limit = 0)
+{
+    $content = explode(' ', $content, $limit);
+    if (count($content) >= $limit) {
+        array_pop($content);
+        $content = implode(" ", $content) . '...';
+    } else {
+        $content = \implode(" ", $content);
+    }
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+    
+    return $content;
+}
+
+/**
+ * Count no. of words.
+ * @param string $content
+ * @param number $limit
+ * @return mixed
+ */
+function count_words($content = '')
+{
+    $content = explode(' ', $content);
+    
+    return count($content);
+}
+
 /**
  * Convenience wrapper for print_r, but enclosed in <pre> tags, so useful for browser output/debugging
  */
