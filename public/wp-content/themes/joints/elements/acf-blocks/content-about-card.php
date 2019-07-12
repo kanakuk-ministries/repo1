@@ -7,7 +7,9 @@
 
 // the fields
 $fields = get_fields();
-
+$id= $fields['about_card_image']['id'];
+$title= $fields['title'];
+//echo "<pre>"; print_r($fields);
 // write data to console for debugging purposes
 console_log(__FILE__, $fields);
 ?>
@@ -19,27 +21,33 @@ console_log(__FILE__, $fields);
 				<h3 class="dark-blue">
                     <?php echo $fields['title']; ?>
                 </h3>
+                <?php if(count_words($fields['description']) < 40 ):?>
+                    <p class="dark-blue about-card-description">
+    					
+    				   <?php echo $fields['description']; ?>
+    				</p> 
+                <?php else:?>
 				<p class="dark-blue about-card-description">
-                    <?php echo $fields['description']; ?>
-                 <?php if($fields['read_more_description']):?>   
-                 &bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;
-                </p>
-				<a class="link-btn" href="#myModal1" data-toggle="modal">Read More</a>
-  			 <div id="myModal1" class="modal fade" tabindex="-1">
+					
+				   <?php echo content($fields['description'], 40); ?>
+				</p>               
+            	
+                <a class="link-btn" href="#myModal<?php echo $id;?>" data-toggle="modal">Read More</a>
+              <div id="myModal<?php echo $id;?>" class="modal fade">
 					<div class="modal-dialog modal-lg aboutInfoModal">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button class="close" type="button" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
-								<h4 class="modal-title"><?php echo $fields['title']; ?></h4>
+								<h4 class="modal-title card-section"><?php echo $fields['title']; ?></h4>
 							</div>
-							<div class="modal-body customModalBody"><?php echo $fields['read_more_description']; ?></div>
+							<div class="modal-body customModalBody"><?php echo $fields['description']; ?></div>
 						</div>
 						<!-- /.modal-content -->
 					</div>
 					<!-- /.modal-dialog -->
 				</div>
 				<!-- /.modal -->
-				 <?php endif;?>
+				<?php endif;?>
 			</div>
 		</div>
 		<div class="media-container <?php echo clean($fields['title']); ?>" style="background-image: url(<?php echo $fields['about_card_image']['url']; ?>)">
@@ -47,10 +55,10 @@ console_log(__FILE__, $fields);
             ?>
                 <div class="video-modal">
 				<div class="modal-embed-container video-center">
-				<?php if ($fields['video_popup_url']):?>
-				<a href="#" class="wp-video-popup">Play Video</a>
-                        <?php echo do_shortcode('[wp-video-popup vimeo="1" video="https://vimeo.com/136696258"]'); ?>
-                        <?php endif;?>
+				<?php //if ($fields['video_popup_url']):?>
+				<a href="#" width=260px height=260px class="wp-video-popup">Play Video</a>
+                        <?php echo do_shortcode('[wp-video-popup vimeo="1" video="https://vimeo.com/video/345542686"]'); ?>
+                        <?php //endif;?>
                         <?php echo do_shortcode($fields['video']); ?>
                     </div>
 			</div>
