@@ -47,10 +47,10 @@ console_log(__FILE__, $fields);
             ?>
                 <div class="video-modal">
 				<div class="modal-embed-container video-center">
-				<?php //if ($fields['video_popup_url']):?>
+				<?php if ($fields['video_popup_url']):?>
 				<a href="#" width=260px height=260px class="wp-video-popup">Play Video</a>
                         <?php echo do_shortcode('[wp-video-popup vimeo="1" video="https://vimeo.com/video/345542686"]'); ?>
-                        <?php //endif;?>
+                        <?php endif;?>
                         <?php echo do_shortcode($fields['video']); ?>
                     </div>
 			</div>
