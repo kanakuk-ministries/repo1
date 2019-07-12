@@ -32,7 +32,7 @@ console_log(__FILE__, $fields);
 				</p>               
             	
                 <a class="link-btn" href="#myModal<?php echo $id;?>" data-toggle="modal">Read More</a>
-              <div id="myModal<?php echo $id;?>" class="modal fade">
+              <div id="myModal<?php echo $id;?>" class="modal fade popout-about-card">
 					<div class="modal-dialog modal-lg aboutInfoModal">
 						<div class="modal-content">
 							<div class="modal-header">
