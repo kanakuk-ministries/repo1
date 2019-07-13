@@ -62,3 +62,13 @@ get_header(); ?>
 		<?php endwhile; endif; ?>
 		
 <?php get_footer(); ?>
+<script type="text/javascript">
+jQuery(function($) {
+    var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+    $('ul a').each(function() {
+     if (this.href === path) {
+      $(this).addClass('speaker-color');
+     }
+    });
+   });
+</script>
