@@ -52,7 +52,7 @@ $imageUrl = $fields['image']['url'];
 		<div class="grid-x grid-container hero-content-inner-container">
             <?php if (!empty($fields['title']) || !empty($fields['subtitle'])) : ?>
             <div
-				class="hero-content-background <?php echo $fields['text_overlay_alignment']; ?> custom-hero-content">
+				class="hero-content-background <?php echo $fields['text_overlay_alignment']; ?>">
 				<h1
 					class="display text-<?php echo $fields['text_overlay_alignment']; ?>">
                     <?php echo $fields['title']; ?>
