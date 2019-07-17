@@ -36,6 +36,8 @@ get_header(); ?>
 					
 						foreach ($blocks as $block) {
 							echo gutenberg_render_block($block);
+							
+							
 						}
 					}
 					?>
@@ -45,7 +47,7 @@ get_header(); ?>
 					<div class="grid-container">
 						<div class="accordion-image-grid-container margin-top-50">
 							<h1 class="dark-blue">Activities</h1>
-							<p class="dark-blue margin-bottom-30">Something about all of the activities offered accross the kamps.</p>
+							<p class="dark-blue margin-bottom-30"><?php echo $block['attrs']['data']['title_description']; ?></p>
 							<ul class="accordion list-grid-accordion-container" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
 							<?php foreach ($kamp_types as $key => $value): ?>
 								<li class="accordion-item <?php if ($key === 0) { echo 'is-active'; }; ?>" data-accordion-item>

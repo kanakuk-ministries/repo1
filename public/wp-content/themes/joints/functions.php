@@ -125,6 +125,29 @@ function clean($string) {
 }
 
 /**
+ * get the differiante the youtube video and vimeo video
+ * */
+function getVideoUrl($videoURl){
+    
+   // $videoURl = "https://www.youtube.com/watch?v=YlUKcNNmywk";
+    $parts=explode('/',parse_url($videoURl)['path']);
+    array_unshift($parts,trim(strstr(parse_url($videoURl)['host'],'.'),'.'));
+    $url = (array_filter($parts));
+    $finalURl = $url['0'];
+    if($finalURl=='youtube.com'){
+        
+        return "youtube";
+    }else{
+        
+        return "vimeo";
+    }
+    
+    
+}
+
+
+
+/**
  * Used to render partial templates from within another template.  
  * 
  * @param $template the path to the template file (excluding the extension)
@@ -596,6 +619,17 @@ function my_acf_init()
             'category' => 'formatting',
             'icon' => 'admin-comments',
             'keywords' => ['about', 'card', 'description'],
+        ]);
+        
+        // register a contact us section block
+        acf_register_block([
+            'name' => 'simple-description',
+            'title' => __('Simple description'),
+            'description' => __('A custom descriton for any page title.'),
+            'render_callback' => 'my_acf_block_render_callback',
+            'category' => 'formatting',
+            'icon' => 'admin-comments',
+            'keywords' => ['simple', 'description', 'description'],
         ]);
 
         // register a summer staff section block
