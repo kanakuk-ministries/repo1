@@ -6,6 +6,7 @@
 $about_pages = array('Our Story', 'Teams', 'Our Ministries', 'All Activities', 'Ceremonies', 'FAQs');
 $kamp_types = get_kamp_types();
 $kamps = get_kamps();
+$data_description = get_fields();
 $executive_staff = get_staff(null, 'Executive Team');
 get_header(); ?>
 
@@ -48,13 +49,11 @@ get_header(); ?>
 					<div class="grid-container">
 						<div class="visible-image-grid-container executive-team">
 							<div class="flex-container justify-space-between full-width align-center">
-								<h1 class="dark-blue">Executive Team</h1>
+								<h1 class="dark-blue"><?php echo $data_description['team_title']; ?></h1>
 								<a class="button" href="/contact-us">Contact Us</a>
 							</div>
-							<p class="dark-blue margin-bottom-30">Kanakuk&apos;s Executive Team serve alongside each other to carry out our mission of &ldquo;Equipping Next
-Generation Leaders&rdquo; through our seven summer camp experiences, local outreach ministries, and
-international relief ministries. 
-.</p>
+							<p class="dark-blue margin-bottom-30"><?php echo $data_description['team_description']; ?>
+</p>
 							<ul class="list-grid-container">
 								<?php
 									$i = 0;
@@ -79,10 +78,8 @@ international relief ministries.
 						</div>
 
 						<div class="accordion-image-grid-container directors-team margin-top-50">
-							<h1 class="dark-blue">Camp Directors</h1>
-							<p class="dark-blue margin-bottom-30">Our Kamp leadership teams are responsible for the 26,000+ Kampers we welcome to our Kamps each
-summer and the daily management of over 2,000 collegiate staff members who carry out daily
-operations at our Kamps.</p>
+							<h1 class="dark-blue"><?php echo $data_description['camp_tile']; ?></h1>
+							<p class="dark-blue margin-bottom-30"><?php echo $data_description['camp_description']; ?></p>
 							<ul class="accordion list-grid-accordion-container" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
 								<?php foreach ($kamp_types as $key => $value):?>
 									<li class="accordion-item is-active" data-accordion-item>

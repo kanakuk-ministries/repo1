@@ -5,6 +5,7 @@
  */
 $about_pages = array('Our Story', 'Teams', 'Our Ministries', 'All Activities', 'Ceremonies', 'FAQs');
 $kamp_types = get_kamp_types();
+$team_activites = get_fields();
 $kamps = get_kamps();
 get_header(); ?>
 	
@@ -43,11 +44,11 @@ get_header(); ?>
 					?>
 			    
 					<?php endwhile; endif; ?>	
-
+                
 					<div class="grid-container">
 						<div class="accordion-image-grid-container margin-top-50">
-							<h1 class="dark-blue">Activities</h1>
-							<p class="dark-blue margin-bottom-30"><?php echo $block['attrs']['data']['title_description']; ?></p>
+							<h1 class="dark-blue"><?php echo $team_activites['team_title']; ?></h1>
+							<p class="dark-blue margin-bottom-30"><?php echo $team_activites['team_description']; ?></p>
 							<ul class="accordion list-grid-accordion-container" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
 							<?php foreach ($kamp_types as $key => $value): ?>
 								<li class="accordion-item <?php if ($key === 0) { echo 'is-active'; }; ?>" data-accordion-item>
