@@ -35,7 +35,7 @@ console_log(__FILE__, $fields);
             </div>
             <?php endif;?>
             <p
-				class="white margin-bottom-0 hero-sub-section-requirement-text">
+				class="white margin-bottom-0 speaker-sub-section-requirement-text">
             <?php if($fields['speaker_body']):?>
                 <?php echo $fields['speaker_body']; ?>
             </p>
