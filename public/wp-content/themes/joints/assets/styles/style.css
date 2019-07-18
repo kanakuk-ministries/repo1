@@ -268,3 +268,7 @@ li{
     	margin-bottom: 0;
 	}
 }
+p.white.margin-bottom-0.speaker-sub-section-requirement-text {
+    font-size: 16px;
+    opacity: 5px;
+}
