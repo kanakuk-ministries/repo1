@@ -89,7 +89,10 @@ $charters = kan_get_charter_availability();
                      <?php echo $location['StartDate']; ?>
                      <br/>
                      <strong>Time:</strong>                
-                     <?php echo $location['LoadTime']; ?>
+                     <?php 
+                     echo date('h:i a', strtotime($location['LoadTime']));
+                     //echo $location['LoadTime'];
+                       ?>
                </div>
               </div>
           <?php endforeach;?>
