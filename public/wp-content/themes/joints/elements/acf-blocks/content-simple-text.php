@@ -11,6 +11,14 @@
 // the fields
 $fields = get_fields();
 $post_id = get_the_ID();
+if(empty($fields['button_text'])) {
+    
+    $button_text = "Find Out More";
+    
+}else{
+    $button_text = $fields['button_text'];
+    
+}
 
 // write data to console for debugging purposes
 console_log(__FILE__, $fields);
@@ -33,9 +41,10 @@ console_log(__FILE__, $fields);
                 <?php echo $fields['body']; ?>
                 
             </p>
+           
             <?php if($fields['site_link']){ ?>
             <div class="mt-30">            
-            	<a href="<?php echo $fields['site_link']; ?>" class="link-btn">Read More</a>
+            	<a href="<?php echo $fields['site_link']; ?>" class="link-btn"><?php echo $button_text; ?></a>
             </div>
             <?php }?>
         </div>
