@@ -253,6 +253,161 @@ li{
     list-style:none;
 }
 
+/* New style from 16july2019 jaikant */
+/* .pwebcontact_toggler:hover{
+
+} */
+.pwebcontact.pweb-right.pweb-offset-top.pweb-slidebox.pweb-theme-free.pweb-labels-above.pweb-horizontal .pwebcontact_toggler{
+    top: 195px;
+    border-radius: 5px 0px 0px 5px;
+    text-shadow:0 0px 0px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    font-family: "Montserrat",sans-serif;
+    position: fixed;
+}
+
+.pweb-theme-free form.pwebcontact-form input.pweb-input, .pweb-theme-free form.pwebcontact-form select, .pweb-theme-free form.pwebcontact-form textarea{
+    border-radius: 3px;
+    padding: 6px 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 4px 3px -3px rgba(0,0,0,0.1);
+    -moz-transition: border linear 0.2s,box-shadow linear 0.2s;
+    -o-transition: border linear 0.2s,box-shadow linear 0.2s;
+    -webkit-transition: border linear 0.2s,box-shadow linear 0.2s;
+    transition: border linear 0.2s,box-shadow linear 0.2s;
+    height: auto;
+}
+.pweb-field-container.pweb-field-buttons .pweb-field{
+ text-align: right;
+}
+.pwebcontact-container-outset .pwebcontact-container{
+    border-radius: 5px 0 0px 5px;
+}
+
+.page-id-1419 .accordion-item .accordion-title{
+    padding: .2rem 0 .1rem 0;
+}
+.page-id-1419 .accordion-item .accordion-title .accordion-title-text-container .list-grid-accordion-title-header{
+    margin: 0;
+}
+.page-id-1419 .accordion-item .accordion-title .accordion-title-icon-container {
+    margin-right: 0;
+}
+.page-id-1419 .accordion-item .accordion-content{
+    padding: 1rem 0 0 0;
+}
+.page-id-1419 .accordion-item .accordion-content .list-grid-section-container .list-grid-section-sub-header-container{
+    height: auto;
+}
+.page-id-1419 .accordion-item .accordion-content .list-grid-section-container .cardwrapper .card{
+    margin-bottom: 20px;
+}
+ul.list-grid-accordion-container li.accordion-item {
+    margin-bottom: 1.125rem;
+}
+
+.back-kanakuk .btn{
+    border-radius: 5px 0px 0px 5px;
+}
+.page-id-1419 .accordion-item .accordion-content .list-grid-section-container .cardwrapper .card .card-section{
+    padding: 2rem;
+}
+
+
+.sub-hero-container + .kamp-trait-card-container .card-with-background-image {
+    background-position: 167% 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.hero-media-container.hero-small .embed-container .wp-video-shortcode video{
+    height: 573px !important;
+    transform: translateX(-50%) translateY(0%);
+    bottom: 0;
+}
+.hero-media-container.hero-small{
+    height: 573px !important;
+}
+.link-btn{
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* popup css */
+
+.about-card-container .card-with-background-image .card-section .modal-header .modal-title{
+    margin: 0 30px;
+    color: #003a5c!important;
+    font-size: 3.75rem;
+}
+.about-card-container .card-with-background-image .modal-body{
+    font-size: 20px;
+    padding: 40px
+}
+
+.page-id-2396 .tabs-view .sub-hero-container{
+    margin-bottom: 0;
+}
+.page-id-2396 .hero-tabs li.tabs-title>a{
+    /* border-bottom: 1px solid #003a5c; */
+}
+.page-id-2396 .custom-hero-content h1{
+    /* font-size: 3.25rem;
+    padding: 6%;
+    color: #003a5c; */
+}
+.page-id-2396 .hero-content-background {
+    /* background-color: rgb(239, 239, 239); */
+}
+
+/* .page-id-2405 .entry-content p{
+
+} */
+
+.page-id-2396 .enroll-btn{
+    display:inline-block;
+}
+
+.media-container .speakerImgWrapper{
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+}
+.detail-section h2.hero-sub-section-text{
+    font-size: 3.75rem;
+}
+.detail-section .hero-sub-section-text{
+    font-size: 2.125rem;
+}
+.detail-section .hero-sub-section-requirement-text{
+    font-size: 20px;
+    text-transform: none;
+}
+.detail-section .enroll-btn{
+    border-radius: 5px;
+}
+.excursions.grid-container {
+    margin: auto;
+    width: auto;
+    max-width: 92.75rem;
+}
+.excursions h2{
+    text-align: left;
+}
+ .excursions p.white{
+    opacity: .8;
+    border: 1px solid rgba(255, 255, 255, 0.21);
+    padding: 5px 10px;
+    margin: 0;
+    border-bottom: 0;
+}
+.excursions p.white:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.21);
+}
+
+
+/* End new style from 16july2019 jaikant */
+
 @media(min-width:768px){
 	.card-date-wrapper {
 	    display: flex;
@@ -267,4 +422,16 @@ li{
 	.list-grid-accordion-container .accordion-item.is-active {
     	margin-bottom: 0;
 	}
+}
+
+@media (max-width: 640px){
+    .about-card-container .card-with-background-image .card-section .modal-header .modal-title {
+        margin: 30px 40px 40px 40px;
+        font-size: 35px;
+        margin: 0;
+    }
+    .about-card-container .card-with-background-image .modal-body {
+        font-size: 16px;
+        padding: 20px;
+    }
 }

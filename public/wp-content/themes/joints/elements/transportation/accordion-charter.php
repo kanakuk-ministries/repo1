@@ -4,7 +4,7 @@ $charters = kan_get_charter_availability();
 ?>
 
 <div class="grid-container">
-  <div class="accordion-image-grid-container margin-top-50">
+  <div class="accordion-image-grid-container margin-bottom-40">
     <h1 class="dark-blue">Charters</h1>
 
     <ul class="accordion list-grid-accordion-container" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
@@ -49,7 +49,7 @@ $charters = kan_get_charter_availability();
         <ul class="accordion-content" data-tab-content>
        		<div class="list-grid-section-container">
               <div class="flex-container align-center list-grid-section-sub-header-container">
-                 <h4 class="margin-bottom-0 margin-top-15">Location</h4>
+                 <h4 class="margin-bottom-0">Location</h4>
                 <div class="list-grid-section-sub-header" style="background-color: <?php echo $colors[$index]; ?>"></div>
               </div>
               <div class="cardwrapper">
@@ -74,7 +74,7 @@ $charters = kan_get_charter_availability();
             </div>
             <div class="list-grid-section-container">
               <div class="flex-container align-center list-grid-section-sub-header-container">
-                 <h4 class="margin-bottom-0 margin-top-15">Dates</h4>
+                 <h4 class="margin-bottom-0">Dates</h4>
                 <div class="list-grid-section-sub-header" style="background-color: <?php echo $colors[$index]; ?>"></div>
               </div>
           <div class="card-date-wrapper">
