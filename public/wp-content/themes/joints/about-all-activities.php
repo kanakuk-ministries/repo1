@@ -85,7 +85,7 @@ get_header(); ?>
 																	$this_activity = reset($this_activity_array);
 																?>
 																
-				<div id="myModal<?php echo $activity_id;?>"
+				<div id="myModal<?php echo $activity_id[0]?>"
 					class="modal fade popout-about-card">
 					<div class="modal-dialog modal-lg aboutInfoModal">
 						<div class="modal-content">
@@ -106,7 +106,7 @@ get_header(); ?>
 																	<img src="<?php echo $this_activity['activity_image']['url']; ?>">
 																	<div class="list-grid-item-overlays">
 																		<h6 class="secondary bold white text-center titlecase margin-bottom-20"><?php echo $this_activity['activity_name']; ?></h6>
-																		<h6 class="secondary bold white text-center titlecase margin-bottom-20"><a class="link-btn" href="#myModal<?php echo $activity_id;?>"
+																		<h6 class="secondary bold white text-center titlecase margin-bottom-20"><a class="link-btn" href="#myModal<?php echo $activity_id[0];?>"
 					data-toggle="modal">Read More</a></h6>
 																		<?php //if(true): ?>
 <!-- 																			<button class="button expanded white hollow">Watch Video</button> -->
