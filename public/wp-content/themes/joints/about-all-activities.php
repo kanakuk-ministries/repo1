@@ -84,11 +84,30 @@ get_header(); ?>
 																	$this_activity_array = get_activities($activity_id);
 																	$this_activity = reset($this_activity_array);
 																?>
+																
+				<div id="myModal<?php echo $activity_id;?>"
+					class="modal fade popout-about-card">
+					<div class="modal-dialog modal-lg aboutInfoModal">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="close" type="button" data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</button>
+								<h4 class="modal-title card-section"><?php echo $this_activity['activity_name']; ?></h4>
+							</div>
+							<div class="modal-body customModalBody"><?php echo $this_activity['activity_description']; ?></div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.modal -->
 																<div class="list-grid-item block-<?php echo $i; ?>">
 																	<img src="<?php echo $this_activity['activity_image']['url']; ?>">
 																	<div class="list-grid-item-overlays">
 																		<h6 class="secondary bold white text-center titlecase margin-bottom-20"><?php echo $this_activity['activity_name']; ?></h6>
-																		<h6 class="secondary bold white text-center titlecase margin-bottom-20"><?php echo $this_activity['activity_description']; ?></h6>
+																		<h6 class="secondary bold white text-center titlecase margin-bottom-20"><a class="link-btn" href="#myModal<?php echo $activity_id;?>"
+					data-toggle="modal">Read More</a></h6>
 																		<?php //if(true): ?>
 <!-- 																			<button class="button expanded white hollow">Watch Video</button> -->
 																		<?php //endif; ?>
