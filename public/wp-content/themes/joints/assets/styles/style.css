@@ -375,6 +375,7 @@ ul.list-grid-accordion-container li.accordion-item {
     margin: auto;
     width: auto;
     max-width: 92.75rem;
+    padding: 0 5%;
 }
 
 .excursions p{
@@ -382,6 +383,11 @@ ul.list-grid-accordion-container li.accordion-item {
     padding: 5px 10px;
     margin: 0;
     border-bottom: 0;
+    color:#FFF;
+}
+.excursions p strong {
+    opacity: 1;
+    color: #e3fc04;
 }
 
 p.white.margin-bottom-0.speaker-sub-section-requirement-text {

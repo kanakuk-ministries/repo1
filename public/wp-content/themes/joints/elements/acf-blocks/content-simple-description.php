@@ -20,7 +20,7 @@ console_log(__FILE__, $fields);
         <div class="excursions grid-container">
             <h2 class="white hero-sub-section-text">
               <?php echo $fields['team_title']; ?>
-            </h2>            
+            </h2>           
             <p class="white"><?php echo $fields['title_description']; ?></p>
         </div>
     </div>
