@@ -1,9 +1,9 @@
 <?php
 /**
- * Block Name: Speakers Group
- *
- * This is the template that displays a sub hero text block below the Speaker Group.
- */
+* Block Name: Speakers Group
+*
+* This is the template that displays a sub hero text block below the Speaker Group.
+*/
 
 // the fields
 $fields = get_fields();
@@ -17,8 +17,7 @@ console_log(__FILE__, $fields);
 ?>
 <?php if($enable_value=='Yes'){?>
 
-
-<div class="grid-container about-card-container">
+   <div class="grid-container about-card-container">
    <div class="card card-with-background-image">      
          <div class="card-section">
             <h3 class="dark-blue">
@@ -26,10 +25,10 @@ console_log(__FILE__, $fields);
                 <?php echo $fields['term_title']; ?>
             </h3>
             <?php endif;?>
-            <p class="dark-blue about-card-description">
+            <h4 class="dark-blue about-card-description">
              <?php if($fields['speaker_title']):?>
                 <?php echo $fields['speaker_title']; ?>
-            </p>
+            </h4>
             <?php endif;?>
             <p class="dark-blue about-card-description">
             <?php if($fields['speaker_body']):?>
@@ -39,7 +38,7 @@ console_log(__FILE__, $fields);
             <div class="white margin-bottom-0 hero-sub-section-requirement-text mt-20">
                <?php if($fields['enroll_url']):?>
                   <a href="<?php echo $fields['enroll_url']; ?>" class="enroll-url enroll-btn"><strong>ENROLL FOR THIS TERM</strong></a>
-            	 <?php endif;?>
+             <?php endif;?>
             </div>
          </div>   
          <div class="media-container onetruegod hero-sub-section-requirement-text speaker-image-section">
@@ -53,43 +52,40 @@ console_log(__FILE__, $fields);
 </div>
 
 <?php }else {?>
+   
 <div class="sub-hero-container">
-	<div class="hero-sub-section text-center">
-		<div class="grid-container">
-			<div
-				class="white margin-bottom-0 hero-sub-section-requirement-text speaker-image-section">
+       <div class="hero-sub-section text-center">
+              <div class="grid-container">
+                     <div class="white margin-bottom-0 hero-sub-section-requirement-text speaker-image-section">
               <?php if($imageUrl):?>
-               	<div
-				class="speakerImgWrapper">
+                    <div class="speakerImgWrapper">
                <img src="<?php echo $imageUrl; ?>" alt="speaker-image">
                </div>
                <?php endif;?>
             </div>
-			<div class="white hero-sub-section-text">
+               <h3 class="white">
              <?php if($fields['term_title']):?>
                 <?php echo $fields['term_title']; ?>
-            </div>
+            </h3>
             <?php endif;?>
-            <div class="white hero-sub-section-text">
+            <h4 class="white hero-sub-section-text">
              <?php if($fields['speaker_title']):?>
                 <?php echo $fields['speaker_title']; ?>
-            </div>
+            </h4>
             <?php endif;?>
-            <p
-				class="white margin-bottom-0 speaker-sub-section-requirement-text">
+            <p class="white about-card-description">
             <?php if($fields['speaker_body']):?>
                 <?php echo $fields['speaker_body']; ?>
             </p>
             <?php endif;?>
-            <div
-				class="white margin-bottom-0 hero-sub-section-requirement-text mt-20">
+            <div class="white margin-bottom-0 hero-sub-section-requirement-text mt-20">
             <?php if($fields['enroll_url']):?>
                 <a href="<?php echo $fields['enroll_url']; ?>"
-					class="enroll-url enroll-btn"><strong>ENROLL FOR THIS TERM</strong></a>
-			</div>
+                                  class="enroll-url enroll-btn"><strong>ENROLL FOR THIS TERM</strong></a>
+                     </div>
            <?php endif;?>
         </div>
-	</div>
-	<div class="background-blue-container-triangle"></div>
+       </div>
+       <div class="background-blue-container-triangle"></div>
 </div>
 <?php }?>

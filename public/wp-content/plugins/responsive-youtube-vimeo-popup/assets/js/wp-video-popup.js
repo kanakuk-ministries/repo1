@@ -1,8 +1,8 @@
 (function($) {
 
-	var url = $('.wp-video-popup-video').attr('data-wp-video-popup-url');
+//	var url = $('.wp-video-popup-video').attr('data-wp-video-popup-url');
 
-	function wp_video_popup_open() {
+	function wp_video_popup_open(url) {
 		$('.wp-video-popup-wrapper').prependTo('body');
 		$('.wp-video-popup-wrapper, .wp-video-popup-video').fadeIn(200);
 		$(".wp-video-popup-video").attr("src", url);
@@ -11,7 +11,7 @@
 
 	$('.wp-video-popup').click(function(event) {
 		event.preventDefault();
-		wp_video_popup_open();
+		wp_video_popup_open(event.target.getAttribute('videoUrl'));
 	});
 
 	// Close Function

@@ -58,6 +58,19 @@ video::-webkit-media-controls-panel {
                 font-weight:bold;
 }
 .enroll-btn:hover{           
+                background:#3F51B5;
+                color:#ffa500 !important;
+                
+}
+
+.enroll-btns{
+                padding:15px 20px; 
+                background:#ffa500;
+                color:#fff !important;
+                text-decoration:none;   
+                font-weight:bold;
+}
+.enroll-btns:hover{           
                 background:#fff;
                 color:#ffa500 !important;
                 
@@ -397,7 +410,7 @@ p.white.margin-bottom-0.speaker-sub-section-requirement-text {
 
 /*for video icon*/
 .video-modal .modal-embed-container img{
-   height: 100px;
+   /*height: 100px;*/
     width: auto;
     left: 50%;
     top: 50%;
@@ -405,7 +418,86 @@ p.white.margin-bottom-0.speaker-sub-section-requirement-text {
     transform: translate(-40%, -50%);
 }
 
+.image-popup .close{
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    right: -10px;
+    top: -10px;
+}
+.image-popup .close:hover{
+    background: rgba(255, 255, 255, 1);
 
+}
+.all-activity .list-grid-item{
+    cursor:pointer;
+}
+.image-popup .modal-dialog.modal-lg.aboutInfoModal{
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+p.text-play-btn {
+    right: 20px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 2px 16px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: small;
+    width: auto;
+    left: 49%;
+    top: 64%;
+    position: absolute;
+    transform: translate(-40%, -50%);
+    text-align: center;
+}
+
+.about-card-container .about-card-top p{
+	color: #003a5c;
+}
+
+/*23 -july */
+.hero-media-container.hero-small, .hero-media-container.hero-large, .hero-media-container.hero-medium {
+    background-position: center 50%;
+}
+.sub-hero-container:nth-child(odd) .hero-sub-section{
+    background:#FFF;
+}
+
+.sub-hero-container:nth-child(odd) .hero-sub-section .white.hero-sub-section-text, .sub-hero-container:nth-child(odd) p.white.about-card-description, .sub-hero-container:nth-child(odd) h3.white{
+    color:#003a5c !important;
+    opacity: 1;
+}
+
+.hero-sub-section-requirement-text {
+    text-transform: none;
+}
+
+.multi-image-block-section-container img{
+    object-fit: cover;
+}
+.about-card-container .card-with-background-image .media-container{
+    background-position: center;
+}
+.hero-container.medium.mb-0.small {
+    height: 573px;
+    min-height: 573px;
+}
+
+.hero-container.medium.mb-0.small .hero-media-container.hero-small {
+    height: 573px;
+}
+.hero-container.medium.mb-0.small .inner {
+    height: 573px;
+    min-height: 573px;
+}
+/*end 23*/
 /* End new style from 16july2019 jaikant */
 
 @media(min-width:768px){

@@ -73,8 +73,7 @@ function content($content = '', $limit = 0)
         $content = \implode(" ", $content);
     }
     $content = apply_filters('the_content', $content);
-    $content = str_replace(']]>', ']]&gt;', $content);
-    
+   
     return $content;
 }
 
@@ -129,7 +128,6 @@ function clean($string) {
  * */
 function getVideoUrl($videoURl){
     
-   // $videoURl = "https://www.youtube.com/watch?v=YlUKcNNmywk";
     $parts=explode('/',parse_url($videoURl)['path']);
     array_unshift($parts,trim(strstr(parse_url($videoURl)['host'],'.'),'.'));
     $url = (array_filter($parts));
