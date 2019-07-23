@@ -7,7 +7,7 @@
 
 // the fields
 $fields = get_fields();
-$id= $fields['about_card_image']['id'];
+$id = $fields['about_card_image']['id'];
 $id = uniqid($id);
 // write data to console for debugging purposes
 console_log(__FILE__, $fields);
@@ -20,23 +20,25 @@ console_log(__FILE__, $fields);
 				<h3 class="dark-blue">
                     <?php echo $fields['title']; ?>
                 </h3>
-                <?php if(count_words($fields['description']) < 40 ):?>
+                <?php if(count_words($fields['description']) < 35 ):?>
                     <p class="dark-blue about-card-description">
     					
     				   <?php echo $fields['description']; ?>
     				</p> 
                 <?php else:?>
 				<p class="dark-blue about-card-description">
-					
-				   <?php echo content($fields['description'], 40); ?>
-				</p>               
-            	
-                <a class="link-btn" href="#myModal<?php echo $id;?>" data-toggle="modal">Read More</a>
-              <div id="myModal<?php echo $id;?>" class="modal fade popout-about-card">
+				   <?php echo content($fields['description'], 35); ?>
+				</p>
+				<a class="link-btn" href="#myModal<?php echo $id;?>"
+					data-toggle="modal">Read More</a>
+				<div id="myModal<?php echo $id;?>"
+					class="modal fade popout-about-card">
 					<div class="modal-dialog modal-lg aboutInfoModal">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button class="close" type="button" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
+								<button class="close" type="button" data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</button>
 								<h4 class="modal-title card-section"><?php echo $fields['title']; ?></h4>
 							</div>
 							<div class="modal-body customModalBody"><?php echo $fields['description']; ?></div>
@@ -50,15 +52,40 @@ console_log(__FILE__, $fields);
 			</div>
 		</div>
 		<div class="media-container <?php echo clean($fields['title']); ?>" style="background-image: url(<?php echo $fields['about_card_image']['url']; ?>)">
-            <?php if(isSet($fields['video'])):           
-            ?>
+               <?php
+            $videoUrl = $fields['video_popup_url'];
+            if ($videoUrl) :
+            $checkUrl = getVideoUrl($videoUrl);
+                $videoId = end(explode('/',$videoUrl));
+                if ($checkUrl == 'vimeo') :
+                $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
+                    ?>
+                   <div class="video-modal">
+				<div class="modal-embed-container video-center">
+					<a href="#" class="wp-video-popup"><p class="text-play-btn">Click on Video Icon</p><img src="<?php echo get_template_directory_uri(); ?>/assets/images/video-icon.png" videourl="<?php echo $videoPlayerUrl; ?>"/>
+					</a>
+                  <?php echo do_shortcode('[wp-video-popup vimeo="1" video="'.$videoUrl.'"]'); ?>
+                   </div>
+			</div>
+              <?php endif;?>
+             <?php if($checkUrl=='youtube'): 
+             $videoId = explode('=',$videoId)[1];
+             $videoPlayerUrl = 'https://www.youtube.com/embed/'. $videoId .'?autoplay=1';
+             ?>
+                   <div class="video-modal">
+        				<div class="modal-embed-container video-center">
+        				<a href="#" class="wp-video-popup"><p class="text-play-btn">Click on Video Icon</p><img src="<?php echo get_template_directory_uri(); ?>/assets/images/video-icon.png" videourl="<?php echo $videoPlayerUrl; ?>"/>Play</a>
+                          <?php echo do_shortcode('[wp-video-popup video="'.$videoUrl.'"]'); ?>
+                           </div>
+        			</div>
+              <?php endif;?> 
+              <?php endif;?>
+            <?php
+            if (isSet($fields['video'])) :
+                ?>
                 <div class="video-modal">
 				<div class="modal-embed-container video-center">
-				<?php if ($fields['video_popup_url']):?>
-				<a href="#" width=260px height=260px class="wp-video-popup">Play Video</a>
-                        <?php echo do_shortcode('[wp-video-popup vimeo="1" video="https://vimeo.com/video/345542686"]'); ?>
-                        <?php endif;?>
-                        <?php echo do_shortcode($fields['video']); ?>
+				        <?php echo do_shortcode($fields['video']); ?>
                     </div>
 			</div>
             <?php endif; ?>
