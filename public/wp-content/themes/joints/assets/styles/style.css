@@ -466,18 +466,24 @@ p.text-play-btn {
 .hero-media-container.hero-small, .hero-media-container.hero-large, .hero-media-container.hero-medium {
     background-position: center 50%;
 }
-.sub-hero-container:nth-child(odd) .hero-sub-section{
+
+.page-id-2396 .sub-hero-container:nth-child(odd) .hero-sub-section{
     background:#FFF;
 }
 
-.sub-hero-container:nth-child(odd) .hero-sub-section .white.hero-sub-section-text, .sub-hero-container:nth-child(odd) p.white.about-card-description, .sub-hero-container:nth-child(odd) h3.white{
+.page-id-2396 .sub-hero-container:nth-child(odd) .hero-sub-section .white.hero-sub-section-text, .page-id-2396 .sub-hero-container:nth-child(odd) p.white.about-card-description, .page-id-2396 .sub-hero-container:nth-child(odd) h3.white{
     color:#003a5c !important;
     opacity: 1;
 }
 
-.hero-sub-section-requirement-text {
+.page-id-2396 .hero-sub-section-requirement-text {
     text-transform: none;
 }
+
+.tabs-title>a.speaker-color:hover{
+    color: #ffffff;
+}
+
 
 .multi-image-block-section-container img{
     object-fit: cover;
@@ -497,7 +503,6 @@ p.text-play-btn {
     height: 573px;
     min-height: 573px;
 }
-/*end 23*/
 /* End new style from 16july2019 jaikant */
 
 @media(min-width:768px){
@@ -513,7 +518,8 @@ p.text-play-btn {
                 }
                 .list-grid-accordion-container .accordion-item.is-active {
                 margin-bottom: 0;
-                }
+    }
+
 }
 
 @media (max-width: 640px){
@@ -522,8 +528,16 @@ p.text-play-btn {
         font-size: 35px;
         margin: 0;
     }
-    .about-card-container .card-with-background-image .modal-body {
+  .about-card-container .card-with-background-image .modal-body {
         font-size: 16px;
         padding: 20px;
+    }
+ .hero-container.medium.mb-0.small {
+        height: 50vh;
+        min-height: 350px;
+    }
+    .hero-container.medium.mb-0.small .inner {
+        height: 50vh;
+        min-height: 350px;
     }
 }
