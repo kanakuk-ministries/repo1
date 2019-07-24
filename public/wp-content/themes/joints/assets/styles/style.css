@@ -503,6 +503,89 @@ p.text-play-btn {
     height: 573px;
     min-height: 573px;
 }
+
+/*for Faq page tab section*/
+.faq-tab ul{
+    border-right: 1px solid #efefef;
+    border-bottom: 0px;
+}
+.faq-tab ul li {
+    padding-bottom: 1.875rem;
+        font-size: 1rem;
+}
+.faq-tab ul li a{
+    color: #003a5c;
+    padding: 0px;
+    border: 0px;
+}
+.faq-tab ul li a:hover{
+    background: transparent;
+    border: 0px;
+}
+.faq-tab ul li.active a{
+	font-weight: 700;
+    color: #003a5c;
+       border: 0px;
+}
+.faq-tab ul li.active a, .faq-tab ul li.active a:focus, .faq-tab ul li.active a:hover {
+    color: #003a5c;
+    cursor: default;
+    background-color: transparent;
+    border: 0px solid #ddd;
+    border-bottom-color: transparent;
+}
+.faq-tab .tab-content {
+	    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 5px;
+    padding: 0 0 0 3.75rem;
+    max-height: 43.125rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+.faq-tab .tab-content button{
+     padding: .9375rem 0;
+    cursor: pointer;
+    position: relative;
+    padding-left: 40px;
+        text-align: left;
+}
+
+.faq-tab .tab-content button:before{
+     content: "\64";
+    color: #2275ff;
+    font-family: "kanakuk"!important;
+    font-weight: 400!important;
+    font-size: 2.1875rem;
+    line-height: 1;
+    position: absolute;
+    left: 0px;
+    top: 7px;
+}
+.faq-tab .tab-content button[aria-expanded="true"]:before{
+	    content: "\61";
+}
+.faq-tab .tab-content p{
+	color:#000;
+	font-weight: 500;
+}
+.faq-tab .tab-content button + div{
+	padding: 1.1875rem 2.1875rem;
+}
+.list-grid-item-overlays button a{
+	text-decoration: none;
+}
+
+.list-grid-item img{
+    object-fit: cover;
+}
+a:hover {
+    text-decoration: none;
+}
 /* End new style from 16july2019 jaikant */
 
 @media(min-width:768px){

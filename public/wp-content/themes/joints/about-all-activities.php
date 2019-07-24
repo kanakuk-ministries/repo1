@@ -84,10 +84,53 @@ get_header(); ?>
 																	$this_activity_array = get_activities($activity_id);
 																	$this_activity = reset($this_activity_array);
 																?>
+				<!-- activity description modal -->												
+				<div id="myModal<?php echo $activity_id[0]?>"
+					class="modal fade popout-about-card">
+					<div class="modal-dialog modal-lg aboutInfoModal">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="close" type="button" data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</button>
+								<h4 class="modal-title card-section"><?php echo $this_activity['activity_name']; ?></h4>
+							</div>
+							<div class="modal-body customModalBody"><?php echo $this_activity['activity_description']; ?></div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /. end activity modal -->
+				<!-- image modal -->
+								<div id="imageModal<?php echo $activity_id[0]?>"
+					class="modal fade popout-about-card">
+					<div class="modal-dialog modal-lg aboutInfoModal">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="close" type="button" data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</button>
+								<h4 class="modal-title"><?php echo $this_activity['activity_name']; ?></h4>
+							</div>
+							<div class="modal-bodys customModalBodys"><img src="<?php echo $this_activity['activity_image']['url']; ?>" width=100% height=100%></div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.end image modal -->
+								
 																<div class="list-grid-item block-<?php echo $i; ?>">
-																	<img src="<?php echo $this_activity['activity_image']['url']; ?>">
+																<a href="#imageModal<?php echo $activity_id[0];?>"
+					data-toggle="modal"><img src="<?php echo $this_activity['activity_image']['url']; ?>"></a>
 																	<div class="list-grid-item-overlays">
-																		<h6 class="secondary bold white text-center titlecase margin-bottom-20"><?php echo $this_activity['activity_name']; ?></h6>
+																		<h6 class="secondary bold white text-center titlecase margin-bottom-20 white hollow"><?php echo $this_activity['activity_name']; ?></h6>
+																	
+																		<?php if($this_activity['activity_description']):?>
+																		<button class="button expanded white hollow"><a href="#myModal<?php echo $activity_id[0];?>"
+					data-toggle="modal" class="white">Activity Description</a></button>
+					<?php endif;?>
 																		<?php //if(true): ?>
 <!-- 																			<button class="button expanded white hollow">Watch Video</button> -->
 																		<?php //endif; ?>
