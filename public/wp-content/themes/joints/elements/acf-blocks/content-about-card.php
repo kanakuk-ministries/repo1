@@ -62,8 +62,13 @@ console_log(__FILE__, $fields);
                     ?>
                    <div class="video-modal">
 				<div class="modal-embed-container video-center">
+					<?php if($fields['video_icon_image']):?>	
+					<a href="#" class="wp-video-popup"><img src="<?php echo $fields['video_icon_image']['url']; ?>" videourl="<?php echo $videoPlayerUrl; ?>"/>
+					</a>
+					<?php else:?>
 					<a href="#" class="wp-video-popup"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/video-icon.png" videourl="<?php echo $videoPlayerUrl; ?>"/>
 					</a>
+					<?php endif; ?>
                   <?php echo do_shortcode('[wp-video-popup vimeo="1" video="'.$videoUrl.'"]'); ?>
                    </div>
 			</div>
@@ -74,7 +79,12 @@ console_log(__FILE__, $fields);
              ?>
                    <div class="video-modal">
         				<div class="modal-embed-container video-center">
-        				<a href="#" class="wp-video-popup"><p class="text-play-btn">Click on Video Icon</p><img src="<?php echo get_template_directory_uri(); ?>/assets/images/video-icon.png" videourl="<?php echo $videoPlayerUrl; ?>"/>Play</a>
+        				<?php if($fields['video_icon_image']):?>
+        				<a href="#" class="wp-video-popup"><img src="<?php echo $fields['video_icon_image']['url']; ?>" videourl="<?php echo $videoPlayerUrl; ?>"/>
+					    </a>
+                          <?php else:?>
+                          <a href="#" class="wp-video-popup"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube-512.png" videourl="<?php echo $videoPlayerUrl; ?>"/></a>
+                          <?php endif;?>
                           <?php echo do_shortcode('[wp-video-popup video="'.$videoUrl.'"]'); ?>
                            </div>
         			</div>

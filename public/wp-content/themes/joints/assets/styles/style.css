@@ -5,7 +5,7 @@
 
 /*---2019-07-02--*/
 .custom-img{
-                height:auto !important;
+      height:auto !important;
 }
 /*
 .mb-0{
@@ -412,7 +412,7 @@ p.white.margin-bottom-0.speaker-sub-section-requirement-text {
 /*for video icon*/
 .video-modal .modal-embed-container img{
    /*height: 100px;*/
-    width: auto;
+    width: 120px;
     left: 50%;
     top: 50%;
     position: absolute;
