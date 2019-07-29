@@ -62,7 +62,7 @@ console_log(__FILE__, $fields);
                     ?>
                    <div class="video-modal">
 				<div class="modal-embed-container video-center">
-					<a href="#" class="wp-video-popup"><p class="text-play-btn">Click on Video Icon</p><img src="<?php echo get_template_directory_uri(); ?>/assets/images/video-icon.png" videourl="<?php echo $videoPlayerUrl; ?>"/>
+					<a href="#" class="wp-video-popup"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/video-icon.png" videourl="<?php echo $videoPlayerUrl; ?>"/>
 					</a>
                   <?php echo do_shortcode('[wp-video-popup vimeo="1" video="'.$videoUrl.'"]'); ?>
                    </div>
