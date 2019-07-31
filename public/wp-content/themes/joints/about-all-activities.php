@@ -7,12 +7,10 @@ $about_pages = array('Our Story', 'Teams', 'Our Ministries', 'All Activities', '
 $kamp_types = get_kamp_types();
 $team_activites = get_fields();
 $kamps = get_kamps();
-get_header(); ?>
-	
-	<div class="content">
-	
-		<div class="inner-content grid-x grid-margin-x">
-	
+get_header(); 
+?>
+<div class="content">
+    <div class="inner-content grid-x grid-margin-x">
 		<main class="main small-12 medium-12 large-12 cell tabs-view about-page-main" role="main">
             <div class="hero-tabs-container about-page margin-bottom-60">
                 <ul class="tabs hero-tabs about-page-tabs" id="about-page-tabs">
@@ -24,9 +22,7 @@ get_header(); ?>
                     </li>
                     <?php endforeach;?>
                 </ul>
-						</div>
-						
-						
+				</div>
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		    
 					<?php 
@@ -120,6 +116,25 @@ get_header(); ?>
 					<!-- /.modal-dialog -->
 				</div>
 				<!-- /.end image modal -->
+					<!-- video modal -->
+								<div id="videoModal<?php echo $activity_id[0]?>"
+					class="modal fade popout-about-card">
+					<div class="modal-dialog modal-lg aboutInfoModal">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="close" type="button" data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</button>
+								<h4 class="modal-title"><?php echo $this_activity['activity_name']; ?></h4>
+							</div>
+							<div class="modal-bodys customModalBodys"><img src="<?php echo $this_activity['activity_image']['url']; ?>" width=100% height=100%></div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.end video modal -->
+				
 								
 																<div class="list-grid-item block-<?php echo $i; ?>">
 																<a href="#imageModal<?php echo $activity_id[0];?>"
@@ -131,6 +146,34 @@ get_header(); ?>
 																		<button class="button expanded white hollow"><a href="#myModal<?php echo $activity_id[0];?>"
 					data-toggle="modal" class="white">Activity Description</a></button>
 					<?php endif;?>
+					   <?php
+	         $videoUrl = $this_activity['video_popup_url'];
+			//echo "<pre>step2"; print_r($videoUrl); 
+            if ($videoUrl) :
+            $checkUrl = getVideoUrl($videoUrl);
+                $videoId = end(explode('/',$videoUrl));
+                if ($checkUrl == 'vimeo') :
+               $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
+                    ?>
+                <div class="video-modal">
+				<div class="modal-embed-container video-center">
+				<a href="#" class="wp-video-popup"><button class="button expanded white hollow" videourl="<?php echo $videoPlayerUrl; ?>">Watch Video</button></a>
+                  <?php echo do_shortcode('[wp-video-popup vimeo="1" video="'.$videoUrl.'"]'); ?>
+                   </div>
+			</div>
+              <?php endif;?>
+             <?php if($checkUrl=='youtube'): 
+             $videoId = explode('=',$videoId)[1];
+             $videoPlayerUrl = 'https://www.youtube.com/embed/'. $videoId .'?autoplay=1';
+             ?>
+                   <div class="video-modal">
+        				<div class="modal-embed-container video-center">
+        				<a href="#" class="wp-video-popup"><button class="button expanded white hollow" videourl="<?php echo $videoPlayerUrl; ?>">Watch Video</button></a>
+                          <?php echo do_shortcode('[wp-video-popup video="'.$videoUrl.'"]'); ?>
+                           </div>
+        			</div>
+              <?php endif;?> 
+              <?php endif;?>
 																		<?php //if(true): ?>
 <!-- 																			<button class="button expanded white hollow">Watch Video</button> -->
 																		<?php //endif; ?>
@@ -147,10 +190,7 @@ get_header(); ?>
 							<?php endforeach;?>
 						</ul>
 						</div>
-						
 					</div>
-									
-			    					
 			</main> <!-- end #main -->
 
 		    <?php get_sidebar(); ?>

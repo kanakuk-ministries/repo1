@@ -617,6 +617,85 @@ a:hover {
 
 /* End new style from 16july2019 jaikant */
 
+/*style for tab of camp*/
+
+.camp-tab{
+	width:100%;
+    text-align: center;
+    white-space: nowrap;
+    border-bottom: none;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.camp-tab li{
+    display: inline-block;
+	float:none;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+.camp-tab li a{
+    background:#FFF;
+    color:#003a5c;
+}
+.camp-tab li:hover a, .camp-tab li.active a{
+	background:#003a5c;
+	color:#FFF;
+}
+
+.camp-tab li a:focus, .camp-tab li a:hover, .camp-tab li.active a:focus, .camp-tab li.active a:hover{
+     background: #003a5c;
+    color: #FFF; 
+}
+.camp-tab-content .grid-container {
+    padding: 0px 0px;
+    margin: 0px auto;
+    border: 2px solid #003a5c;
+    max-width: 94.5%;
+}
+
+
+/*
+.k-1:hover a, .k-1.active a{
+	background-color: #003ca6;
+	color: #FFF;
+}
+.k-2:hover a, .k-2.active a{
+	background-color: #003ca6;
+	color: #FFF;
+}
+.k-3 a:hover, .k-3.active a{
+	background-color: #003ca6;
+	color: #FFF;
+}
+.k-4 a:hover, .k-4.active a{
+	background-color: #003ca6;
+	color: #FFF;
+}
+.k-5 a:hover, .k-5.active a{
+	background-color: #003ca6;
+	color: #FFF;
+}
+.k-6 a:hover, .k-6.active a{
+	background-color: #ea502e;
+	color: #FFF;
+}
+.k-7 a:hover, .k-7.active a{
+	background-color: #f5b428;
+	color: #FFF;
+}
+.k-8 a:hover, .k-8.active a{
+	background-color: #00bac9;
+	color: #FFF;
+}
+.k-9 a:hover, .k-9.active a{
+	background-color: #00bac9;
+	color: #FFF;
+}
+*/
+/* End style for tab of camp*/
+
+
 @media(min-width:768px){
     .card-date-wrapper {
          display: flex;
