@@ -9,6 +9,14 @@
 $fields = get_fields();
 $id = $fields['about_card_image']['id'];
 $id = uniqid($id);
+if(empty($fields['button_text'])) {
+    
+    $button_text = "Read More";
+    
+}else{
+    $button_text = $fields['button_text'];
+    
+}
 // write data to console for debugging purposes
 console_log(__FILE__, $fields);
 ?>
@@ -29,8 +37,8 @@ console_log(__FILE__, $fields);
 				<p class="dark-blue about-card-description">
 				   <?php echo content($fields['description'], 35); ?>
 				</p>
-				<a class="link-btn" href="#myModal<?php echo $id;?>"
-					data-toggle="modal">Read More</a>
+				<a class="link-btn" href="#myModal<?php echo $id;?>
+					data-toggle="modal"><?php echo $button_text;?></a>
 				<div id="myModal<?php echo $id;?>"
 					class="modal fade popout-about-card">
 					<div class="modal-dialog modal-lg aboutInfoModal">
