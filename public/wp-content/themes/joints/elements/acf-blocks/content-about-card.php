@@ -37,7 +37,7 @@ console_log(__FILE__, $fields);
 				<p class="dark-blue about-card-description">
 				   <?php echo content($fields['description'], 35); ?>
 				</p>
-				<a class="link-btn" href="#myModal<?php echo $id;?>
+				<a class="link-btn" href="#myModal<?php echo $id;?>"
 					data-toggle="modal"><?php echo $button_text;?></a>
 				<div id="myModal<?php echo $id;?>"
 					class="modal fade popout-about-card">
