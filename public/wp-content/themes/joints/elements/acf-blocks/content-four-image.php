@@ -46,7 +46,9 @@ if ($fields['sw_kamp_type']  !== false) {
                     <?php echo $fields['nw_text']; ?>
                 </h1>
                 <i class="icon <?php echo $nw_kamp['icon_name'] ? 'icon-' . $nw_kamp['icon_name'] : ''; ?> white kamp-icon"></i>
+                <?php if($fields['nw_url']):?>
                 <a class="white learn-more-link" href="<?php echo $fields['nw_url']; ?>">Learn More <i class="white icon icon-caret-large-right medium"></i></a>
+            	<?php endif; ?>
             </div>
         </div>
         <div class="cell small-12 medium-6 multi-image-block-section-container has-hover block-2">
@@ -61,7 +63,9 @@ if ($fields['sw_kamp_type']  !== false) {
                     <?php echo $fields['ne_text']; ?>
                 </h1>
                 <i class="icon <?php echo $ne_kamp['icon_name'] ? 'icon-' . $ne_kamp['icon_name'] : ''; ?>  white kamp-icon"></i>
+                <?php if($fields['ne_url']):?>
                 <a class="white learn-more-link" href="<?php echo $fields['ne_url']; ?>">Learn More <i class="white icon icon-caret-large-right medium"></i></a>
+            	<?php endif;?>
             </div>
         </div>
         <div class="cell small-12 medium-6 multi-image-block-section-container has-hover block-3">
@@ -76,7 +80,9 @@ if ($fields['sw_kamp_type']  !== false) {
                     <?php echo $fields['sw_text']; ?>
                 </h1>
                 <i class="icon <?php echo ($sw_kamp['icon_name']) ? 'icon-' . $sw_kamp['icon_name'] : ''; ?> white kamp-icon"></i>
+                <?php if($fields['sw_url']):?>
                 <a class="white learn-more-link" href="<?php echo $fields['sw_url']; ?>">Learn More <i class="white icon icon-caret-large-right medium"></i></a>
+            	<?php endif;?>
             </div>
         </div>
         <div class="cell small-12 medium-6 multi-image-block-section-container has-hover block-4">
@@ -91,7 +97,9 @@ if ($fields['sw_kamp_type']  !== false) {
                     <?php echo $fields['se_text']; ?>
                 </h1>
                 <i class="icon <?php echo $se_kamp['icon_name'] ? 'icon-' . $se_kamp['icon_name'] : ''; ?>  white kamp-icon"></i>
+                <?php if($fields['se_url']):?>
                 <a class="white learn-more-link" href="<?php echo $fields['se_url']; ?>">Learn More <i class="white icon icon-caret-large-right medium"></i></a>
+            	<?php endif; ?>
             </div>
         </div>
     </div>
