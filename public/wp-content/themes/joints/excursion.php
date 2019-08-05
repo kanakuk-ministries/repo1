@@ -3,7 +3,7 @@
 /**
  * The template for displaying the transportation pages
  */
-$kauai_menu = array('2019 Speakers', '2020 Speakers', 'Excursions');
+$kauai_menu = array('2020 Speakers', 'Excursions');
 get_header(); ?>
 
 	<div class="content">
