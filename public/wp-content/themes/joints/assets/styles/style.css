@@ -618,7 +618,6 @@ a:hover {
 /* End new style from 16july2019 jaikant */
 
 /*style for tab of camp*/
-
 .camp-tab{
 	width:100%;
     text-align: center;
@@ -695,6 +694,97 @@ a:hover {
 */
 /* End style for tab of camp*/
 
+/* about-our-story hover css on video icon */
+.media-container a.wp-video-popup{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+.media-container a.wp-video-popup:hover {
+    background: rgba(0, 0, 0, 0.34);
+}
+.media-container a.wp-video-popup i{
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-40%, -50%);
+    font-size: 90px;
+    color: rgba(255, 255, 255, 0.58);
+    font-weight: 500;
+}
+.media-container a.wp-video-popup:hover i{
+    color:rgba(255, 255, 255, 0.74);
+}
+/* End about-our-story hover css on video icon */
+
+/* about-all-activities hover efect on image */
+.page-id-28 .activity-grid .list-grid-item:hover img {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    -moz-filter: blur(8px);
+    -o-filter: blur(8px);
+    -ms-filter: blur(8px);
+}
+/* End about-all-activities hover efect on image */
+
+/* page-id-844 */
+.page-id-844 .grid-container h2.secondary.white.cell.small-12.text-center{
+    min-height: 79px;
+}
+
+/* 65 no issue */
+.page-id-844 .hero-media-container.hero-small, .page-id-844 .hero-media-container.hero-large, .page-id-844 .page-id-2396 .hero-media-container.hero-medium {   
+    background-position: center -30px;
+}
+
+/* CSS for centering of image */
+.card-camp-details {
+        display: flex;
+    }    
+    .card-camp-details .media-container {
+        flex: 1;
+    }
+    .card-camp-details.card{
+        align-items: inherit;
+    }
+    .card-camp-details.card .media-container{
+        -ms-flex-preferred-size: 16%;
+        flex-basis: 16%;
+        background-position: 50%;
+    }    
+    .card-camp-details .media-container{
+        background-size:cover;
+        height:auto;
+    }   
+
+/* End CSS for centering of image */
+
+
+@media(max-width:991px){
+	/*this CSS for hero image display properly in responsvie view*/
+    .card-camp-details{
+        display: flex;
+        flex-direction: column;
+    }
+    .card-camp-details .media-container {
+        background-size: cover;
+        min-height: 60vh;;
+    }
+    .kamp-trait-card-container:nth-child(odd) .card-camp-details .media-container{
+        -ms-flex-order: 1;
+        order: 1;
+    }
+    .kamp-trait-card-container:nth-child(odd) .card-camp-details .card-section{
+        -ms-flex-order: 2;
+    order: 2;
+    }
+    .kamp-trait-card-container .card-camp-details{
+        padding-top: 0rem;
+    }
+    /*End this CSS for hero image display properly in responsvie view*/
+    
+}
 
 @media(min-width:768px){
     .card-date-wrapper {
@@ -734,6 +824,17 @@ a:hover {
     .page-id-6 .mejs-poster.mejs-layer{
         background-position: 60% -200px;
     }
+    .page-id-6 .hero-container.large.mb-0 {
+        margin-bottom: 180px !important;
+    } 
+}
+
+@media(max-width:620px){
+	/*this CSS for hero image display properly in responsvie view*/
+    .card-camp-details .media-container {
+        min-height: 30vh;;
+    }
+    /*End this CSS for hero image display properly in responsvie view*/
 }
 
 @media (max-width: 350px){
