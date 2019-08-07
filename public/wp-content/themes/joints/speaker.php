@@ -20,8 +20,7 @@ get_header(); ?>
                                     <span>Back to Kamp</span>
                                 </a>
         </div>
-        </div>
-	
+        </div>	
 		<div class="hero-tabs-container about-page margin-bottom-60">
                 <ul class="tabs hero-tabs about-page-tabs" id="about-page-tabs">
                  <!--<li class="tabs-title <?php //if ($key === 0) {echo 'is-active';}?>">

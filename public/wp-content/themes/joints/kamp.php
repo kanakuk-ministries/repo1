@@ -74,11 +74,7 @@ get_header(); ?>
                                         <span>Week</span>
                                     </h5>
                                 </div>
-                                <?php if($kamp['max_age']=='') {?>
-                                 <a id="kamp-selection" href="https://register.kanakuk.com/registration/EventSelection.aspx" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
-                                <?php }else{?>
-                                 <a id="kamp-selection" href="/search-results/?tab=0&kamp_type=<?php echo $kamp['kamp_title'];?>&kamp_age=<?php echo $kamp['max_age']?>" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
-                              <?php }?>
+                                <a id="kamp-selection" href="/" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
                             </div>
                         </div>
                     </div>
