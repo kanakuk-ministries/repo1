@@ -57,6 +57,10 @@ console_log(__FILE__, $fields);
 				</div>
 				<!-- /.modal -->
 				<?php endif;?>
+				<?php if($fields['page_link_button']):?>
+				<a class="link-btn" href="/<?php echo $fields['page_link_button'];?>"
+					>Find Out More</a>
+				<?php endif;?>
 			</div>
 		</div>
 		<div class="media-container <?php echo clean($fields['title']); ?>" style="background-image: url(<?php echo $fields['about_card_image']['url']; ?>)">

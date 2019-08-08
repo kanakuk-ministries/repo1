@@ -57,7 +57,7 @@ $imageUrl = $fields['image']['url'];
 					class="display text-<?php echo $fields['text_overlay_alignment']; ?>">
                     <?php echo $fields['title']; ?>
                 </h1>
-                <p class="bold sub-text">
+				<p class="bold sub-text">
                     <?php echo $fields['subtitle']; ?>
                 </p>
                <?php echo element('search-dropdown'); ?>
