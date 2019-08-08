@@ -55,7 +55,7 @@ get_header(); ?>
 						    echo gutenberg_render_block($block);
 						    //echo "<pre>"; print_r($block);
 						    //echo "<pre>"; print_r($block['attrs']['data']);
-						}
+						} 
 					}
 					?>
 		<?php endwhile; endif; ?>

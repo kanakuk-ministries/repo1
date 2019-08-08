@@ -18,7 +18,7 @@ $list_items_array = explode(',', $fields['list_items']);
 ?>
 
 <div class="grid-container kamp-trait-card-container">
-    <div class="card card-with-background-image" style="background-image: url(<?php echo $fields['trait_card_image']['url']; ?>)">
+    <div class="card card-with-background-image card-camp-details">
         <div class="card-section">
             <div class="kamp-trait-card-top">
                 <h3 class="dark-blue">
@@ -54,7 +54,7 @@ $list_items_array = explode(',', $fields['list_items']);
                 <?php endif;?>
             </div>
         </div>
-        <div class="media-container">
+        <div class="media-container" style="background-image: url(<?php echo $fields['trait_card_image']['url']; ?>)">
         </div>
     </div>
 </div>

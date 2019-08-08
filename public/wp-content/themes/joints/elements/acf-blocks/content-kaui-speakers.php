@@ -20,7 +20,7 @@ console_log(__FILE__, $fields);
 $imageUrl = $fields['image']['url'];
 ?>
 <div
-	class="hero-container <?php echo $fields['size']; ?> mb-0 speaker-section-height">
+	class="hero-container small <?php echo $fields['size']; ?> mb-0 speaker-section-height">
 	<div class="hero-container inner">
 		<div class="parallax-slidersd">
 			<div class="hero-media-container hero-<?php echo $fields['size']; ?> speaker-section-height" style="background-image: url(<?php echo $imageUrl; ?>)">

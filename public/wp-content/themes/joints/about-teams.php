@@ -46,7 +46,7 @@ get_header(); ?>
 
 					<?php endwhile; endif; ?>
 
-
+<div class="grid-container m-t40">
 						<div class="accordion-image-grid-container directors-team margin-top-50">
 							<h1 class="dark-blue"><?php echo $data_description['camp_tile']; ?></h1>
 							<p class="dark-blue margin-bottom-30"><?php echo $data_description['camp_description']; ?></p>
@@ -107,7 +107,7 @@ get_header(); ?>
 						</div>
 
                       
-					<div class="grid-container m-t40">
+					
 						<div class="visible-image-grid-container executive-team">
 							<div class="flex-container justify-space-between full-width align-center">
 								<h1 class="dark-blue"><?php echo $data_description['team_title']; ?></h1>
@@ -156,7 +156,7 @@ get_header(); ?>
 
 					<?php endwhile; endif; ?>
 
-					</div>
+					
 
 					<div class="reveal video-modal" id="videoModal" data-reveal data-reset-on-close="true">
 						<button class="close-button" data-close aria-label="Close modal" type="button" id="video-modal-close-button">
@@ -179,7 +179,7 @@ get_header(); ?>
 						</div>
 					</div>
 
-
+</div>
 			</main> <!-- end #main -->
 
 
