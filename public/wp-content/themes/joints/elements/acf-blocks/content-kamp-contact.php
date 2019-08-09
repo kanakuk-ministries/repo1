@@ -69,7 +69,7 @@ $directorsIds = array_map(function ($director) {
               <?php endforeach;?>
             <?php endif;?>
             <?php if (!empty($fields['contact_email_address'])): ?>
-              <a href="mailto:<?php $fields['contact_email_address']?>" class="button large margin-top-20">Send a Message</a>
+              <a href="mailto:<?php echo $fields['contact_email_address'];?>" class="button large margin-top-20">Send a Message</a>
             <?php endif;?>
           </div>
         </div>

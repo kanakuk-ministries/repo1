@@ -58,7 +58,7 @@ console_log(__FILE__, $fields);
 				<!-- /.modal -->
 				<?php endif;?>
 				<?php if($fields['page_link_button']):?>
-				<a class="link-btn" href="/<?php echo $fields['page_link_button'];?>"
+				<a class="link-btn" data-toggle="tooltip" title="Find out more about our 9 core beliefs." href="/<?php echo $fields['page_link_button'];?>"
 					>Find Out More</a>
 				<?php endif;?>
 			</div>

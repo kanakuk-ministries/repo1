@@ -142,7 +142,7 @@ $transportation_options = kan_get_transportation_options();
 											</a>
 										</li>
 										<li class="tabs-title">
-											<a href="#child-13">
+											<a href="#child-3">
 												Gemini
 											</a>
 										</li>
