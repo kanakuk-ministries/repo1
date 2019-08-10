@@ -118,6 +118,7 @@
                 <p class="bold margin-bottom-0">{{ value.selections.length }}</p>
                 <i @click="addKamper(value)" class="icon icon-field-plus primary large"></i>
               </div>
+              
             </div>
 
           </div>
@@ -150,13 +151,16 @@
               </div>
             </div>
           </div>
+        <div class="margin-top-30 text-center hero-search-button">
+          <a href="/search-results" class="button warning xlarge bold find-kamp-button" v-bind:class="{ 'disabled': !isValid(selected_kamp) }" @click.prevent="handleSubmit">Find Your Kamp Now</a>
+        </div>
         </div>
       </div>
     </div>
 
-    <div class="margin-top-30">
+    <!-- <div class="margin-top-30">
       <a href="/search-results" class="button warning xlarge bold find-kamp-button" v-bind:class="{ 'disabled': !isValid(selected_kamp) }" @click.prevent="handleSubmit">Find Your Kamp Now</a>
-    </div>
+    </div>-->
 
   </div>
 

@@ -401,7 +401,6 @@ ul.list-grid-accordion-container li.accordion-item {
 }
 .excursions p strong {
     opacity: 1;
-    color: #e3fc04;
 }
 
 p.white.margin-bottom-0.speaker-sub-section-requirement-text {
@@ -594,6 +593,10 @@ a:hover {
 /* 2020 speakar */
 .page-id-2403 .sub-hero-container:nth-child(odd) .hero-sub-section{
     background:#FFF;
+}
+.page-id-2403 .sub-hero-container:nth-child(odd) .hero-sub-section p.white.margin-bottom-0.hero-sub-section-requirement-text {
+    color: #003a5c !important;
+    font-weight: 600;
 }
 
 .page-id-2403 .sub-hero-container:nth-child(odd) .hero-sub-section .white.hero-sub-section-text, .page-id-2403 .sub-hero-container:nth-child(odd) p.white.about-card-description, .page-id-2403 .sub-hero-container:nth-child(odd) h3.white{
@@ -864,7 +867,7 @@ a:hover {
         min-height: 350px;
     }
     .page-id-6 .mejs-poster.mejs-layer{
-        background-position: 60% -200px;
+        /*background-position: 60% -200px;*/
     }
     .page-id-6 .hero-container.large.mb-0 {
         margin-bottom: 180px !important;
@@ -885,6 +888,7 @@ a:hover {
         height:360px;
         min-height:360px;
     }
+    
     .hero-media-container.hero-large {
         height: 58vh;
     }
@@ -892,7 +896,11 @@ a:hover {
         height: 99vh;
         min-height: 350px;
     }
-    
+   /* .hero-tabs-container.about-page.margin-bottom-60{
+        top: inherit;
+        bottom: 0;
+        margin: 0 !important;
+    } */
     .about-card-container .card-with-background-image .card-section {	   
 	    height: 100%;
 	    max-height: 100%;
@@ -908,6 +916,38 @@ a:hover {
 	.kamp-page .hero-sub-section-text {
 	    font-size: 1.5rem;
 	}
+	.about-card-container .card-with-background-image .card-section {
+        -ms-flex-order: 2;
+        order: 2;
+        margin: 1.25rem;
+        width: calc(100% - 2.5rem);
+        max-width: calc(100% - 2.5rem);
+        height: 100%;
+        max-height: 100%;
+        overflow-y: initial;
+    }
+    .list-grid-item-member-title {
+        font-size: .6rem;
+    }
+    .list-grid-item-member-name {
+        font-size: .7rem;
+    }
+    .button {
+        font-weight: 500;
+        font-size: .6rem;
+        padding: .5em;
+    }
+    .button.hollow {
+        border: 1px solid;
+    }
+    .hero-search-button{
+        padding: 0 10px;
+    }
+    .about-card-container .card {
+        height: auto;
+        max-height: 49rem;
+    }
+	
 }
 
 @media(max-width:620px){
