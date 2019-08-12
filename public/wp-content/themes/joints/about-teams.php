@@ -46,7 +46,37 @@ get_header(); ?>
 
 					<?php endwhile; endif; ?>
 
-<div class="grid-container m-t40">
+					<div class="grid-container">
+						<div class="visible-image-grid-container executive-team">
+							<div class="flex-container justify-space-between full-width align-center">
+								<h1 class="dark-blue"><?php echo $data_description['team_title']; ?></h1>
+								<a class="button" href="/contact-us">Contact Us</a>
+							</div>
+							<p class="dark-blue margin-bottom-30"><?php echo $data_description['team_description']; ?>
+</p>
+							<ul class="list-grid-container">
+								<?php
+									$i = 0;
+									foreach ($executive_staff as $executive => $this_executive):
+										if ($i === 4)
+											$i = 0;
+										$i++;
+								?>
+									<div class="staff-grid-item invisible list-grid-item block-<?php echo $i; ?>">
+										<img src="<?php echo $this_executive['member_image']['url']; ?>">
+										<div class="list-grid-item-overlay">
+											<p class="list-grid-item-member-title uppercase white text-center"><?php echo $this_executive['member_titles']; ?></p>
+											<h6 class="list-grid-item-member-name secondary bold white text-center titlecase"><?php echo $this_executive['member_name']; ?></h6>
+											<a class="button expanded" href="mailto:<?php echo $this_executive['member_email']; ?>">Contact</a>
+											<?php if(isSet($this_executive['video'])): ?>
+												<button id="videoModalButton" class="button expanded white hollow video-modal-button" data-open="videoModal" data-key="<?php echo clean($this_executive['member_name']); ?>">Watch Interview</button>
+											<?php endif; ?>
+										</div>
+									</div>
+								<?php endforeach; ?>
+							</ul>
+						</div>
+
 						<div class="accordion-image-grid-container directors-team margin-top-50">
 							<h1 class="dark-blue"><?php echo $data_description['camp_tile']; ?></h1>
 							<p class="dark-blue margin-bottom-30"><?php echo $data_description['camp_description']; ?></p>
@@ -106,38 +136,6 @@ get_header(); ?>
 							</ul>
 						</div>
 
-                      
-					
-						<div class="visible-image-grid-container executive-team">
-							<div class="flex-container justify-space-between full-width align-center">
-								<h1 class="dark-blue"><?php echo $data_description['team_title']; ?></h1>
-								<a class="button" href="/contact-us">Contact Us</a>
-							</div>
-							<p class="dark-blue margin-bottom-30"><?php echo $data_description['team_description']; ?>
-</p>
-							<ul class="list-grid-container">
-								<?php
-									$i = 0;
-									foreach ($executive_staff as $executive => $this_executive):
-										if ($i === 4)
-											$i = 0;
-										$i++;
-								?>
-									<div class="staff-grid-item invisible list-grid-item block-<?php echo $i; ?>">
-										<img src="<?php echo $this_executive['member_image']['url']; ?>">
-										<div class="list-grid-item-overlay">
-											<p class="list-grid-item-member-title uppercase white text-center"><?php echo $this_executive['member_titles']; ?></p>
-											<h6 class="list-grid-item-member-name secondary bold white text-center titlecase"><?php echo $this_executive['member_name']; ?></h6>
-											<a class="button expanded" href="mailto:<?php echo $this_executive['member_email']; ?>">Contact</a>
-											<?php if(isSet($this_executive['video'])): ?>
-												<button id="videoModalButton" class="button expanded white hollow video-modal-button" data-open="videoModal" data-key="<?php echo clean($this_executive['member_name']); ?>">Watch Interview</button>
-											<?php endif; ?>
-										</div>
-									</div>
-								<?php endforeach; ?>
-							</ul>
-						</div>
-
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 					<?php
@@ -156,7 +154,7 @@ get_header(); ?>
 
 					<?php endwhile; endif; ?>
 
-					
+					</div>
 
 					<div class="reveal video-modal" id="videoModal" data-reveal data-reset-on-close="true">
 						<button class="close-button" data-close aria-label="Close modal" type="button" id="video-modal-close-button">
@@ -179,7 +177,7 @@ get_header(); ?>
 						</div>
 					</div>
 
-</div>
+
 			</main> <!-- end #main -->
 
 
