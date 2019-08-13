@@ -24,11 +24,11 @@ get_header(); ?>
 	
 		<div class="hero-tabs-container about-page margin-bottom-60">
                 <ul class="tabs hero-tabs about-page-tabs" id="about-page-tabs">
-                  <li class="tabs-title <?php if ($key === 0) {echo 'is-active';}?>">
+                  <!--<li class="tabs-title <?php if ($key === 0) {echo 'is-active';}?>">
                         <a href="/k-kauai/2019-speakers/" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
                             2019 Speakers
                         </a>
-                    </li>
+                    </li>-->
                     <li class="tabs-title <?php if ($key === 1) {echo 'is-active';}?>">
                         <a href="/k-kauai/2020-speakers/" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
                             2020 Speakers
