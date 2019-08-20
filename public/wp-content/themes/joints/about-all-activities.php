@@ -7,6 +7,7 @@ $about_pages = array('Our Story', 'Teams', 'Our Ministries', 'All Activities', '
 $kamp_types = get_kamp_types();
 $team_activites = get_fields();
 $kamps = get_kamps();
+//echo "<pre>"; print_r($kamps);
 get_header(); 
 ?>
 <div class="content">
@@ -59,9 +60,15 @@ get_header();
 
 									<!-- Accordion content: use `is-active` state class to start in open position. -->
 									<ul class="accordion-content" data-tab-content>
-										<?php foreach ($kamps as $kamp_key => $kamp): ?>
-											<?php if ($kamp['kamp_type']->post_title === $value['title']) : ?>
-												<div class="list-grid-section-container">
+										<?php foreach ($kamps as $kamp_key => $kamp):
+											 if ($kamp['kamp_type']->post_title === $value['title']) :
+											//echo $kamp['kamp_title'] == 'Scuba Kamp'\
+											$display='block';
+											if($kamp['kamp_title'] == 'Scuba Kamp'){
+											    $display='none';
+											}
+											?>
+												<div class="list-grid-section-container" style="display:<?=$display?>">
 													<div class="flex-container align-center list-grid-section-sub-header-container">
 														<h4 class="margin-bottom-0 margin-top-15 kamp-<?php echo $value['icon_name']; ?>"><?php echo $kamp['kamp_title']; ?></h4>
 														<div class="kamp-<?php echo $value['icon_name']; ?> list-grid-section-sub-header"></div>
