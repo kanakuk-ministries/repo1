@@ -1,4 +1,4 @@
-    
+
 <?php /* Template Name: Kamp */ ?>
 <?php 
 /**
@@ -9,9 +9,7 @@
 get_header(); ?>
 
 <?php
-    global $post;
-    $postId = $post->ID;
-    $kamp_card               = get_field('kamp_card');
+	$kamp_card               = get_field('kamp_card');
 	$kamp_card->kamp_title   = get_field('kamp_title', $kamp_card->ID);
 	$kamp_card->kamp   	     = get_field('kamp', $kamp_card->ID);
 	setup_postdata($kamp_card);
@@ -28,11 +26,6 @@ get_header(); ?>
 	}
 	// pr(get_field('directors'));
 	$kamp_type_title_lowercase = strtolower($kamp_type['title']);
-	if($postId==850 || $postId== 74){
-	   $kamp_redirect_url =  "kamp-types-specialty-kamps/";
-	}else{
-	   $kamp_redirect_url = $kamp_type_title_lowercase."-kamp";
-	}
     ?>
 
 
@@ -47,7 +40,7 @@ get_header(); ?>
                     <div class="kamp-header-container" style="border-color: <?php echo $kamp_type['color'] ?>;">
                         <div class="kamp-header-inner-container grid-container">
                             <div class="kamp-header-left-container">
-                                <a class="show-for-medium kamp-header-back-link margin-right-60 flex-container align-center kamp-<?php echo $kamp_type_title_lowercase ?>" href="<?php echo $kamp_redirect_url; ?>" class="kamp-header-back-link">
+                                <a class="show-for-medium kamp-header-back-link margin-right-60 flex-container align-center kamp-<?php echo $kamp_type_title_lowercase ?>" href="/kamp-types-<?php echo $kamp_type_title_lowercase ?>-kamp" class="kamp-header-back-link">
                                     <i class="icon large icon-caret-large-left kamp-<?php echo $kamp_type_title_lowercase ?>"></i>
                                     <span>Back to Kamps</span>
                                 </a>
@@ -74,7 +67,20 @@ get_header(); ?>
                                         <span>Week</span>
                                     </h5>
                                 </div>
-                                <a id="kamp-selection" href="/" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
+                                <?php if($kamp['max_age']=='') {?>
+                                 <a id="kamp-selection" href="https://register.kanakuk.com/registration/EventSelection.aspx" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
+                                <?php }else{?>
+                                 <!--<select id="select-age" name="KampAge">
+                                 <option value="">Select Age</option>
+                                 <?php
+//                                  $age_array = range($kamp['min_age'], $kamp['max_age']);
+//                                  foreach( $age_array as $a){
+                                 ?>    
+                                <option value="<?php echo $a; ?>"><?php echo $a;?></option>
+                                <?php //}?>
+                                </select>-->
+                                 <a id="kamp-selection" href="/search-results/?tab=0&kamp_type=<?php echo $kamp['kamp_title'];?>&kamp_age=<?php echo $kamp['min_age']?>" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
+                              <?php }?>
                             </div>
                         </div>
                     </div>
