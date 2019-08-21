@@ -447,7 +447,7 @@ p.white.margin-bottom-0.speaker-sub-section-requirement-text {
     font-size: 16px;
     opacity: 5px;
 }
-
+/*for video update styloe*/
 @media print, screen and (min-width: 40em){
 .reveal {
     width: 60%;
@@ -468,6 +468,7 @@ p.white.margin-bottom-0.speaker-sub-section-requirement-text {
 .reveal-overlay .modal-embed-container.video-center {
     height: 94%!important;
 }
+/*End for video update styloe*/
 /*for video icon*/
 .video-modal .modal-embed-container img{
    /*height: 100px;*/
