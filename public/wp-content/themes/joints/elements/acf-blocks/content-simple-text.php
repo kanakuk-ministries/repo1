@@ -44,7 +44,7 @@ console_log(__FILE__, $fields);
            
             <?php if($fields['site_link']){ ?>
             <div class="mt-30">            
-            	<a href="<?php echo $fields['site_link']; ?>" class="link-btn"><?php echo $button_text; ?></a>
+            	<a href="<?php echo $fields['site_link']; ?>" target="_blank" class="link-btn"><?php echo $button_text; ?></a>
             </div>
             <?php }?>
         </div>
