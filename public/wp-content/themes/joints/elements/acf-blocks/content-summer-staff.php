@@ -15,7 +15,7 @@ console_log(__FILE__, $fields);
   <h1 class="dark-blue"><?php echo $fields['title']; ?></h1>
   <div class="summer-staff-introduction-container">
     <p class="dark-blue margin-bottom-0"><?php echo $fields['description']; ?></p>
-    <a class="button summer-staff-cta" href="#"><?php echo $fields['button_text']; ?></a>
+    <a class="button summer-staff-cta" href="<?php echo $fields['button_link']; ?>"><?php echo $fields['button_text']; ?></a>
   </div>
   <div class="summer-staff-information-grid-container">
     <div class="text-center summer-staff-information-container">
