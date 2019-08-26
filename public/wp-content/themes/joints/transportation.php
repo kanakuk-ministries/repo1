@@ -65,7 +65,7 @@ $transportation_subpages = get_children($args);
 			<li class="k-4"><a data-toggle="tab" href="#menu3">K-Kountry</a></li>
 			<li class="k-5"><a data-toggle="tab" href="#menu4">K-West</a></li>
 			<li class="k-6"><a data-toggle="tab" href="#menu5">K-Kauai</a></li>
-			<li class="k-7"><a data-toggle="tab" href="#menu6">KampOut</a></li>
+			<!--  <li class="k-7"><a data-toggle="tab" href="#menu6">KampOut</a></li>-->
 			<li class="k-8"><a data-toggle="tab" href="#menu7">WorldView Camp</a></li>
 		</ul>
 		<div class="tab-content camp-tab-content">
@@ -111,13 +111,13 @@ $transportation_subpages = get_children($args);
 						align="middle" frameborder="1" height="400" width="100%"></iframe>
 				</div>
 			</div>
-			<div id="menu6" class="tab-pane fade">
+			<!-- <div id="menu6" class="tab-pane fade">
 				<div class="grid-container m-t40">
 					<iframe frameborder="0" id="1" scrolling="yes"
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3200.746342057685!2d-93.21189698522473!3d36.656552483473234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87cf0479bdde6e29%3A0xd44ef9532a3df7b7!2s1353+Lake+Shore+Dr%2C+Branson%2C+MO+65616%2C+USA!5e0!3m2!1sen!2sin!4v1564491832820!5m2!1sen!2sin"
 						align="middle" frameborder="1" height="400" width="100%"></iframe>
 				</div>
-			</div>
+			</div> -->
 			<div id="menu7" class="tab-pane fade">
 				<div class="grid-container m-t40">
 					<iframe frameborder="0" id="1" scrolling="yes"
