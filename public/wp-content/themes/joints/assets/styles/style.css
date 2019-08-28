@@ -33,7 +33,7 @@ video::-webkit-media-controls-panel {
 .back-section-div i{
                 color:#EA502E; 
 }
-.speaker-section-height{
+.speaker-section-height{/* 26-08-2019  hide this css when add new div element */
                 height:585px;
                 min-height:585px;
 }
@@ -182,7 +182,7 @@ video::-webkit-media-controls-panel {
 .hero-media-container.hero-small,
 .hero-media-container.hero-large,
 .hero-media-container.hero-medium {
-    height: 773px;
+    height: auto;
     background-attachment: fixed;
     background-position: top center;
 }
@@ -380,12 +380,12 @@ ul.list-grid-accordion-container li.accordion-item {
 }
 .excursions.grid-container {
     margin: auto;
-    width: auto;
+    width: inherit;
     max-width: 92.75rem;
     padding: 0 5%;
 }
 .excursions h2{
-    text-align: left;
+    text-align: center;
 }
  .excursions p.white{
     opacity: .8;
@@ -447,7 +447,7 @@ p.white.margin-bottom-0.speaker-sub-section-requirement-text {
     font-size: 16px;
     opacity: 5px;
 }
-/*for video update styloe*/
+/*for video update style*/
 @media print, screen and (min-width: 40em){
 .reveal {
     width: 60%;
@@ -878,6 +878,93 @@ a:hover {
     padding: 2rem 3.4375rem;
 }
 
+/* subhero section */
+.hero-sub-section-text{
+    text-transform: uppercase;
+    font-size: 4rem;
+}
+.hero-sub-section-requirement-text{
+    text-transform: none;
+    font-size: 1.625rem;
+    font-weight: 700;
+}
+/* subhero section */
+
+/*63no search box */
+.kampers-children-added-child:nth-child(3n){
+    margin-right: 3.125rem;
+}
+.kampers-children-added-child:nth-of-type(even){
+    margin-right: 0;
+    margin-left: 60px;
+}
+.kampers-children-selection-container{
+    max-height: 35rem; 
+}
+/* End search box */
+/* issue no 4 desktop remove scrolling */
+.faqs-content-faqs-container{
+    max-height: none;
+    overflow-y: inherit;
+}
+.faqs-content-container{
+    overflow: inherit;
+    max-height: none;
+}
+.faq-tab .tab-content{
+    overflow-y: inherit;
+    max-height: none;
+}
+.faq-tab .tab-content p a{
+    word-break: break-all;
+}
+.hero-container.large {
+  /*height: 573px;
+    min-height: 573px;*/
+}
+
+.page-id-844 .hero-tabs-container.about-page, .page-id-844 .hero-tabs-container.donate-page{
+    bottom: 0;
+    margin: 0 !important;
+    top: auto;
+}
+.custom_hero{
+    position: relative;
+}
+.custom_hero .hero-tabs-container.about-page{ /* 26-08-2019 */
+    top: auto;
+    bottom: 0px;
+    margin: 0 !important; 
+}
+
+.select_age, .select_gender{
+	margin: 0 10px;
+	position: relative;
+}
+.select_age{
+	margin-left: 30px;
+}
+#select-age, #select-gender{
+       padding: 10px 12px;
+    padding-right: 27px;
+    outline: none;
+    background: transparent;
+    z-index: 1;
+    position: relative;
+    margin: 0;
+    height: auto;
+}
+.select_age:before, .select_gender:before {
+       content: "\f078";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    position: absolute;
+    right: 0;
+    margin: .78rem .5rem;
+    color:#2275ff;
+    z-index: 0;
+}
+
 /* End new style from 16july2019 jaikant */
 
 @media(max-width:991px){
@@ -973,10 +1060,24 @@ and (orientation : landscape) {
     .custom-hero-content{
         margin-top: 2rem;
     }
+   
+    .select_age, .select_gender{
+   	    margin: 0 10px 10px 10px;
+	    max-width: 150px;
+    }
 }
 @media(max-width:768px){
     .faq-tab .tab-content, .faq-tab .tab-content div{
         padding: 0px;
+    }
+    /*63no search box */
+    .kampers-children-added-child:nth-of-type(even) {
+        margin-left: 0;
+    }
+    /*End 63no search box */
+     .kamp-header-right-container{
+   	    flex-wrap: wrap;
+	    justify-content: center;
     }
 }
 @media(min-width:768px){
@@ -1099,11 +1200,12 @@ and (orientation : landscape) {
         height: auto;
         max-height: 49rem;
     }
-	.about-card-container .about-card-description{
-        font-size: inherit;
-    } 
+	/* mobile 4 no issue */
+    .about-card-container .about-card-description, .about-card-container .about-card-top p{
+        font-size: 1rem;
+    }
     .about-card-container .about-card-top p + a{
-        display: none;
+       /* display: none;*/
     } 
     .about-card-top h3.dark-blue {
         font-size: 2rem;

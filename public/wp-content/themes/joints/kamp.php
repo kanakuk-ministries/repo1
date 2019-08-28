@@ -50,7 +50,7 @@ get_header(); ?>
                                 <i class="icon kamp-icon icon-<?php echo $kamp_type_title_lowercase ?> kamp-<?php echo $kamp_type_title_lowercase ?>"></i>
                             </div>
                             <div class="kamp-header-right-container">
-                                <div class="flex-container flex-column justify-flex-start margin-right-70 margin-top-10">
+                                <div class="flex-container flex-column justify-flex-start margin-right-50 margin-top-10">
                                     <p class="uppercase card-label-text dark-gray">Age</p>
                                     <h5 class="kamp-<?php echo $kamp_type_title_lowercase ?> margin-bottom-0">
                                         <?php echo $kamp['min_age'] . ' - ' . $kamp['max_age']; ?>
@@ -70,16 +70,27 @@ get_header(); ?>
                                 <?php if($kamp['max_age']=='') {?>
                                  <a id="kamp-selection" href="https://register.kanakuk.com/registration/EventSelection.aspx" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
                                 <?php }else{?>
-                                 <!--<select id="select-age" name="KampAge">
-                                 <option value="">Select Age</option>
-                                 <?php
-//                                  $age_array = range($kamp['min_age'], $kamp['max_age']);
-//                                  foreach( $age_array as $a){
-                                 ?>    
-                                <option value="<?php echo $a; ?>"><?php echo $a;?></option>
-                                <?php //}?>
-                                </select>-->
-                                 <a id="kamp-selection" href="/search-results/?tab=0&kamp_type=<?php echo $kamp['kamp_title'];?>&kamp_age=<?php echo $kamp['min_age']?>" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
+                                
+                                    <span class="select_age flex-container flex-column">
+                                        <select id="select-age" class="form-control" name="KampAge">
+                                             <option value="">Select Age</option>
+                                             <?php
+                                          $age_array = range($kamp['min_age'], $kamp['max_age']);
+                                              foreach( $age_array as $a){
+                                             ?>    
+                                            <option value="<?php echo $a; ?>"><?php echo $a;?></option>
+                                            <?php }?>
+                                        </select>
+                                    </span>
+                                    <span class="select_gender flex-container flex-column">
+                                         <select id="select-gender" class="form-control">
+                                             <option value="">Select Gender</option>
+                                             <option value="male">Male</option>
+                                             <option value="female">Female</option>
+                                        </select>
+                                    </span>                                
+                               
+                                <a id="kamp-selection" href="#" class="show-for-medium button large margin-left-75 margin-bottom-0" onclick="createUrl()">Search Terms</a>
                               <?php }?>
                             </div>
                         </div>
@@ -89,7 +100,14 @@ get_header(); ?>
                     <a href="/" class="button margin-bottom-0">Search Terms</a>
                 </div>
             </div>
-
+			<script>
+				function createUrl(){
+					var gender = $('#select-gender').val();
+					var age = $('#select-age').val();
+					var kamp = '<?php echo $kamp['kamp_title']; ?>';
+					window.location.href = '/search-results/?tab=0'+'&kamp_type='+kamp+'&kamp_age='+age+'&kamp_gender='+gender;
+				}
+			</script>
 
 
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>

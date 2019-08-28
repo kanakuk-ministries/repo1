@@ -20,25 +20,40 @@
 //     exit;
 // }
 // get the current registration to display
-$registration = array_extract($_SESSION, 'registrations.' . $_GET['tab']);
-//echo "step 1<pre>"; print_r($registration); 
-if (isset($_GET['kamp_type'])) {
-$kamp_session = array();
-$kamp_age= $_GET['kamp_age'];
- $sessionArray =  array(
-           'type' => "child",
+if(isset($_GET['kamp_type']) && $_GET['kamp_type'] != ''){
+    $kamp_age= $_GET['kamp_age'];
+    $kamp_gender= $_GET['kamp_gender'];
+    $tab = $_GET['tab'];
+    $_SESSION['kamp_type_manual'] = $_GET['kamp_type'];
+    $_SESSION['registrations'] = array(
+        $tab=>array(
+            'type' => "child",
             "age" => $kamp_age,
-            "gender" => "male"
-        
-        );
- array_push($kamp_session,$sessionArray);
-    
-    $registration =  array(
-        'type' => "child",
-        "age" => $kamp_age,
-        "gender" => "male" 
+            "gender" => $kamp_gender
+            )
         
     );
+}
+$registration = array_extract($_SESSION, 'registrations.' . $_GET['tab']);
+//print_r($registration);
+//echo "step 1<pre>"; print_r($registration); 
+if (isset($_GET['kamp_type'])) {
+    $kamp_session = array();
+    $kamp_age= $_GET['kamp_age'];
+     $sessionArray =  array(
+               'type' => "child",
+                "age" => $kamp_age,
+                "gender" => "male"
+            
+            );
+     array_push($kamp_session,$sessionArray);
+        
+//         $registration =  array(
+//             'type' => "child",
+//             "age" => $kamp_age,
+//             "gender" => "male" 
+            
+//         );  
     
  }
 
@@ -53,12 +68,13 @@ $kamp_titles = get_kamp_titles();
 //echo "step 1<pre>"; print_r($kamp_titles);
 if (isset($_GET['kamp_type'])) {
     $kamp_titles = array($_GET['kamp_type']);
+}elseif(isset($_SESSION['kamp_type_manual'])) {
+    $kamp_titles = array($_SESSION['kamp_type_manual']);
 }
 $kamps = array_flip($kamp_titles);
 //echo "step 1b<pre>"; print_r($kamps);
 // the kamps from the API
 $ct_kamps = kan_get_circuitree_kamps();
-//echo "step 1c<pre>"; print_r($kamps);
 /*
                    .
          /^\     .
@@ -83,16 +99,16 @@ _/j  L l\_!  _//^---^\\_
 
 foreach ($kamps as $key => $val) {
     $kamps[$key] = get_kamp_by_title($key);
-   // echo "insideforeach <pre>"; print_r($kamps);
     $kamps[$key]['circuitree'] = [];
     $kamps[$key]['type'] = get_kamp_type($kamps[$key]['kamp_type']);
     $kamps[$key]['visible'] = true;
-
     foreach ($ct_kamps['Results'] as $ct_kamp_event) {
+       // echo "<pre>"; print_r($ct_kamp_event);
         $short_title = substr($ct_kamp_event['CostCenterName'], 0, strpos($ct_kamp_event['CostCenterName'], ' '));
+       // echo "<pre>short title"; print_r($short_title);
         if (stripos($key, $short_title) !== false) {
             $ct_kamp_event['KampName'] = $key;
-            //echo "<pre>"; print_r($ct_kamp_event);
+            //echo "<pre>step3CA"; print_r($ct_kamp_event);
             $ct_kamp_event['Month'] = date('F', strtotime($ct_kamp_event['BeginDate']));
             $ct_kamp_event['visible'] = true;
             $ct_kamp_event['CityState'] = $ct_kamp_event['City'] . ', ' . $ct_kamp_event['StateAbbreviation'];
@@ -103,8 +119,12 @@ foreach ($kamps as $key => $val) {
 
 // now that we have a set of possible events, let's remove the ones that aren't valid for the current registrant
 foreach ($kamps as $key => $kamp) {
+    //echo "<pre>kampdata"; print_r($kamps);
+    //echo "<pre>kampdata"; print_r($kamps);
     $kamps[$key]['circuitree'] = array_values(array_filter($kamp['circuitree'], function($val) use ($registration) {
         // return false if wrong gender
+        //echo "genderred"; print_r($registration);
+        //echo "val"; print_r($val);
         if (strtolower(substr($registration['gender'], 0, 1)) != strtolower(substr($val['Gender'], 0, 1))) {
             return false;
         }
@@ -121,8 +141,8 @@ foreach ($kamps as $key => $kamp) {
 }
 
 // filter out empties
-$kamps = array_filter($kamps);
 //echo "step 1d<pre>"; print_r($kamps);
+$kamps = array_filter($kamps);
 
 // make overnight kamps show up first
 uasort($kamps, function($a, $b) {
@@ -163,7 +183,7 @@ get_header();?>
                     if (isset($_GET['kamp_type'])) {
                         
                         echo element('search-results/tabs', [
-                            'registrations' => $kamp_session,
+                            'registrations' => $_SESSION['registrations'],
                             'current'       => $_GET['tab']
                         ]); 
                         
@@ -203,12 +223,12 @@ get_header();?>
                                     <p class="search-selection-label uppercase dark-gray margin-bottom-0">Your selection</p>
                                 </div>
                                 <!-- Selection made state -->
-                                <?php echo element('search-results/your-selection', [
-                                    'kamps'        => $kamps,
-                                    'registration' => $registration
-                                    
-                                ]); 
-                               // echo "step 3";
+                                <?php
+                                    echo element('search-results/your-selection', [
+                                        'kamps'        => $kamps,
+                                        'registration' => $registration
+                                        
+                                    ]);
                                 ?>
                             </div>
 
