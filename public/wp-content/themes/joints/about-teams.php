@@ -58,16 +58,39 @@ get_header(); ?>
 								<?php
 									$i = 0;
 									foreach ($executive_staff as $executive => $this_executive):
-										if ($i === 4)
+									$memberId = $this_executive['member_image']['ID'];
+									   if ($i === 4)
 											$i = 0;
 										$i++;
 								?>
+								<!-- Member description modal -->												
+				<div id="myModal<?php echo $memberId;?>"
+					class="modal fade popout-about-card">
+					<div class="modal-dialog modal-lg aboutInfoModal">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="close" type="button" data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</button>
+								<h4 class="modal-title card-section"><?php echo $this_executive['member_name'];?></h4>
+							</div>
+							<div class="modal-body customModalBody"><?php echo $this_executive['member_description']; ?></div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+								
 									<div class="staff-grid-item invisible list-grid-item block-<?php echo $i; ?>">
 										<img src="<?php echo $this_executive['member_image']['url']; ?>">
 										<div class="list-grid-item-overlay">
 											<p class="list-grid-item-member-title uppercase white text-center"><?php echo $this_executive['member_titles']; ?></p>
 											<h6 class="list-grid-item-member-name secondary bold white text-center titlecase"><?php echo $this_executive['member_name']; ?></h6>
 											<a class="button expanded" href="mailto:<?php echo $this_executive['member_email']; ?>">Contact</a>
+											<?php if(isSet($this_executive['member_description'])): ?>
+												<button class="button expanded white hollow"><a href="#myModal<?php echo $memberId;?>"
+					data-toggle="modal" class="white">Member Description</a></button>
+											<?php endif; ?>
 											<?php if(isSet($this_executive['video'])): ?>
 												<button id="videoModalButton" class="button expanded white hollow video-modal-button" data-open="videoModal" data-key="<?php echo clean($this_executive['member_name']); ?>">Watch Interview</button>
 											<?php endif; ?>
