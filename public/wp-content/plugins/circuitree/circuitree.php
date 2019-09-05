@@ -185,6 +185,7 @@ function kan_register()
             $token['EncryptedEntityID'],
             $response['RegistrationCartID']
         );
+        
     }
     else {
         $client = CircuiTreeApiFactory::create();
@@ -230,7 +231,7 @@ function kan_get_circuitree_kamps()
     return $kamps;
 }
 
-function kan_get_transportation_options()
+function kan_get_transportation_options($regId = '')
 {
     $trans = get_transient('circuitree_get_transportation_options');
 
@@ -247,7 +248,7 @@ function kan_get_transportation_options()
             $client->authenticate();
         }
 
-        $trans = $client->getTransportationOptions();
+        $trans = $client->getTransportationOptions($regId);
         set_transient('circuitree_get_transportation_options', $trans, strtotime(CT_API_CACHE_DURATION));
     }
 
@@ -328,6 +329,32 @@ function kan_get_family_info()
     return $family_info;
 }
 
+function kan_get_registration_info($child_enity ='')
+{
+    $reg_info = get_transient('circuitree_get_reg_info');
+    
+    if (!CT_API_CACHE || (empty($reg_info) || $reg_info['StatusCode'] !== 1)) {
+        $token = array_extract($_SESSION, 'circuitree.auth.api_token');
+        if ($token) {
+            $client = CircuiTreeApiFactory::create([
+                'api_token' => $token
+            ]);
+            $client->setAuthResponse(array_extract($_SESSION, 'circuitree.auth'));
+        }
+        else {
+            $client = CircuiTreeApiFactory::create();
+            $client->authenticate();
+        }
+        
+        $reg_info = $client->getRegistrationInfo($child_enity);
+        set_transient('circuitree_get_reg_info', $reg_info, strtotime(CT_API_CACHE_DURATION));
+    }
+    
+    return $reg_info;
+}
+
+
+
 /**************************************************************************************************************************
  * Login-related API Calls
  */
@@ -348,6 +375,7 @@ function kan_login()
         $response = $client->authenticate([
             'Username' => $_POST['username'],
             'Password' => $_POST['password'],
+            'CompanyCode' => $_POST['company_code']
         ], true);
 
         // ok, we logged in successfully

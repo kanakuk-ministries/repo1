@@ -61,7 +61,7 @@ class CircuiTreeApiClient {
             'ApiToken'  => $this->attr('api_token'),
             'Attendees' => $attendees
         ];
-
+        echo "<pre>"; print_r($data);
         return $this->send($this->attr('base_url') . $this->attr('url_code') . '/Registration/CreateCart.json', $data);
     }
 
@@ -87,15 +87,16 @@ class CircuiTreeApiClient {
         return $this->send($this->attr('base_url') . $this->attr('url_code') . '/Transportation/GetCharterAvailability.json', $data);
     }
 
-    public function getTransportationOptions()
+    public function getTransportationOptions($regId = '')
     {
+        $registrationId = $regId != '' ? $regId : $this->auth_response['EntityID'];
         $data = [
             'ApiToken'        => $this->attr('api_token'),
             'ExportQueryID'   => 1616,
             'QueryParameters' => [
                 [
                     'ParameterID' => 27,
-                    'ParameterValue' => $this->auth_response['EntityID']
+                    'ParameterValue' => $registrationId
                 ]
             ]
         ];
@@ -103,7 +104,7 @@ class CircuiTreeApiClient {
         return $this->send($this->attr('base_url') . $this->attr('url_code') . '/Exports/ExecuteQuery.json', $data);
     }
 
-    public function getRegistrationInfo()
+    public function getRegistrationInfo($child_enity='')
     {
         $data = [
             'ApiToken'        => $this->attr('api_token'),
@@ -111,7 +112,7 @@ class CircuiTreeApiClient {
             'QueryParameters' => [
                 [
                     'ParameterID' => 43,
-                    'ParameterValue' => $this->auth_response['EntityID']
+                    'ParameterValue' => $child_enity
                 ]
             ]
         ];
@@ -166,6 +167,7 @@ class CircuiTreeApiClient {
     // returns json response from endpoint
     public function authenticate($options = [], $is_entity = false)
     {
+       
         $defaults = [
             'AuthenticateForEntity' => $is_entity,
             'CompanyCode'           => $is_entity ? $this->attr('company_abbr') : $this->attr('company_code'),
@@ -173,9 +175,17 @@ class CircuiTreeApiClient {
             'Password'              => $this->attr('password'),
             'APIKey'                => $this->attr('api_key'),
         ];
+        
 
+//         $defaults = [
+//             'AuthenticateForEntity' => true,
+//             'CompanyCode'           => $this->attr('company_code'),
+//             'Username'              => $this->attr('username'),
+//             'Password'              => $this->attr('password'),
+//             'APIKey'                => $this->attr('api_key'),
+//         ];
         $data = array_merge($defaults, $options);
-
+ 
         try {
             $response = $this->send($this->attr('base_url') . 'Authentication/Authenticate.json', $data);
             if ($response['StatusCode'] === 1) {
