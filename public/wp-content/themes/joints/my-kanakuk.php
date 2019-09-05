@@ -147,12 +147,12 @@ $child_first = $family_infomartion['Results'][0];
 										$class = $i == 1 ?'is-active' : '';	
 										?>
 										<li class="tabs-title <?=$class?>" data-image="<?php echo $child_information['ChildPhotoURL']; ?>" data-name="<?php echo $child_information['ChildFirstName'].' '.$child_information['ChildLastName'];?>">
-											<a href="#child-<?php echo $i;?>">
+											<a href="#child-<?php echo $i;?>"  data-link='0'>
 												<?php echo $child_information['ChildFirstName']; ?>
 											</a>
 										</li>
 										<?php if($child_information['HasFamilyKampReg']):?>
-										<li class="tabs-title">
+										<li class="tabs-title"   data-link='0'>
 											<a href="#">
 												Family
 											</a>
@@ -162,7 +162,7 @@ $child_first = $family_infomartion['Results'][0];
 										$i++; 
 										endforeach;
 										?>
-										<li class="tabs-title"><a href="/" class="primary">+ New Kamper</a></li>
+										<li class="tabs-title"><a href="/" class="primary" data-link='1'>+ New Kamper</a></li>
 									</ul>
 									<?php 
 										$i=1;
@@ -180,7 +180,7 @@ $child_first = $family_infomartion['Results'][0];
 											<div class="card flat outline my-kan-info-card full-width padding-left-0 padding-right-0 padding-top-0 padding-bottom-0">
 												<p class="uppercase dark-gray small-text bold my-kan-card-padding margin-bottom-0">
 													<span>Registrations</span>
-													<a href="#" class="primary margin-left-15 titlecase">View All</a>
+													<a class="primary bold margin-left-10 small-text" data-open="registration-<?php echo $i; ?>">View Details</a>
 												</p>
 												<div class="my-kan-registration-heading grid-x align-center">
 													<p class="white italic bold small-text medium-2">Pending</p>
@@ -233,7 +233,7 @@ $child_first = $family_infomartion['Results'][0];
     														<td></td>
     														<td></td>
     														<td>
-																<a class="primary bold margin-left-10 small-text" data-open="packinglist-1">View Details</a>
+																<a class="primary bold margin-left-10 small-text" data-open="packinglist-<?php echo $i;?>">View Details</a>
     														</td>
     													</tr>
     													<tr>
@@ -340,6 +340,61 @@ $child_first = $family_infomartion['Results'][0];
 													</tbody>
 													
 												</table>
+												<div class="reveal small transportation-details-modal" id="registration-<?php echo $i; ?>" data-reveal>
+                                                		<h5 class="dark-blue">
+                                                			Registration Details
+                                                		</h5>
+                                                		<ul class="margin-bottom-15">
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Name</span>
+                                                				<?php echo $reg_information['FirstName']; ?>
+                                                				<?php echo $reg_information['LastName']; ?>
+                                                			</li>
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">AGE</span>
+                                                				<?php echo $reg_information['Age']; ?>
+                                                			</li>
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Gender</span>
+                                                				<?php echo $reg_information['Gender']; ?>
+                                                			</li>
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Location</span>
+                                                				<?php echo $reg_information['Location']; ?>
+                                                			</li>
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Registation Balance</span>
+                                                				
+                                                				<?php echo $reg_information['RegistationBalance']; ?>
+                                                			</li>
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Health Form Status</span>
+                                                				
+                                                				<?php echo $reg_information['HealthFormComplete']; ?>
+                                                			</li>
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Emergency Contacts</span>
+                                                				
+                                                				<?php echo $reg_information['EmergencyContacts']; ?>
+                                                			</li>
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Legal Terms Complete Status</span>
+                                                				
+                                                				<?php echo $reg_information['LegalTermsComplete']; ?>
+                                                			</li>
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Store Card Balance</span>
+                                                				
+                                                				<?php echo $reg_information['StoreCardBalance']; ?>
+                                                			</li>
+                                                		</ul>
+                                                		<button class="close-button" data-close aria-label="Close modal" type="button">
+                                                			<span aria-hidden="true">&times;</span>
+                                                		</button>
+                                                	</div>
+												
+												
+												
 												<?php 
 												$transportation_options = kan_get_transportation_options($reg_information['RegistrationID']);
 												foreach ($transportation_options['Results'] as $key => $item): 
@@ -391,7 +446,7 @@ $child_first = $family_infomartion['Results'][0];
                                                 	</div>
 												<?php endforeach; ?>
 													</div>
-													<div class="reveal small transportation-details-modal" id="packinglist-1" data-reveal>
+													<div class="reveal small transportation-details-modal" id="packinglist-<?php echo $i;?>" data-reveal>
 														<img src='<?php echo $reg_information['PackingListURL'];?>' class="img-responsive">
 														<button class="close-button" data-close aria-label="Close modal" type="button">
                                                 			<span aria-hidden="true">&times;</span>
@@ -431,16 +486,21 @@ $child_first = $family_infomartion['Results'][0];
 
         <script type="text/javascript">
         $(document).on('click','#my-kanakuk-tabs li a',function(e){
-            e.preventDefault();
-        	var idToMakeActive = $(this).attr('href');
-        	$('#my-kanakuk-tabs li').removeClass('is-active');
-        	$('.tabs-content div').removeClass('is-active');
-        	var image = $(this).parent('li').data('image');
-        	var name = $(this).parent('li').data('name');
-        	$('#userName').html(name);
-        	$('#userImage').css('background-image','url('+image+')');
-        	$(this).parent('li').addClass('is-active');
-        	$(idToMakeActive).addClass('is-active');
+        	if($(this).data('link')==0){
+        		   e.preventDefault();
+               	var idToMakeActive = $(this).attr('href');
+               	$('#my-kanakuk-tabs li').removeClass('is-active');
+               	$('.tabs-content div').removeClass('is-active');
+               	var image = $(this).parent('li').data('image');
+               	var name = $(this).parent('li').data('name');
+               	$('#userName').html(name);
+               	$('#userImage').css('background-image','url('+image+')');
+               	$(this).parent('li').addClass('is-active');
+               	$(idToMakeActive).addClass('is-active');
+            	
+            	}
+            
+         
         	})
         </script>
         <?php get_sidebar();?>
