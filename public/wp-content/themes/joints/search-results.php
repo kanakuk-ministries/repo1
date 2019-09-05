@@ -35,7 +35,7 @@ if(isset($_GET['kamp_type']) && $_GET['kamp_type'] != ''){
     );
 }
 $registration = array_extract($_SESSION, 'registrations.' . $_GET['tab']);
-//print_r($registration);
+
 //echo "step 1<pre>"; print_r($registration); 
 if (isset($_GET['kamp_type'])) {
     $kamp_session = array();

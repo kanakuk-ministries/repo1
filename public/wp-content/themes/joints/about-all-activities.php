@@ -13,8 +13,9 @@ get_header();
 <div class="content">
     <div class="inner-content grid-x grid-margin-x">
 		<main class="main small-12 medium-12 large-12 cell tabs-view about-page-main" role="main">
+            <div class="custom_hero">
             <div class="hero-tabs-container about-page margin-bottom-60">
-                <ul class="tabs hero-tabs about-page-tabs" id="about-page-tabs">
+                <ul class="tabs hero-tabs about-page-tabs" id="about-page-tabs">                
                     <?php foreach ($about_pages as $key => $value): ?>
                     <li class="tabs-title <?php if ($key === 0) {echo 'is-active';}?>">
                         <a href="about-<?php echo str_replace(' ', '-', strtolower($value)); ?>" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
@@ -41,14 +42,14 @@ get_header();
 					?>
 			    
 					<?php endwhile; endif; ?>	
-                
+                </div>
 					<div class="grid-container">
 						<div class="accordion-image-grid-container margin-top-50">
 							<h1 class="dark-blue"><?php echo $team_activites['team_title']; ?></h1>
 							<p class="dark-blue margin-bottom-30"><?php echo $team_activites['team_description']; ?></p>
 							<ul class="accordion list-grid-accordion-container" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
 							<?php foreach ($kamp_types as $key => $value): ?>
-								<li class="accordion-item <?php if ($key === 0) { echo 'is-active'; }; ?>" data-accordion-item>
+								<li class="accordion-item <?php if ($key === 0) { echo ''; }; ?>" data-accordion-item>
 									<!-- Accordion title -->
 									<a href="#" class="accordion-title list-grid-accordion-title-container" style="background-color: <?php echo $value['color']; ?>">
 										<div class="accordion-title-icon-container"><i class="icon large white"></i></div>

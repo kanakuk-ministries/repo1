@@ -105,7 +105,7 @@ get_header(); ?>
 							<p class="dark-blue margin-bottom-30"><?php echo $data_description['camp_description']; ?></p>
 							<ul class="accordion list-grid-accordion-container" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
 								<?php foreach ($kamp_types as $key => $value):?>
-									<li class="accordion-item is-active" data-accordion-item>
+									<li class="accordion-item" data-accordion-item>
 										<!-- Accordion title -->
 										<a href="#" class="accordion-title list-grid-accordion-title-container" style="background-color: <?php echo $value['color']; ?>">
 											<div class="accordion-title-icon-container"><i class="icon large white"></i></div>

@@ -13,9 +13,11 @@ $charters = kan_get_charter_availability();
        $cityBusList = [];
        foreach ($charters as $value) {
             foreach ($value['CharterAvailabilityList'] as $value) {
+                if($value['Capacity'] != '0'){
                 array_push($cityBusList,$value);
-            }
-        }
+                }
+             }
+       }
         
         $charters = [];
         foreach ($cityBusList as $key => $city){

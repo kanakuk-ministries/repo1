@@ -211,14 +211,9 @@ body.page-id-2396 .hero-media-container.hero-medium{
 }
 .parallax-sliderhh > .hero-media-container.hero-large {
     background-attachment: fixed;
-    background-position: top center;
+    background-position: 50% center;
 }
-/*.kamp-trait-card-container:nth-child(2n) .card-with-background-image {
-    background-position: -70px;
-}
-.kamp-trait-card-container:nth-child(odd) .card-with-background-image {
-    background-position: 170%;
-}*/
+
 .embed-container .wp-video-shortcode video, .embed-container video.wp-video-shortcode {
     bottom: 65%;
 }
@@ -965,7 +960,44 @@ a:hover {
     z-index: 0;
 }
 
-/* End new style from 16july2019 jaikant */
+.vidyard-player-container img.vidyard-lightbox-image {
+    display: none;
+}
+.modal-embed-container.video-center .vidyard-player-container .play-button{
+	width: 23.2%;
+}
+#vidyard-overlay-wrapper #vidyard-content-fixed{
+	z-index:999999;
+}
+#vidyard-overlay-wrapper #vidyard-overlay{
+    z-index: 999;
+}
+#vidyard-popbox{
+	width: 100%;
+}
+
+/* 02-09-2019 */
+.page-id-24 .flex-container.justify-space-between.full-width.align-center {
+    margin-top: 50px;
+}
+.kamp-header-container-background .h5, .kamp-header-container-background h5{
+    font-size: 2rem;
+}
+.kamp-header-container-background .h3,.kamp-header-container-background  h3 {
+    font-size: 3rem;
+}
+
+.bottom-video-box{
+	min-height: 100px;
+    padding: 10px 0;
+}
+
+.bottom-video-box .video-modal .modal-embed-container.video-center{
+	    overflow: inherit;
+}
+
+
+/* End new style from jaikant */
 
 @media(max-width:991px){
 	/*this CSS for hero image display properly in responsvie view*/
@@ -1079,6 +1111,12 @@ and (orientation : landscape) {
    	    flex-wrap: wrap;
 	    justify-content: center;
     }
+    .bottom-video-box .video-modal .modal-embed-container img{
+		max-width:60px;
+	}
+	.modal-embed-container.video-center .vidyard-player-container .play-button {
+    	width: 15.2%;
+	}
 }
 @media(min-width:768px){
     .card-date-wrapper {
@@ -1154,17 +1192,34 @@ and (orientation : landscape) {
 	}
 	.about-card-container .card-with-background-image .media-container {	   
 	    min-height: 256px;
+	   position: relative;
 	}
+	.embed-container, .video-modal .modal-embed-container.video-center{/*03-09-2019*/
+        position: absolute;
+        width: 100%;
+    }
+    .video-modal .modal-embed-container img{/*03-09-2019*/
+        width: 55px;
+    }
+	.vidyard-player-container{
+	height: 100% !important;
+	}
+	.video-modal{
+        position: absolute; 
+    	width: 100%;
+    }
+    .about-card-container .card {
+	    height: auto;
+	    max-height: 100%;
+    }
 	.about-card-container .card {
-	    height: 49rem;
-	    max-height: 49rem;
+	   /*height: 49rem;
+	    max-height: 49rem;*/
 	}
 	.kamp-page .hero-sub-section-text {
 	    font-size: 1.5rem;
 	}
-	.hero-media-container.hero-large {
-        height: 58vh;
-    }
+	
     .page-id-844 .hero-container.small .inner {
         height: 99vh;
         min-height: 350px;
@@ -1178,6 +1233,10 @@ and (orientation : landscape) {
         height: 100%;
         max-height: 100%;
         overflow-y: initial;
+    }
+    .video-modal .modal-embed-container.video-center .vidyard-player-container .vidyard-lightbox-centering{
+	    height: 100%;
+	    padding-bottom: inherit !important;
     }
     .list-grid-item-member-title {
         font-size: .6rem;
@@ -1208,8 +1267,10 @@ and (orientation : landscape) {
        /* display: none;*/
     } 
     .about-card-top h3.dark-blue {
-        font-size: 2rem;
-    } 
+        font-size: 2.5rem;
+    }
+    
+     
 }
 
 @media(max-width:620px){

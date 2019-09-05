@@ -12,7 +12,10 @@ console_log('kan_get_family_info',kan_get_family_info());
 console_log('kan_get_transportation_options', kan_get_transportation_options());
 
 $transportation_options = kan_get_transportation_options();
-
+$family_infomartion = kan_get_family_info();
+//echo "<pre>family"; print_r($family_infomartion);
+$registration_count = kan_get_registration_count();
+$child_first = $family_infomartion['Results'][0];
 ?>
 
 <div class="content">
@@ -24,10 +27,10 @@ $transportation_options = kan_get_transportation_options();
 						<div class="blue-bg">
 							<div class="my-kan-header grid-container grid-x padding-top-70">
 								<div class="my-kan-header my-kan-user-info medium-4 padding-right-20">
-									<div class="avatar avatar-rectangle" style="background-image: url(https://kanakuk-dev.s3.amazonaws.com/uploads/Rebecca-Duncan.jpg)"></div>
-									<h6 class="white secondary titlecase margin-top-10 margin-bottom-0">Mary Greene</h6>
+									<div class="avatar avatar-rectangle" id="userImage" style="background-image: url(<?php echo $child_first['ChildPhotoURL']; ?>)"></div>
+									<h6 class="white secondary titlecase margin-top-10 margin-bottom-0" id="userName"><?php echo $child_first['ChildFirstName'].' '.$child_first['ChildLastName']; ?></h6>
 									<p class="white small-text pointer">Edit Profile</p>
-									<a href="/" class="tiny button">New Registration</a>
+									<a href="https://staging-events.kanakuk.com/" class="tiny button">New Registration</a>
 								</div>
 							</div>
 						</div>
@@ -52,19 +55,24 @@ $transportation_options = kan_get_transportation_options();
 												<ul class="dropdown menu" data-dropdown-menu data-disable-hover="true" data-click-open="true" data-close-on-click="true" data-v-offset="5" data-position="bottom" data-alignment="center">
 													<li class="full-width">
 														<a class="flex-container justify-space-between search-filter-text dark-blue bold" href="#">{{ calendar_kamper }}</a>
+														
 														<ul class="menu">
+									
 																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarKamper('All Kampers')">
 																	<a href="#">All Kampers</a>
 																</li>
-																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarKamper('Cindy')">
-																	<a href="#">Cindy</a>
+																							<?php 
+										$i=1;
+										foreach($family_infomartion['Results'] as $child_information):
+										
+										$child_enitiy = $child_information['ChildEntityID'];
+										$registration_info = kan_get_registration_info($child_enitiy);
+										     
+										?>
+																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarKamper('<?php echo $child_information['ChildFirstName'];?>')">
+																	<a href="#"><?php echo $child_information['ChildFirstName'];?></a>
 																</li>
-																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarKamper('Ashley')">
-																	<a href="#">Ashley</a>
-																</li>
-																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarKamper('Gemini')">
-																	<a href="#">Gemini</a>
-																</li>
+																<?php endforeach;?>
 														</ul>
 													</li>
 												</ul>
@@ -77,19 +85,19 @@ $transportation_options = kan_get_transportation_options();
 																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarLength('3 Days')">
 																	<a href="#">3 Days</a>
 																</li>
-																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarKamper('10 Days')">
+																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarLength('10 Days')">
 																	<a href="#">10 Days</a>
 																</li>
-																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarKamper('1 Month')">
+																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarLength('1 Month')">
 																	<a href="#">1 Month</a>
 																</li>
-																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarKamper('3 Months')">
+																<li class="kamp-type-dropdown-option-item" v-on:click="selectCalendarLength('3 Months')">
 																	<a href="#">3 Months</a>
 																</li>
-														</ul>
-													</li>
-												</ul>
-											</div>
+														    </ul>
+													    </li>
+												   </ul>
+											  </div>
 										</div>
 									</div>
 									<div class="my-kan-calendar-container padding-right-10" id="my-kan-calendar-container">
@@ -130,106 +138,45 @@ $transportation_options = kan_get_transportation_options();
 
 							<div class="medium-8 my-kan-right-container padding-left-30">
 								<div class="my-kan-tabs-container" ref="tabContainer">
+								
 									<ul class="tabs secondary margin-left-25" id="my-kanakuk-tabs">
-										<li class="tabs-title is-active">
-											<a href="#child-1">
-												Cindy
+										
+										<?php 
+										$i=1;
+										foreach($family_infomartion['Results'] as $child_information):
+										$class = $i == 1 ?'is-active' : '';	
+										?>
+										<li class="tabs-title <?=$class?>" data-image="<?php echo $child_information['ChildPhotoURL']; ?>" data-name="<?php echo $child_information['ChildFirstName'].' '.$child_information['ChildLastName'];?>">
+											<a href="#child-<?php echo $i;?>">
+												<?php echo $child_information['ChildFirstName']; ?>
 											</a>
 										</li>
+										<?php if($child_information['HasFamilyKampReg']):?>
 										<li class="tabs-title">
-											<a href="#child-2">
-												Ashley
+											<a href="#">
+												Family
 											</a>
 										</li>
-										<li class="tabs-title">
-											<a href="#child-3">
-												Gemini
-											</a>
-										</li>
+										<?php 
+										endif;
+										$i++; 
+										endforeach;
+										?>
 										<li class="tabs-title"><a href="/" class="primary">+ New Kamper</a></li>
 									</ul>
-
+									<?php 
+										$i=1;
+										foreach($family_infomartion['Results'] as $child_information):
+										
+										$registration_info = kan_get_registration_info($child_information['ChildEntityID']);
+										
+										foreach($registration_info['Results'] as $reg_information):
+                                        $class = $i == 1 ?'is-active' : '';					
+										?>
 									<div class="tabs-content" data-tabs-content="my-kanakuk-tabs">
-										<div class="tabs-panel my-kan-tabs-content-container is-active" id="child-1">
+										<div class="tabs-panel my-kan-tabs-content-container <?=$class?>" id="child-<?php echo $i;?>">
 
-											<div class="flex-container align-center full-width">
-												<div class="card flat outline my-kan-info-card fixed-height flex-3 margin-right-20">
-													<p class="uppercase dark-gray small-text bold">
-														<span>Kamper Profile</span>
-														<a href="#" class="primary margin-left-15 titlecase">Edit</a>
-													</p>
-													<div class="flex-container align-center full-width justify-flex-start">
-														<div class="avatar medium" style="background-image: url(https://kanakuk-dev.s3.amazonaws.com/uploads/why-kanakuk-2.png)"></div>
-														<div class="margin-left-20">
-															<p class="bold dark-blue small-text margin-bottom-5">Cindy Greene</p>
-															<p class="dark-blue small-text margin-bottom-5">Child, Age 9</p>
-															<p class="dark-blue small-text margin-bottom-5">2 Registrations</p>
-														</div>
-													</div>
-												</div>
-												<div class="card flat outline my-kan-info-card fixed-height flex-5">
-													<p class="uppercase dark-gray small-text bold">
-														<span>Store Credit</span>
-														<a href="#" class="primary margin-left-15 titlecase">View All</a>
-													</p>
-													<div class="flex-container flex-row align-center full-width justify-space-between">
-														<div class="flex-container flex-column align-center justify-flex-start flex-2">
-															<p class="tiny-text bold medium-gray margin-bottom-5">Current Balance</p>
-															<h6 class="secondary bold dark-blue margin-bottom-15">$200.00</h6>
-															<a href="#" class="primary margin-left-15 titlecase bold small-text">Add Credit</a>
-														</div>
-														<div class="flex-3">
-															<div class="flex-container align-center justify-space-between full-width">
-																<p class="small-text dark-blue">$50.00 Added</p>
-																<p class="small-text dark-blue bold">{{ moment('7/1/2018').format("MMM DD, YYYY") }}</p>
-															</div>
-															<div class="flex-container align-center justify-space-between full-width">
-																<p class="small-text dark-blue">$100.00 Added</p>
-																<p class="small-text dark-blue bold">{{ moment('6/21/2018').format("MMM DD, YYYY") }}</p>
-															</div>
-															<div class="flex-container align-center justify-space-between full-width">
-																<p class="small-text dark-blue">$25.00 Added</p>
-																<p class="small-text dark-blue bold">{{ moment('6/20/2018').format("MMM DD, YYYY") }}</p>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="flex-container align-center full-width">
-												<div class="card flat outline my-kan-info-card fixed-height flex-3 margin-right-20">
-													<p class="uppercase dark-gray small-text bold">
-														<span>Health Form</span>
-														<a href="#" class="primary margin-left-15 titlecase">Edit</a>
-													</p>
-													<div class="flex-container flex-column align-center full-width">
-														<p class="tiny-text bold medium-gray margin-bottom-5">Completion</p>
-														<h6 class="secondary bold dark-blue margin-bottom-15">100%</h6>
-														<p class="dark-blue bold small-text">
-															<span>Updated on </span>
-															<span class="green">{{ moment('7/3/2018').format("MMM DD, YYYY") }}</span>
-														</p>
-													</div>
-												</div>
-												<div class="card flat outline my-kan-info-card fixed-height flex-5">
-													<p class="uppercase dark-gray small-text bold">
-														<span>Emergency Contacts</span>
-														<a href="#" class="primary margin-left-15 titlecase">Edit</a>
-													</p>
-													<div class="flex-container align-center full-width">
-														<div class="flex-container flex-column align-center justify-flex-start flex-1">
-															<p class="tiny-text bold medium-gray margin-bottom-5">Primary Contact</p>
-															<h6 class="secondary bold dark-blue titlecase">Mary Greene</h6>
-															<a class="dark-blue small-text" href="tel:404-221-1982">(404) 221-1982</a>
-														</div>
-														<div class="flex-container flex-column align-center justify-flex-start flex-1">
-															<p class="tiny-text bold medium-gray margin-bottom-5">Secondary Contact</p>
-															<h6 class="secondary bold dark-blue titlecase">John Greene</h6>
-															<a class="dark-blue small-text" href="tel:404-109-0012">(404) 109-0012</a>
-														</div>
-													</div>
-													
-												</div>
-											</div>
+											
 											<div class="card flat outline my-kan-info-card full-width padding-left-0 padding-right-0 padding-top-0 padding-bottom-0">
 												<p class="uppercase dark-gray small-text bold my-kan-card-padding margin-bottom-0">
 													<span>Registrations</span>
@@ -238,89 +185,224 @@ $transportation_options = kan_get_transportation_options();
 												<div class="my-kan-registration-heading grid-x align-center">
 													<p class="white italic bold small-text medium-2">Pending</p>
 													<p class="white small-text bold medium-2 kamp-title">
-														<span>K-1</span>
+														<span><?php echo $reg_information['Location'];?></span>
 														<i class="white icon icon-overnight medium"></i>
 													</p>
-													<p class="white small-text bold medium-4">{{ moment('7/6/2018').format("MMM DD") }} - {{ moment('7/11/2018').format("MMM DD, YYYY") }}</p>
+													<p class="white small-text bold medium-4">{{ moment('<?php echo $reg_information['BeginDate'];?>').format("MMM DD") }} - {{ moment('<?php echo $reg_information['EndDate'];?>').format("MMM DD, YYYY") }}</p>
 													<div class="medium-4 text-right">
-														<a href="#" class="button hollow white small">Continue Registration</a>
+														<a href="/" class="button hollow white small">Continue Registration</a>
 													</div>
 												</div>
 
 												<div class="grid-x full-width my-kan-card-padding">
-													<div class="flex-container flex-column align-center justify-flex-start medium-4">
-														<p class="dark-blue bold small-text">
-															<span>Roommate Request</span>
-															<a href="#" class="primary margin-left-10">Edit</a>
-														</p>
-														<p class="dark-blue small-text margin-bottom-5">1 Received</p>
-														<p class="dark-blue small-text">2 Requested</p>
+												
+												
+												<table class="table">
+													<tbody>
+    													<tr>
+    														<td>
+    														<p class="dark-blue bold small-text">
+    															<span>Roommate Request</span>															
+    														</p>
+    														</td>
+    														<td>
+    															<?php if (empty($reg_information['Roommates'])):?>
+        															<p class="dark-blue bold small-text margin-bottom-5">No Roomates Available</p>
+        														<?php else:?>
+        															<p class="dark-blue bold small-text margin-bottom-5">1 Received</p>
+        															<p class="dark-blue bold small-text">2 Requested</p>
+        														<?php endif;?>
+    														</td>
+    														<td>
+    															<?php if (!empty($reg_information['Roommates'])):?>
+    																<a href="#" class="primary bold small-text">Edit</a>
+    															<?php endif; ?>
+    														</td>
+    														<td>
+    															<?php if (!empty($reg_information['Roommates'])):?>
+    																<a href="#" class="primary bold small-text">View Details</a>
+																<?php endif; ?>
+    														</td>
+    													</tr>
+    													<tr>
+    														<td>
+        														<p class="dark-blue bold small-text">
+        															<span>Packing List</span>															
+        														</p>
+    														</td>
+    														<td></td>
+    														<td></td>
+    														<td>
+																<a class="primary bold margin-left-10 small-text" data-open="packinglist-1">View Details</a>
+    														</td>
+    													</tr>
+    													<tr>
+    														<td>
+        														<p class="dark-blue bold small-text">
+        															<span>Parties</span>															
+        														</p>
+    														</td>
+    														<td></td>
+    														<td></td>
+    														<td>
+																<a class="primary bold margin-left-10 small-text">View Details</a>
+    														</td>
+    													</tr>
+    													<tr>
+    														<td>
+        														<p class="dark-blue bold small-text">
+        															<span>Store Credit</span>															
+        														</p>
+    														</td>
+    														<td>
+    															<p class="dark-blue bold small-text margin-bottom-5"><?php echo $reg_information['StoreCardBalance'];?></p>
+    															<p class="dark-blue bold small-text margin-bottom-5">(Current Balance)</p>
+    														</td>
+    														<td>
+    															<a class="primary bold margin-left-10 small-text">Add Credit</a>
+    														</td>
+    														<td>
+																<a class="primary bold margin-left-10 small-text">View Details</a>
+    														</td>
+    													</tr>
+    													<tr>
+    														<td>
+        														<p class="dark-blue bold small-text">
+        															<span>Health Form</span>															
+        														</p>
+    														</td>
+    														<td>
+    															<?php if($reg_information['HealthFormComplete'] == 'No'): ?>
+    															<p class="dark-blue bold small-text margin-bottom-5">Not Submitted</p>
+    															<?php else: ?>
+    															<p class="dark-blue bold small-text margin-bottom-5">Completed</p>
+    															<p class="dark-blue bold small-text margin-bottom-5">({{ moment('7/3/2018').format("MMM DD, YYYY") }})</p>
+    															<?php endif; ?>
+    														</td>
+    														<td>
+    															<?php if($reg_information['HealthFormComplete'] == 'No'): ?>
+    															<a class="primary bold margin-left-10 small-text">Submit</a>
+    															<?php else: ?>
+    															<a class="primary bold margin-left-10 small-text">Edit</a>
+    															<?php endif; ?>
+    														</td>
+    														<td></td>
+    													</tr>
+    													<tr>
+    														<td>
+        														<p class="dark-blue bold small-text">
+        															<span>Emergency Contacts</span>															
+        														</p>
+    														</td>
+    														<td>
+    															<p class="dark-blue bold small-text margin-bottom-5">
+    															<?php echo $child_information['ParentName'];?>
+    															<?php if(empty($reg_information['EmergencyContacts'])):?>
+            														<p class="dark-blue small-text">No Contact Available</p>
+            													<?php else:?>
+        															<a class="dark-blue small-text" href="tel:<?php echo $reg_information['EmergencyContacts'];?>"><?php echo $reg_information['EmergencyContacts'];?></a>
+        														<?php endif;?>
+    															</p>
+    														</td>
+    														<td>
+    															<a class="primary bold margin-left-10 small-text">Edit</a>
+    														</td>
+    														<td></td>
+    													</tr>
+    													<?php 
+														$transportation_options = kan_get_transportation_options($reg_information['RegistrationID']);
+														foreach ($transportation_options['Results'] as $key => $item): 
+														?>
+    													<tr>
+    														<td>
+        														<p class="dark-blue bold small-text">
+        															<span>Transportation</span>															
+        														</p>
+    														</td>
+    														<td>
+        														<p class="dark-blue bold small-text">
+    																<span>
+        															<?php echo $item['TransportationType']; ?>
+    																<?php echo $item['TransportationDirection']; ?>
+    																-
+    																<?php echo $item['FromCity']; ?>
+    																</span>
+																</p>
+    														</td>
+    														<td>
+																<a href="#" class="primary bold small-text">Edit</a>
+    														</td>
+    														<td>
+																<a class="primary bold margin-left-10 small-text" data-open="transportation-<?php echo $key; ?>">View Details</a>
+    														</td>
+    													</tr>
+    													<?php endforeach; ?>
+													</tbody>
+													
+												</table>
+												<?php 
+												$transportation_options = kan_get_transportation_options($reg_information['RegistrationID']);
+												foreach ($transportation_options['Results'] as $key => $item): 
+												?>
+													<div class="reveal small transportation-details-modal" id="transportation-<?php echo $key; ?>" data-reveal>
+                                                		<h5 class="dark-blue">
+                                                			<?php echo $item['TransportationDescription']; ?>
+                                                		</h5>
+                                                		<p class="bold">
+                                                			<?php echo date( 'F j, Y', strtotime($item['TransportationDate'])); ?>
+                                                			<br />
+                                                			<span class="<?php echo $item['Status'] == 'On Hold' ? 'red' : 'green'; ?>">
+                                                				<?php echo $item['Status']; ?>
+                                                			</span>
+                                                		</p>
+                                                		<ul class="margin-bottom-15">
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Name</span>
+                                                				<?php echo $item['FirstName']; ?>
+                                                				<?php echo $item['LastName']; ?>
+                                                			</li>
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Place</span>
+                                                				<br />
+                                                				<?php echo $item['FromPlace']; ?> (<?php echo $item['TransportationLocationCode']; ?>)
+                                                				<br />
+                                                				<?php echo $item['FromAddress']; ?>
+                                                				<br />
+                                                				<?php echo $item['FromCity']; ?>,
+                                                				<?php echo $item['FromState']; ?>
+                                                				<?php echo $item['FromZip']; ?>
+                                                			</li>
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Fee</span>
+                                                				<?php echo '$' . $item['Fee']; ?>
+                                                			</li>
+                                                			<li class="margin-bottom-5">
+                                                				<span class="dark-blue bold margin-right-10">Notes</span>
+                                                				<?php echo $item['LoadDetails']; ?>
+                                                			</li>
+                                                		</ul>
+                                                		<p class="tiny-text">
+                                                			Last modified
+                                                			<?php echo date( 'F j, Y', strtotime($item['LastModifiedDate'])); ?>
+                                                		</p>
+                                                		<button class="close-button" data-close aria-label="Close modal" type="button">
+                                                			<span aria-hidden="true">&times;</span>
+                                                		</button>
+                                                	</div>
+												<?php endforeach; ?>
 													</div>
-													<div class="flex-container flex-column align-center justify-flex-start medium-4">
-														<p class="dark-blue bold small-text">
-															<span>Transportation</span>
-															<a href="#" class="primary margin-left-10">Edit</a>
-														</p>
-														<?php foreach ($transportation_options as $key => $item): ?>
-															<p class="dark-blue small-text margin-bottom-5 text-center">
-																<span>
-																	<?php echo $item['TransportationType']; ?>
-																	<?php echo $item['TransportationDirection']; ?>
-																	-
-																	<?php echo $item['FromCity']; ?>
-																</span>
-																<br />
-																<span class="<?php echo $item['Status'] == 'On Hold' ? 'red' : 'green'; ?> bold"><?php echo $item['Status']; ?></span>
-																<a class="primary bold margin-left-10" data-open="transportation-<?php echo $key; ?>">View Details</a>
-															</p>
-														<?php endforeach; ?>
-													</div>
-													<div class="flex-container flex-column align-center justify-flex-start medium-4">
-														<p class="dark-blue bold small-text">
-															<span>Packing List</span>
-															<a href="#" class="primary margin-left-10">View</a>
-														</p>
-														<p class="small-text margin-bottom-5 bold">
-															<span class="medium-gray">Activity Schedule</span>
-															<a href="#" class="primary margin-left-10 disabled">View</a>
-														</p>
+													<div class="reveal small transportation-details-modal" id="packinglist-1" data-reveal>
+														<img src='<?php echo $reg_information['PackingListURL'];?>' class="img-responsive">
+														<button class="close-button" data-close aria-label="Close modal" type="button">
+                                                			<span aria-hidden="true">&times;</span>
+                                                		</button>
 													</div>
 												</div>
 
-
-												<div class="my-kan-registration-heading grid-x">
-													<p class="white italic bold small-text medium-2">Confirmed</p>
-													<p class="white small-text bold medium-2 kamp-title">
-														<span>K-Kauai</span>
-														<i class="white icon icon-family medium"></i>
-													</p>
-													<p class="white small-text bold medium-4">{{ moment('8/4/2018').format("MMM DD") }} - {{ moment('8/9/2018').format("MMM DD, YYYY") }}</p>
-													<div class="medium-4 text-right">
-														<a href="#" class="button hollow white small">Continue Registration</a>
-													</div>
-												</div>
-												<div class="grid-x full-width my-kan-card-padding">
-													<div class="flex-container flex-column align-center justify-flex-start medium-4">
-														<p class="dark-blue bold small-text">
-															<span>Packing List</span>
-															<a href="#" class="primary margin-left-10">View</a>
-														</p>
-														<p class="small-text margin-bottom-5 bold">
-															<span class="medium-gray">Activity Schedule</span>
-															<a href="#" class="primary margin-left-10 disabled">View</a>
-														</p>
-													</div>
-												</div>
 											</div>
 
 										</div>
-										
-										<div class="tabs-panel my-kan-tabs-content-container" id="child-2">
-											<p>CHILD 2 tab</p>
-                    </div>
-										<div class="tabs-panel my-kan-tabs-content-container" id="child-3">
-											<p>CHILD 3 tab</p>
-                    </div>
+										<?php endforeach; $i++; endforeach;?>
 									</div>
 								</div>
 							</div>
@@ -348,61 +430,20 @@ $transportation_options = kan_get_transportation_options();
         </main> <!-- end #main -->
 
         <script type="text/javascript">
+        $(document).on('click','#my-kanakuk-tabs li a',function(e){
+            e.preventDefault();
+        	var idToMakeActive = $(this).attr('href');
+        	$('#my-kanakuk-tabs li').removeClass('is-active');
+        	$('.tabs-content div').removeClass('is-active');
+        	var image = $(this).parent('li').data('image');
+        	var name = $(this).parent('li').data('name');
+        	$('#userName').html(name);
+        	$('#userImage').css('background-image','url('+image+')');
+        	$(this).parent('li').addClass('is-active');
+        	$(idToMakeActive).addClass('is-active');
+        	})
         </script>
-
-        
         <?php get_sidebar();?>
-
     </div> <!-- end #inner-content -->
-
 </div> <!-- end #content -->
-
-<?php foreach ($get_transportation_options as $key => $item): ?>
-	<div class="reveal small transportation-details-modal" id="transportation-<?php echo $key; ?>" data-reveal>
-		<h5 class="dark-blue">
-			<?php echo $item['TransportationDescription']; ?>
-		</h5>
-		<p class="bold">
-			<?php echo date( 'F j, Y', strtotime($item['TransportationDate'])); ?>
-			<br />
-			<span class="<?php echo $item['Status'] == 'On Hold' ? 'red' : 'green'; ?>">
-				<?php echo $item['Status']; ?>
-			</span>
-		</p>
-		<ul class="margin-bottom-15">
-			<li class="margin-bottom-5">
-				<span class="dark-blue bold margin-right-10">Name</span>
-				<?php echo $item['FirstName']; ?>
-				<?php echo $item['LastName']; ?>
-			</li>
-			<li class="margin-bottom-5">
-				<span class="dark-blue bold margin-right-10">Place</span>
-				<br />
-				<?php echo $item['FromPlace']; ?> (<?php echo $item['TransportationLocationCode']; ?>)
-				<br />
-				<?php echo $item['FromAddress']; ?>
-				<br />
-				<?php echo $item['FromCity']; ?>,
-				<?php echo $item['FromState']; ?>
-				<?php echo $item['FromZip']; ?>
-			</li>
-			<li class="margin-bottom-5">
-				<span class="dark-blue bold margin-right-10">Fee</span>
-				<?php echo '$' . $item['Fee']; ?>
-			</li>
-			<li class="margin-bottom-5">
-				<span class="dark-blue bold margin-right-10">Notes</span>
-				<?php echo $item['LoadDetails']; ?>
-			</li>
-		</ul>
-		<p class="tiny-text">
-			Last modified
-			<?php echo date( 'F j, Y', strtotime($item['LastModifiedDate'])); ?>
-		</p>
-		<button class="close-button" data-close aria-label="Close modal" type="button">
-			<span aria-hidden="true">&times;</span>
-		</button>
-	</div>
-<?php endforeach; ?>
-
 <?php get_footer();?>

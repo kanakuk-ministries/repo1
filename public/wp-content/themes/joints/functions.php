@@ -24,7 +24,6 @@ add_filter( 'embed_defaults', 'new_embed_size' );
 function array_extract($arr, $path = '')
 {
     $path_parts = explode('.', $path);
-
     foreach ($path_parts as $part) {
         if (isset($arr[$part])) {
             $arr = $arr[$part];
@@ -126,21 +125,25 @@ function clean($string) {
 /**
  * get the differiante the youtube video and vimeo video
  * */
+
+
 function getVideoUrl($videoURl){
     
     $parts=explode('/',parse_url($videoURl)['path']);
     array_unshift($parts,trim(strstr(parse_url($videoURl)['host'],'.'),'.'));
     $url = (array_filter($parts));
     $finalURl = $url['0'];
+   
     if($finalURl=='youtube.com'){
         
         return "youtube";
-    }else{
+    }if($finalURl=='com'){
         
         return "vimeo";
+    }else{
+        
+        return "vidyard";
     }
-    
-    
 }
 
 

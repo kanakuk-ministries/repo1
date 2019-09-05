@@ -40,6 +40,7 @@ get_header(); ?>
 											Password
 											<input type="password" name="password">
 										</label>
+										<input type="hidden" name="company_code" value="kukt"/>
 										<div class="login-form-extras-container margin-bottom-20">
 											<div class="checkbox-container">
 													<input id="remember-me" name="remember_me" type="checkbox">
