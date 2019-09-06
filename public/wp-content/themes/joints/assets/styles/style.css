@@ -180,7 +180,7 @@ video::-webkit-media-controls-panel {
                 margin:0px !important;
 }
 .hero-media-container.hero-small,
-.hero-media-container.hero-large,
+/*.hero-media-container.hero-large,*/
 .hero-media-container.hero-medium {
     height: auto;
     background-attachment: fixed;
@@ -406,7 +406,7 @@ p.white.margin-bottom-0.speaker-sub-section-requirement-text {
 }
 
 .list-grid-item:after {
-    content: "";
+    /*content: "";
     background: rgba(0, 0, 0, 0.43);
     width: 100%;
     height: 100%;
@@ -416,7 +416,7 @@ p.white.margin-bottom-0.speaker-sub-section-requirement-text {
     top: 0;
     z-index:0;
     transition: all 0.3s ease;
-    opacity: 0;
+    opacity: 0;*/
 }
 .list-grid-item.visible .list-grid-item-overlay {
     z-index: 1;

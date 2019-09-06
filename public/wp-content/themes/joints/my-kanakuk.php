@@ -29,8 +29,8 @@ $child_first = $family_infomartion['Results'][0];
 								<div class="my-kan-header my-kan-user-info medium-4 padding-right-20">
 									<div class="avatar avatar-rectangle" id="userImage" style="background-image: url(<?php echo $child_first['ChildPhotoURL']; ?>)"></div>
 									<h6 class="white secondary titlecase margin-top-10 margin-bottom-0" id="userName"><?php echo $child_first['ChildFirstName'].' '.$child_first['ChildLastName']; ?></h6>
-									<p class="white small-text pointer">Edit Profile</p>
-									<a href="https://staging-events.kanakuk.com/" class="tiny button">New Registration</a>
+									<a href="https://staging-events.kanakuk.com/Manage/" class="tiny button"><p class="white small-text pointer">Edit Profile</p></a>
+									<a href="https://staging-events.kanakuk.com/Registration/RegistrationType/" class="tiny button">New Registration</a>
 								</div>
 							</div>
 						</div>
@@ -44,7 +44,7 @@ $child_first = $family_infomartion['Results'][0];
 											<span class="dark-blue bold">Due</span>
 											<span class="red bold">Jul 27, 2018</span>
 										</p>
-										<a href="#" class="button tiny margin-bottom-5">Pay Now</a>
+										<a href="https://staging-events.kanakuk.com/Accounting/MakePayment/" class="button tiny margin-bottom-5">Pay Now</a>
 										<a class="primary small-text margin-bottom-0">View All</a>
 									</div>
 
@@ -151,9 +151,9 @@ $child_first = $family_infomartion['Results'][0];
 												<?php echo $child_information['ChildFirstName']; ?>
 											</a>
 										</li>
-										<?php if($child_information['HasFamilyKampReg']):?>
+										<?php if(!empty($child_information['HasFamilyKampReg'])):?>
 										<li class="tabs-title"   data-link='0'>
-											<a href="#">
+											<a href="https://staging-events.kanakuk.com/Manage/Family/">
 												Family
 											</a>
 										</li>
@@ -190,7 +190,8 @@ $child_first = $family_infomartion['Results'][0];
 													</p>
 													<p class="white small-text bold medium-4">{{ moment('<?php echo $reg_information['BeginDate'];?>').format("MMM DD") }} - {{ moment('<?php echo $reg_information['EndDate'];?>').format("MMM DD, YYYY") }}</p>
 													<div class="medium-4 text-right">
-														<a href="/" class="button hollow white small">Continue Registration</a>
+														<a href="For this button as per my understanding it will work similar to “New registration” link and would be redirected to home page to search terms and for further registration, please confirm. 
+https://staging-events.kanakuk.com/Dashboard/" class="button hollow white small">Continue Registration</a>
 													</div>
 												</div>
 
@@ -262,7 +263,7 @@ $child_first = $family_infomartion['Results'][0];
     															<a class="primary bold margin-left-10 small-text">Add Credit</a>
     														</td>
     														<td>
-																<a class="primary bold margin-left-10 small-text">View Details</a>
+																<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/Dashboard/">View Details</a>
     														</td>
     													</tr>
     													<tr>
@@ -281,7 +282,7 @@ $child_first = $family_infomartion['Results'][0];
     														</td>
     														<td>
     															<?php if($reg_information['HealthFormComplete'] == 'No'): ?>
-    															<a class="primary bold margin-left-10 small-text">Submit</a>
+    															<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/Dashboard/">Submit</a>
     															<?php else: ?>
     															<a class="primary bold margin-left-10 small-text">Edit</a>
     															<?php endif; ?>
@@ -305,7 +306,7 @@ $child_first = $family_infomartion['Results'][0];
     															</p>
     														</td>
     														<td>
-    															<a class="primary bold margin-left-10 small-text">Edit</a>
+    															<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/Dashboard/">Edit</a>
     														</td>
     														<td></td>
     													</tr>

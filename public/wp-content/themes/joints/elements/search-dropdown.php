@@ -151,9 +151,10 @@
               </div>
             </div>
           </div>
-        <div class="margin-top-30 text-center hero-search-button">
-          <a href="/search-results" class="button warning xlarge bold find-kamp-button" v-bind:class="{ 'disabled': !isValid(selected_kamp) }" @click.prevent="handleSubmit">Find Your Kamp Now</a>
+       
         </div>
+         <div class="margin-top-30 text-center hero-search-button">
+          <a href="/search-results" class="button warning xlarge bold find-kamp-button" v-bind:class="{ 'disabled': !isValid(selected_kamp) }" @click.prevent="handleSubmit">Find Your Kamp Now</a>
         </div>
       </div>
     </div>
