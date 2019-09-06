@@ -112,17 +112,7 @@ console_log(__FILE__, $fields);
                            </div>
         			</div>
 				<?php endif;?>
-				
-            <?php
-            if (isSet($fields['video'])) :
-                ?>
-                <div class="video-modal">
-				<div class="modal-embed-container video-center">
-				        <?php echo do_shortcode($fields['video']); ?>
-                    </div>
-			</div>
-            <?php endif; ?>
-        </div>
+		</div>
 	</div>
 </div>
 
