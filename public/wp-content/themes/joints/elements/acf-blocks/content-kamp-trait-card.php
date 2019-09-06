@@ -53,73 +53,74 @@ $list_items_array = explode(',', $fields['list_items']);
                 </a>
                 <?php endif;?>
             </div>
-            <!-- video popup -->
-            <div class="bottom-video-box">
-            <div class="media-container <?php echo clean($fields['title']); ?>" style="background-image: url(<?php echo $fields['about_card_image']['url']; ?>)">
-               <?php
-            $videoUrl = $fields['video_popup_url'];
-            if ($videoUrl) :
-            $checkUrl = getVideoUrl($videoUrl);
-                $videoId = end(explode('/',$videoUrl));
-                if ($checkUrl == 'vimeo') :
-                $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
-                    ?>
-                <div class="video-modal">
-				<div class="modal-embed-container video-center">
-					<?php if($fields['video_icon_image']):?>	
-					<a href="#" class="wp-video-popup"><img src="<?php echo $fields['video_icon_image']['url']; ?>" videourl="<?php echo $videoPlayerUrl; ?>"/>
-					</a>
-					<?php else:?>
-					<a href="#" class="wp-video-popup"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/video-icon.png" videourl="<?php echo $videoPlayerUrl; ?>"/>
-					</a>
-					<?php endif; ?>
-                  <?php echo do_shortcode('[wp-video-popup vimeo="1" video="'.$videoUrl.'"]'); ?>
-                   </div>
-			</div>
-			</div>
-              <?php endif;?>
-             <?php if($checkUrl=='youtube'): 
-             $videoId = explode('=',$videoId)[1];
-             $videoPlayerUrl = 'https://www.youtube.com/embed/'. $videoId .'?autoplay=1';
-             ?>
-                   <div class="video-modal">
-        				<div class="modal-embed-container video-center">
-        				<?php if($fields['video_icon_image']):?>
-        				<a href="#" class="wp-video-popup"><img src="<?php echo $fields['video_icon_image']['url']; ?>" videourl="<?php echo $videoPlayerUrl; ?>"/>
-					    </a>
-                          <?php else:?>
-                          <a href="#" class="wp-video-popup"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube-512.png" videourl="<?php echo $videoPlayerUrl; ?>"/></a>
-                          <?php endif;?>
-                          <?php echo do_shortcode('[wp-video-popup video="'.$videoUrl.'"]'); ?>
-                           </div>
-        			</div>
-              <?php endif;?> 
-              <?php endif;?>
-              <?php if ($checkUrl=='vidyard'): 
-              $videoUrl = $fields['video_popup_url'];
-              ?>
-               <div class="video-modal">
-        				<div class="modal-embed-container video-center">
-        				  <a href="#"><img style="width: 100%; margin: auto; display: block;" class= "vidyard-player-embed" data-uuid='<?php echo $videoUrl; ?>' data-v="4"
-  data-type="lightbox" src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube-512.png"/></a>
-                           </div>
-        			</div>
-				<?php endif;?>
-				
-            <?php
-            if (isSet($fields['video'])) :
-                ?>
-                <div class="video-modal">
-				<div class="modal-embed-container video-center">
-				        <?php echo do_shortcode($fields['video']); ?>
-                    </div>
-			</div>
-            <?php endif; ?>
-        </div>
             
-            <!-- close video popup -->
         </div>
         <div class="media-container" style="background-image: url(<?php echo $fields['trait_card_image']['url']; ?>)">
+        	
+        	<!-- video popup -->
+                <div class="bottom-video-box">
+                   <?php
+                $videoUrl = $fields['video_popup_url'];
+                if ($videoUrl) :
+                $checkUrl = getVideoUrl($videoUrl);
+                    $videoId = end(explode('/',$videoUrl));
+                    if ($checkUrl == 'vimeo') :
+                    $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
+                        ?>
+                    <div class="video-modal">
+    				<div class="modal-embed-container video-center">
+    					<?php if($fields['video_icon_image']):?>	
+    					<a href="#" class="wp-video-popup"><img src="<?php echo $fields['video_icon_image']['url']; ?>" videourl="<?php echo $videoPlayerUrl; ?>"/>
+    					</a>
+    					<?php else:?>
+    					<a href="#" class="wp-video-popup"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/video-icon.png" videourl="<?php echo $videoPlayerUrl; ?>"/>
+    					</a>
+    					<?php endif; ?>
+                      <?php echo do_shortcode('[wp-video-popup vimeo="1" video="'.$videoUrl.'"]'); ?>
+                       </div>
+    			</div>
+    			</div>
+                  <?php endif;?>
+                 <?php if($checkUrl=='youtube'): 
+                 $videoId = explode('=',$videoId)[1];
+                 $videoPlayerUrl = 'https://www.youtube.com/embed/'. $videoId .'?autoplay=1';
+                 ?>
+                       <div class="video-modal">
+            				<div class="modal-embed-container video-center">
+            				<?php if($fields['video_icon_image']):?>
+            				<a href="#" class="wp-video-popup"><img src="<?php echo $fields['video_icon_image']['url']; ?>" videourl="<?php echo $videoPlayerUrl; ?>"/>
+    					    </a>
+                              <?php else:?>
+                              <a href="#" class="wp-video-popup"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube-512.png" videourl="<?php echo $videoPlayerUrl; ?>"/></a>
+                              <?php endif;?>
+                              <?php echo do_shortcode('[wp-video-popup video="'.$videoUrl.'"]'); ?>
+                               </div>
+            			</div>
+                  <?php endif;?> 
+                  <?php endif;?>
+                  <?php if ($checkUrl=='vidyard'): 
+                  $videoUrl = $fields['video_popup_url'];
+                  ?>
+                   <div class="video-modal">
+            				<div class="modal-embed-container video-center">
+            				  <a href="#"><img style="width: 100%; margin: auto; display: block;" class= "vidyard-player-embed" data-uuid='<?php echo $videoUrl; ?>' data-v="4"
+      data-type="lightbox" src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube-512.png"/></a>
+                               </div>
+            			</div>
+    				<?php endif;?>
+    				
+                <?php
+                if (isSet($fields['video'])) :
+                    ?>
+                    <div class="video-modal">
+    				<div class="modal-embed-container video-center">
+    				        <?php echo do_shortcode($fields['video']); ?>
+                        </div>
+    			</div>
+                <?php endif; ?>
+            </div>                        
+            <!-- close video popup -->
+            
         </div>
     </div>
 </div>
