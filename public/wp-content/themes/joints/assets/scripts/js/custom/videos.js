@@ -77,7 +77,7 @@ jQuery(window).load(function() {
         video_anchor.setAttribute("href", this_staff_member.video);
 
         var video_quote = document.getElementById("video-quote");
-        video_quote.innerHTML = this_staff_member.member_quote;
+        video_quote.innerHTML = this_staff_member.member_description;
       }
     };
 

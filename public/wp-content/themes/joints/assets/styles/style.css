@@ -1023,7 +1023,14 @@ a:hover {
 }
 /*End Kamp video*/
 
-
+.video-text{
+	overflow: hidden;
+    overflow-y: auto;
+    max-height: 100px;
+}
+ .video-text p{
+	font-size:15px;
+}
 
 /* End new style from jaikant */
 
@@ -1329,3 +1336,5 @@ and (orientation : landscape) {
         height: 18rem;
     }
 }
+
+

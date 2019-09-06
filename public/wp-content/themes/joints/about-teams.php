@@ -64,22 +64,7 @@ get_header(); ?>
 										$i++;
 								?>
 								<!-- Member description modal -->												
-				<div id="myModal<?php echo $memberId;?>"
-					class="modal fade popout-about-card">
-					<div class="modal-dialog modal-lg aboutInfoModal">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button class="close" type="button" data-dismiss="modal">
-									<i class="fa fa-times" aria-hidden="true"></i>
-								</button>
-								<h4 class="modal-title card-section"><?php echo $this_executive['member_name'];?></h4>
-							</div>
-							<div class="modal-body customModalBody"><?php echo $this_executive['member_description']; ?></div>
-						</div>
-						<!-- /.modal-content -->
-					</div>
-					<!-- /.modal-dialog -->
-				</div>
+			
 								
 									<div class="staff-grid-item invisible list-grid-item block-<?php echo $i; ?>">
 										<img src="<?php echo $this_executive['member_image']['url']; ?>">
@@ -98,8 +83,30 @@ get_header(); ?>
 									</div>
 								<?php endforeach; ?>
 							</ul>
+							<?php
+									
+						foreach ($executive_staff as $executive => $this_executive):
+						$memberId = $this_executive['member_image']['ID'];
+						?>
+							<div id="myModal<?php echo $memberId;?>"
+					class="modal fade popout-about-card">
+					<div class="modal-dialog modal-lg aboutInfoModal">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="close" type="button" data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</button>
+								<h4 class="modal-title card-section"><?php echo $this_executive['member_name'];?></h4>
+							</div>
+							<div class="modal-body customModalBody"><?php echo $this_executive['member_description']; ?></div>
 						</div>
-
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<?php endforeach;?>
+						</div>
+	
 						<div class="accordion-image-grid-container directors-team margin-top-50">
 							<h1 class="dark-blue"><?php echo $data_description['camp_tile']; ?></h1>
 							<p class="dark-blue margin-bottom-30"><?php echo $data_description['camp_description']; ?></p>
@@ -183,21 +190,20 @@ get_header(); ?>
 						<button class="close-button" data-close aria-label="Close modal" type="button" id="video-modal-close-button">
 							<span aria-hidden="true">Close</span>
 						</button>
+						<div class="margin-right-45 margin-left-45 margin-bottom-15 video-text flex-container justify-flex-start align-flex-start">
+							<!-- <i class="icon icon-quote-copy large light-gray margin-right-10"></i> -->
+							<p class="small-sub-text" id="video-quote"></p>
+						</div>
 						<div class="custom-video-container modal-embed-container video-center">
 								<video controls id="custom-video" class="basic-video custom-video" poster=''>
 										<source id="video-source" src='https://kanakuk-dev.s3.amazonaws.com/uploads/Kanakuk-Overnight-Reel-for-Broadcast-1.mp4' type="video/mp4">
-										<p>Your browser doesn't support HTML5 video. Here is
-										a <a id='video-anchor' href='https://kanakuk-dev.s3.amazonaws.com/uploads/Kanakuk-Overnight-Reel-for-Broadcast-1.mp4'>link to the video</a> instead.</p>
+										<p>Your browser doesn't support HTML5 video. Here is</p>
+										<a id='video-anchor' href='https://kanakuk-dev.s3.amazonaws.com/uploads/Kanakuk-Overnight-Reel-for-Broadcast-1.mp4'>link to the video</a> instead.</p>
 								</video>
 								<div id="custom-video-controls" class="controls custom-video-controls" data-state="hidden">
 										<button id="playpause" type="button" data-state="play"></button>
 								</div>
-						</div>
-
-						<div class="margin-right-45 margin-left-45 margin-top-45 flex-container justify-flex-start align-flex-start">
-							<i class="icon icon-quote-copy large light-gray margin-right-10"></i>
-							<p class="large-sub-text italic" id="video-quote"></p>
-						</div>
+						</div>						
 					</div>
 
 

@@ -29,7 +29,7 @@ $child_first = $family_infomartion['Results'][0];
 								<div class="my-kan-header my-kan-user-info medium-4 padding-right-20">
 									<div class="avatar avatar-rectangle" id="userImage" style="background-image: url(<?php echo $child_first['ChildPhotoURL']; ?>)"></div>
 									<h6 class="white secondary titlecase margin-top-10 margin-bottom-0" id="userName"><?php echo $child_first['ChildFirstName'].' '.$child_first['ChildLastName']; ?></h6>
-									<a href="https://staging-events.kanakuk.com/Manage/" class="tiny button"><p class="white small-text pointer">Edit Profile</p></a>
+									<a href="https://staging-events.kanakuk.com/Manage/" class="white small-text pointer">Edit Profile</a>
 									<a href="https://staging-events.kanakuk.com/Registration/RegistrationType/" class="tiny button">New Registration</a>
 								</div>
 							</div>
@@ -39,7 +39,7 @@ $child_first = $family_infomartion['Results'][0];
 								<div class="my-kan-sidebar-container margin-top-30">
 									<div class="card account-balance-card flex-column align-center padding-top-20 padding-bottom-20 margin-bottom-30" ref="accountBalanceCard">
 										<p class="uppercase dark-gray small-text bold">Account Balance</p>
-										<h4 class="bold dark-blue margin-bottom-0">$1,675.00</h4>
+										<h4 class="bold dark-blue margin-bottom-0">$<?php echo $child_first['FamilyAccountBalance']; ?></h4>
 										<p class="margin-bottom-5">
 											<span class="dark-blue bold">Due</span>
 											<span class="red bold">Jul 27, 2018</span>
