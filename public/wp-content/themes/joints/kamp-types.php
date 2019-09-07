@@ -23,7 +23,7 @@ get_header();?>
                         }
                         ?>
                     <li class="tabs-title <?php if ($key === 0) {echo 'is-active';}?>">
-                        <a href="<?php echo $value['url']; ?>" class="<?php echo $value['icon_name']; ?>-tab-link">
+                        <a href="<?php echo $value['url']; ?>" data-tabname="<?php echo $value['url']; ?>" class="<?php echo $value['icon_name']; ?>-tab-link">
                             <?php echo $value['title']; ?> Kamp
                             <i class="tabs-title-icon icon icon-<?php echo $value['icon_name']; ?>"></i>
                         </a>
@@ -62,8 +62,8 @@ get_header();?>
 jQuery(function($) {
     var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
     $('ul a').each(function() {
-     if (this.href === path) {
-    	 window.scrollBy(15, 650);
+     if (this.href === '<?php echo get_site_url();?>/family-kamp/#') {
+         window.scrollBy(15, 500);
      }
     });
    });

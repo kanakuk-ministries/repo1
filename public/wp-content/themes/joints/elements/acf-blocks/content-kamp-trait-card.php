@@ -108,19 +108,6 @@ $list_items_array = explode(',', $fields['list_items']);
                                </div>
             			</div>
     				<?php endif;?>
-    				
-                <?php
-                if (isSet($fields['video'])) :
-                    ?>
-                    <div class="video-modal">
-    				<div class="modal-embed-container video-center">
-    				        <?php echo do_shortcode($fields['video']); ?>
-                        </div>
-    			</div>
-                <?php endif; ?>
-            </div>                        
-            <!-- close video popup -->
-            
-        </div>
+    		</div>
     </div>
 </div>

@@ -76,6 +76,15 @@ function content($content = '', $limit = 0)
     return $content;
 }
 
+add_action('wp_enqueue_scripts','Load_Template_Scripts_wpa83855');
+function Load_Template_Scripts_wpa83855(){
+    if ( is_page_template('about-teams.php') ) {
+        wp_enqueue_script('jqeury-scroll', 'path/custom/jquery.scrolling-tabs.js');
+    }
+}
+
+
+
 /**
  * Count no. of words.
  * @param string $content

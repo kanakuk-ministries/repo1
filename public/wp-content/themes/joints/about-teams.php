@@ -212,6 +212,9 @@ get_header(); ?>
 
 			<script>
 					var executive_staff = <?php echo json_encode($executive_staff); ?>;
+					// A $( document ).ready() block.
+					
+					
 			</script>
 
 		    <?php get_sidebar(); ?>

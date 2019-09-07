@@ -19,11 +19,9 @@ if(empty($fields['button_text'])) {
     $button_text = $fields['button_text'];
     
 }
-
 // write data to console for debugging purposes
 console_log(__FILE__, $fields);
 ?>
-
 <div class="simple-text-block-container background-image-container container-padding-large"
     <?php if ($fields['animation']) { ?>
         data-parallax="scroll" data-image-src="<?php echo $fields['background']['url']; ?>"
@@ -36,12 +34,9 @@ console_log(__FILE__, $fields);
             <h1 class="display white text-center">
                 <?php echo $fields['title']; ?>
             </h1>
-
             <p class="large-sub-text bold white text-center">
                 <?php echo $fields['body']; ?>
-                
             </p>
-           
             <?php if($fields['site_link']){ ?>
             <div class="mt-30">            
             	<a href="<?php echo $fields['site_link']; ?>" target="_blank" class="link-btn"><?php echo $button_text; ?></a>

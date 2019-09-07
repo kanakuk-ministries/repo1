@@ -442,14 +442,30 @@ p.white.margin-bottom-0.speaker-sub-section-requirement-text {
     font-size: 16px;
     opacity: 5px;
 }
+.reveal-overlay{
+    overflow-y: inherit;
+}
+.reveal{
+    padding: 4.375rem 0rem 0rem 0rem;
+    overflow-y: inherit;
+}
+.reveal-overlay .modal-embed-container.video-center {
+    height: 80%!important;
+}
+.reveal .close-button{
+	font-size:14px;
+}
+
+
 /*for video update style*/
 @media print, screen and (min-width: 40em){
 .reveal {
     width: 60%;
     max-width: 82.75rem;
-    margin:20px auto;
-    height: 90% !important;
+    margin: 0px auto;
+    height: 95% !important;
 }
+
 .basic-video.custom-video{
 	min-height: 90%;
 }
@@ -459,6 +475,7 @@ p.white.margin-bottom-0.speaker-sub-section-requirement-text {
 .reveal-overlay .margin-right-45.margin-left-45.margin-top-45.flex-container.justify-flex-start.align-flex-start .large-sub-text{
 	font-size: 1.2rem;
 }
+
 }
 .reveal-overlay .modal-embed-container.video-center {
     height: 94%!important;
@@ -1304,8 +1321,15 @@ and (orientation : landscape) {
     .about-card-top h3.dark-blue {
         font-size: 2.5rem;
     }
-    
-     
+    .reveal-overlay .modal-embed-container.video-center {
+    height: 54%!important;
+	}
+	.video-text{
+	margin-top:40px;
+	}
+     .reveal{
+     overflow-y:auto;
+     }
 }
 
 @media(max-width:620px){
@@ -1338,3 +1362,67 @@ and (orientation : landscape) {
 }
 
 
+
+
+.scrtabs-tab-container * {
+  box-sizing: border-box;
+}
+
+/* line 17, jquery.scrolling-tabs.scss */
+.scrtabs-tab-container {
+  height: 42px;
+}
+/* line 19, jquery.scrolling-tabs.scss */
+.scrtabs-tab-container .tab-content {
+  clear: left;
+}
+
+/* line 24, jquery.scrolling-tabs.scss */
+.scrtabs-tabs-fixed-container {
+  float: left;
+  height: 42px;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* line 31, jquery.scrolling-tabs.scss */
+.scrtabs-tabs-movable-container {
+  position: relative;
+}
+/* line 33, jquery.scrolling-tabs.scss */
+.scrtabs-tabs-movable-container .tab-content {
+  display: none;
+}
+
+/* line 38, jquery.scrolling-tabs.scss */
+.scrtabs-tab-scroll-arrow {
+  border: 1px solid #dddddd;
+  border-top: none;
+  color: #428bca;
+  cursor: pointer;
+  float: left;
+  font-size: 12px;
+  height: 42px;
+  margin-bottom: -1px;
+  padding-left: 2px;
+  padding-top: 13px;
+  width: 20px;
+}
+/* line 50, jquery.scrolling-tabs.scss */
+.scrtabs-tab-scroll-arrow:hover {
+  background-color: #eeeeee;
+}
+
+/* line 55, jquery.scrolling-tabs.scss */
+.scrtabs-tabs-fixed-container ul.nav-tabs {
+  height: 41px;
+}
+/* line 57, jquery.scrolling-tabs.scss */
+.scrtabs-tabs-fixed-container ul.nav-tabs > li {
+  white-space: nowrap;
+}
+
+/* line 63, jquery.scrolling-tabs.scss */
+.scrtabs-tab-content-outside-movable-container .nav-tabs {
+  display: none;
+}

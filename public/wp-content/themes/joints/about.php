@@ -22,7 +22,6 @@ get_header();?>
                     <?php endforeach;?>
                 </ul>
             </div>
-
             <?php if (have_posts()): while (have_posts()): the_post();?>
             <?php
         $post = get_post();
@@ -36,7 +35,6 @@ get_header();?>
         }
         ?>
             <?php endwhile;endif;?>
-
         </main> <!-- end #main -->
 
         <?php get_sidebar();?>

@@ -39,7 +39,12 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <?php wp_head(); ?>
-
+	<script>
+	$( document ).ready(function() {
+		var scrollTo = $('.tabs .active').position().left;
+		$('.tabs').animate({'scrollLeft': scrollTo}, 500);
+	});
+	</script>
 </head>
 
 <body <?php body_class(); ?>>
