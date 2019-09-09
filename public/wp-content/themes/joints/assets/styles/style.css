@@ -1049,6 +1049,10 @@ a:hover {
 	font-size:15px;
 }
 
+.hero-media-container.hero-small, .hero-media-container.hero-large, .hero-media-container.hero-medium {
+    background-position: center 10%;
+}
+
 /* End new style from jaikant */
 
 @media(max-width:991px){

@@ -74,7 +74,7 @@ get_header(); ?>
 											<a class="button expanded" href="mailto:<?php echo $this_executive['member_email']; ?>">Contact</a>
 											<?php if(isSet($this_executive['member_description'])): ?>
 												<button class="button expanded white hollow"><a href="#myModal<?php echo $memberId;?>"
-					data-toggle="modal" class="white">Member Description</a></button>
+					data-toggle="modal" class="white">Staff Bio</a></button>
 											<?php endif; ?>
 											<?php if(isSet($this_executive['video'])): ?>
 												<button id="videoModalButton" class="button expanded white hollow video-modal-button" data-open="videoModal" data-key="<?php echo clean($this_executive['member_name']); ?>">Watch Interview</button>
