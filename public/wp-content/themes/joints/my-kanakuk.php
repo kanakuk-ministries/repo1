@@ -151,17 +151,20 @@ $child_first = $family_infomartion['Results'][0];
 												<?php echo $child_information['ChildFirstName']; ?>
 											</a>
 										</li>
-										<?php if(!empty($child_information['HasFamilyKampReg'])):?>
+										<?php
+										$i++; 
+										endforeach;
+										?>
+										<?php $family_reg = $family_infomartion['Results'][0]['HasFamilyKampReg']; 
+										if($family_reg=='Yes'):
+										
+										?>
 										<li class="tabs-title"   data-link='0'>
 											<a href="https://staging-events.kanakuk.com/Manage/Family/">
 												Family
 											</a>
 										</li>
-										<?php 
-										endif;
-										$i++; 
-										endforeach;
-										?>
+										<?php endif;?>
 										<li class="tabs-title"><a href="/" class="primary" data-link='1'>+ New Kamper</a></li>
 									</ul>
 									<?php 
