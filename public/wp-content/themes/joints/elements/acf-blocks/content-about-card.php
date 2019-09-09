@@ -73,17 +73,17 @@ console_log(__FILE__, $fields);
                 $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
                     ?>
                    <div class="video-modal">
-				<div class="modal-embed-container video-center">
-					<?php if($fields['video_icon_image']):?>	
-					<a href="#" class="wp-video-popup"><img src="<?php echo $fields['video_icon_image']['url']; ?>" videourl="<?php echo $videoPlayerUrl; ?>"/>
-					</a>
-					<?php else:?>
-					<a href="#" class="wp-video-popup"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/video-icon.png" videourl="<?php echo $videoPlayerUrl; ?>"/>
-					</a>
-					<?php endif; ?>
-                  <?php echo do_shortcode('[wp-video-popup vimeo="1" video="'.$videoUrl.'"]'); ?>
-                   </div>
-			</div>
+    					<div class="modal-embed-container video-center">
+        					<?php if($fields['video_icon_image']):?>	
+        					<a href="#" class="wp-video-popup"><img src="<?php echo $fields['video_icon_image']['url']; ?>" videourl="<?php echo $videoPlayerUrl; ?>"/>
+        					</a>
+        					<?php else:?>
+        					<a href="#" class="wp-video-popup"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/video-icon.png" videourl="<?php echo $videoPlayerUrl; ?>"/>
+        					</a>
+        					<?php endif; ?>
+                          <?php echo do_shortcode('[wp-video-popup vimeo="1" video="'.$videoUrl.'"]'); ?>
+                       </div>
+				</div>
               <?php endif;?>
              <?php if($checkUrl=='youtube'): 
              $videoId = explode('=',$videoId)[1];
@@ -92,8 +92,7 @@ console_log(__FILE__, $fields);
                    <div class="video-modal">
         				<div class="modal-embed-container video-center">
         				<?php if($fields['video_icson_image']):?>
-        				<a href="#" class="wp-video-popup"><img src="<?php echo $fields['video_icon_image']['url']; ?>" videourl="<?php echo $videoPlayerUrl; ?>"/>
-					    </a>
+        				<a href="#" class="wp-video-popup"><img src="<?php echo $fields['video_icon_image']['url']; ?>" videourl="<?php echo $videoPlayerUrl; ?>"/></a>
                           <?php else:?>
                           <a href="#" class="wp-video-popup"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube-512.png" videourl="<?php echo $videoPlayerUrl; ?>"/></a>
                           <?php endif;?>
@@ -108,7 +107,7 @@ console_log(__FILE__, $fields);
                <div class="video-modal">
         				<div class="modal-embed-container video-center">
         				  <a href="#"><img style="width: 100%; margin: auto; display: block;" class= "vidyard-player-embed" data-uuid='<?php echo $videoUrl; ?>' data-v="4"
-  data-type="lightbox" src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube-512.png"/></a>
+  data-type="lightbox" src=""/></a>
                            </div>
         			</div>
 				<?php endif;?>

@@ -1233,7 +1233,7 @@ and (orientation : landscape) {
         height: 58vh;
     }
     .page-id-844 .hero-container.small .inner {
-        height: 99vh;
+       /* height: 99vh;*/
         min-height: 350px;
     }
    /* .hero-tabs-container.about-page.margin-bottom-60{
