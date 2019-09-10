@@ -26,16 +26,16 @@ $child_first = $family_infomartion['Results'][0];
 					<div class="my-kan-container" id="my-kan-container" v-cloak>
 						<div class="blue-bg">
 							<div class="my-kan-header grid-container grid-x padding-top-70">
-								<div class="my-kan-header my-kan-user-info medium-4 padding-right-20">
-									<div class="avatar avatar-rectangle" id="userImage" style="background-image: url(<?php echo $child_first['ChildPhotoURL']; ?>)"></div>
+								<div class="my-kan-header my-kan-user-info medium-4">
+									<div class="avatar avatar-rectangle with-border" id="userImage" style="background-image: url(<?php echo $child_first['ChildPhotoURL']; ?>)"></div>
 									<h6 class="white secondary titlecase margin-top-10 margin-bottom-0" id="userName"><?php echo $child_first['ChildFirstName'].' '.$child_first['ChildLastName']; ?></h6>
-									<a href="https://staging-events.kanakuk.com/Manage/" class="white small-text pointer">Edit Profile</a>
+									<a href="https://staging-events.kanakuk.com/Manage/" class="white small-text pointer edit_profile">Edit Profile</a>
 									<a href="https://staging-events.kanakuk.com/Registration/RegistrationType/" class="tiny button">New Registration</a>
 								</div>
 							</div>
 						</div>
 						<div class="grid-container grid-x my-kan-content-container">
-							<div class="medium-4 my-kan-left-container padding-right-20" id="my-kan-left-container" ref="myKanLeftContainer">
+							<div class="medium-4 my-kan-left-container" id="my-kan-left-container" ref="myKanLeftContainer">
 								<div class="my-kan-sidebar-container margin-top-30">
 									<div class="card account-balance-card flex-column align-center padding-top-20 padding-bottom-20 margin-bottom-30" ref="accountBalanceCard">
 										<p class="uppercase dark-gray small-text bold">Account Balance</p>
@@ -48,7 +48,7 @@ $child_first = $family_infomartion['Results'][0];
 										<a class="primary small-text margin-bottom-0">View All</a>
 									</div>
 
-									<div class="my-kan-calendar-select-container margin-bottom-10 padding-right-20" ref="myKanCalendarSelectContainer">
+									<div class="my-kan-calendar-select-container margin-bottom-10" ref="myKanCalendarSelectContainer">
 										<div class="flex-container align-center justify-space-between">
 											<p class="uppercase dark-gray small-text bold margin-bottom-0">Calendar</p>
 											<div class="search-filter-option-container">
@@ -263,7 +263,7 @@ https://staging-events.kanakuk.com/Dashboard/" class="button hollow white small"
     															<p class="dark-blue bold small-text margin-bottom-5">(Current Balance)</p>
     														</td>
     														<td>
-    															<a class="primary bold margin-left-10 small-text">Add Credit</a>
+    															<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/Dashboard/">Add Credit</a>
     														</td>
     														<td>
 																<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/Dashboard/">View Details</a>

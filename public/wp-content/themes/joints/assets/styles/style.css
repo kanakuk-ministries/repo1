@@ -1053,6 +1053,30 @@ a:hover {
     background-position: center 10%;
 }
 
+/* my kanakuk page popup */
+.transportation-details-modal {
+    padding: 2rem;
+    height: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    position: relative;
+}
+.transportation-details-modal ul li{
+    font-size: 18px;
+}
+.transportation-details-modal .close-button {
+    font-size: 24px;
+}
+.edit_profile{
+	margin:10px 0;
+}
+.with-border{
+	border: 3px solid #FFF;
+    padding: 5px;
+    border-radius: 3px;
+}
+/* End my kanakuk page popup */
+
 /* End new style from jaikant */
 
 @media(max-width:991px){
@@ -1173,6 +1197,21 @@ and (orientation : landscape) {
 	.modal-embed-container.video-center .vidyard-player-container .play-button {
     	width: 15.2%;
 	}
+	
+     .my-kan-left-container .account-balance-card{
+         width: 100%;
+     }
+     .medium-8.my-kan-right-container.padding-left-30{
+     	margin-right: 10px;
+     }
+     .flex-container.align-center.justify-space-between{
+         flex-wrap: wrap;
+    	justify-content: center;     	
+     }
+     .my-kan-left-container .dropdown.menu a{
+     	padding: .5rem;
+     }
+     
 }
 @media(min-width:768px){
     .card-date-wrapper {
@@ -1334,6 +1373,29 @@ and (orientation : landscape) {
      .reveal{
      overflow-y:auto;
      }
+     
+     /*My Kanakuk*/
+     .my-kan-user-info {
+	    width: 100%;
+	}
+	.my-kan-right-container {
+	    position: initial;   
+	    padding: 0 !important;
+	    width: 100%;
+	    top: auto;
+	}
+	.my-kan-registration-heading{
+		text-align:center;
+	}
+	.my-kan-registration-heading p {
+	    min-width: 70px;
+	    margin: 2px 2px;
+	}
+     .my-kan-right-container{
+     	    position: inherit;
+     }
+    
+     /*End My Kanakuk*/
 }
 
 @media(max-width:620px){
