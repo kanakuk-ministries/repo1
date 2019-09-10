@@ -180,20 +180,20 @@ get_header();?>
                 <div id="search-results-tabs-container" class="grid-x mobile-light-gray">
                 
                     <?php 
-                    if (isset($_GET['kamp_type'])) {
+                    //if (isset($_GET['kamp_type'])) {
                         
-                        echo element('search-results/tabs', [
-                            'registrations' => $_SESSION['registrations'],
-                            'current'       => $_GET['tab']
-                        ]); 
+//                         echo element('search-results/tabs', [
+//                             'registrations' => $_SESSION['registrations'],
+//                             'current'       => $_GET['tab']
+//                         ]); 
                         
-                    }else{
+                    //}//else{
                         echo element('search-results/tabs', [
                             'registrations' => $_SESSION['registrations'],
                             'current'       => $_GET['tab']
                         ]);
                         
-                    }
+                    //}
                    ?>
                 </div>
             </div>
