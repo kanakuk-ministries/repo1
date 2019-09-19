@@ -166,7 +166,7 @@ get_header();
                 <div class="video-modal">
 				<div class="modal-embed-container video-center">
 				<a href="#" class="wp-video-popup"><button class="button expanded white hollow" videourl="<?php echo $videoPlayerUrl; ?>">Watch Video</button></a>
-                  <?php echo do_shortcode('[wp-video-popup vimeo="1" video="'.$videoUrl.'"]'); ?>
+                  
                    </div>
 			</div>
               <?php endif;?>
@@ -177,7 +177,7 @@ get_header();
                    <div class="video-modal">
         				<div class="modal-embed-container video-center">
         				<a href="#" class="wp-video-popup"><button class="button expanded white hollow" videourl="<?php echo $videoPlayerUrl; ?>">Watch Video</button></a>
-                          <?php echo do_shortcode('[wp-video-popup video="'.$videoUrl.'"]'); ?>
+                          
                            </div>
         			</div>
               <?php endif;?> 
@@ -198,6 +198,10 @@ get_header();
 							<?php endforeach;?>
 						</ul>
 						</div>
+					</div>
+					<div class="wp-video-popup-wrapper">
+					<div class="wp-video-popup-close"></div>
+					<iframe class="wp-video-popup-video" src="" data-wp-video-popup-url="'. $video_url .'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe>
 					</div>
 			</main> <!-- end #main -->
 
