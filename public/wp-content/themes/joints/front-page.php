@@ -21,9 +21,10 @@ get_header();
         unset($kan_user['api_token']);
         $kan_user['kampers'] = [];
         foreach ($_SESSION['circuitree']['family'] as $member) {
-            $kan_user['kampers'][] = [
+           $kan_user['kampers'][] = [
                 'first_name' => $member['child_first_name'],
                 'last_name'  => $member['child_last_name'],
+                'child_photo_url' => $member['child_photo_url'],
                 'id'         => $member['child_entity_id'],
                 'age'        => $member['age'],
                 'gender'     => $member['gender']

@@ -736,7 +736,9 @@ a:hover {
     max-width: 94.5%;
 }
 
-
+.alwayShowTab{
+height:auto !important
+}
 /*
 .k-1:hover a, .k-1.active a{
 	background-color: #003ca6;
@@ -1077,6 +1079,29 @@ a:hover {
 }
 /* End my kanakuk page popup */
 
+/*newsearch*/
+	.newsearch{
+		
+	}
+.modal-content{
+	height: 100%;
+}
+.newsearch .modal-dialog {
+    height: 90%;
+}
+.newsearch .customModalBody {
+    max-height: 450px;
+    overflow: auto;
+    min-height: 440px;
+        padding-top: 0px;
+}
+
+.newsearch .kampers-children-added-child {
+    margin: 0px 43px 0 0px;
+}
+
+/*End newsearch*/
+
 /* End new style from jaikant */
 
 @media(max-width:991px){
@@ -1211,6 +1236,18 @@ and (orientation : landscape) {
      .my-kan-left-container .dropdown.menu a{
      	padding: .5rem;
      }
+     
+     /*10-09-2019 */ 
+    .hero-sub-section-text {
+        font-size: 2.5rem;
+    }
+    .hero-sub-section-requirement-text{
+        font-size: 1.625rem;
+        font-weight: 500;
+    }
+    .search-results-register-button-container{
+    	padding:0px;
+    }
      
 }
 @media(min-width:768px){
@@ -1396,6 +1433,18 @@ and (orientation : landscape) {
      }
     
      /*End My Kanakuk*/
+     .newsearch .search-dropdown-position-container{
+         top: 11%;
+        }
+        .newsearch .kampers-children-selection-container {
+		    padding: .875rem 1.125rem .625rem;
+		}
+		.newsearch .kampers-children-added-child {
+		    margin: 0;
+		    width: 100%;
+		}
+		
+     
 }
 
 @media(max-width:620px){
@@ -1415,6 +1464,21 @@ and (orientation : landscape) {
 @media (max-width: 375px){    
     h3.kamp-specialty{
         font-size: 2.2rem;
+    }
+    .tabs-title{
+        width: 70%;
+    }
+    .multi-image-block-section-container.mod-vertical {
+        height: 70%;
+    }
+    .multi-image-block-section-container {
+        height: 18rem;
+    }
+    .kamp-header-left-container h3{ /*10-09-2019*/
+        font-size: 1.2rem;
+    }
+    .kamp-header-left-container .icon.kamp-icon {/*10-09-2019*/
+        font-size: 2rem;
     }
     .tabs-title{
         width: 70%;

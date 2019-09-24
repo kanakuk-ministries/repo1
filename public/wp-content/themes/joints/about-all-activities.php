@@ -158,7 +158,7 @@ get_header();
 	         $videoUrl = $this_activity['video_popup_url'];
 			//echo "<pre>step2"; print_r($videoUrl); 
             if ($videoUrl) :
-            $checkUrl = getVideoUrl($videoUrl);
+                $checkUrl = getVideoUrl($videoUrl);
                 $videoId = end(explode('/',$videoUrl));
                 if ($checkUrl == 'vimeo') :
                $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';

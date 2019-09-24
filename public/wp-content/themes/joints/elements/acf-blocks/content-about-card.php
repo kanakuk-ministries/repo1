@@ -91,7 +91,7 @@ console_log(__FILE__, $fields);
              ?>
                    <div class="video-modal">
         				<div class="modal-embed-container video-center">
-        				<?php if($fields['video_icson_image']):?>
+        				<?php if($fields['video_icon_image']):?>
         				<a href="#" class="wp-video-popup"><img src="<?php echo $fields['video_icon_image']['url']; ?>" videourl="<?php echo $videoPlayerUrl; ?>"/></a>
                           <?php else:?>
                           <a href="#" class="wp-video-popup"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube-512.png" videourl="<?php echo $videoPlayerUrl; ?>"/></a>

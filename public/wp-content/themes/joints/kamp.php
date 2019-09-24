@@ -1,4 +1,3 @@
-
 <?php /* Template Name: Kamp */ ?>
 <?php 
 /**
@@ -9,14 +8,12 @@
 get_header(); ?>
 
 <?php
-	$kamp_card               = get_field('kamp_card');
+    $kamp_card               = get_field('kamp_card');
 	$kamp_card->kamp_title   = get_field('kamp_title', $kamp_card->ID);
 	$kamp_card->kamp   	     = get_field('kamp', $kamp_card->ID);
 	setup_postdata($kamp_card);
 	$kamp = get_kamp($kamp_card->kamp_title)[0];
-	// pr($kamp);
 	$kamp_type = get_kamp_type($kamp['kamp_type'])[0];
-	// pr($kamp_type);
 	wp_reset_postdata();
 	$directors = get_field('directors');
 	if ($directors) {
@@ -24,11 +21,8 @@ get_header(); ?>
 			$director->Image = get_field('member_image', $director->ID);
 		}
 	}
-	// pr(get_field('directors'));
 	$kamp_type_title_lowercase = strtolower($kamp_type['title']);
     ?>
-
-
 
 <div class="content" data-sticky-container>
 
@@ -70,15 +64,14 @@ get_header(); ?>
                                 <?php if($kamp['max_age']=='') {?>
                                  <a id="kamp-selection" href="https://register.kanakuk.com/registration/EventSelection.aspx" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
                                 <?php }else{?>
-                                
                                     <span class="select_age flex-container flex-column">
                                         <select id="select-age" class="form-control" name="KampAge">
                                              <option value="">Select Age</option>
                                              <?php
                                           $age_array = range($kamp['min_age'], $kamp['max_age']);
-                                              foreach( $age_array as $a){
+                                              foreach( $age_array as $age_item){
                                              ?>    
-                                            <option value="<?php echo $a; ?>"><?php echo $a;?></option>
+                                            <option value="<?php echo $age_item; ?>"><?php echo $age_item; ?></option>
                                             <?php }?>
                                         </select>
                                     </span>
@@ -89,7 +82,6 @@ get_header(); ?>
                                              <option value="female">Female</option>
                                         </select>
                                     </span>                                
-                               
                                 <a id="kamp-selection" href="#" class="show-for-medium button large margin-left-75 margin-bottom-0" onclick="createUrl()">Search Terms</a>
                               <?php }?>
                             </div>
@@ -108,29 +100,19 @@ get_header(); ?>
 					window.location.href = '/search-results/?tab=0'+'&kamp_type='+kamp+'&kamp_age='+age+'&kamp_gender='+gender;
 				}
 			</script>
-
-
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
             <?php 
 					$post = get_post(); 
 					if ( has_blocks( $post->post_content ) ) {
 						$blocks = gutenberg_parse_blocks( $post->post_content );
-					
 						foreach ($blocks as $block) {
 							echo gutenberg_render_block($block);
 						}
 					}
 					?>
-
             <?php endwhile; endif; ?>
-
         </main> <!-- end #main -->
-
         <?php get_sidebar(); ?>
-
     </div> <!-- end #inner-content -->
-
 </div> <!-- end #content -->
-
 <?php get_footer(); ?>

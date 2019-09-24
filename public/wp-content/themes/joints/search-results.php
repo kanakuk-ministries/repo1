@@ -197,7 +197,7 @@ get_header();?>
                    ?>
                 </div>
             </div>
-            <div class="grid-x gray-bg" id="search-results" v-cloak>
+            <div class="grid-x gray-bg" id="search-results-page" v-cloak>
                 <div class="tabs-content search-results-tabs-content" data-tabs-content="search-results-tabs">
                     <div class="tabs-panel is-active mod-no-padding" id="panel1">
                         <div class="search-selection-container">
@@ -301,7 +301,7 @@ get_header();?>
                                         </a>
 
                                         <!-- Accordion tab content: use `is-active` state class to start in open position. -->
-                                        <div class="accordion-content" data-tab-content>
+                                        <div class="accordion-content alwayShowTab" data-tab-content>
                                             <table class="unstriped search-results-container-table">
                                                 <thead>
                                                     <tr>
@@ -403,7 +403,6 @@ get_header();?>
     </div> <!-- end #inner-content -->
 
 </div> <!-- end #content -->
-
 <?php get_footer();?>
 
 <!-- <?php echo basename(__FILE__); ?> -->
