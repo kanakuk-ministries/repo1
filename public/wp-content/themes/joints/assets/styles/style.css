@@ -1101,7 +1101,12 @@ height:auto !important
 }
 
 /*End newsearch*/
-
+.page-template-search-results .dropdown-pane.is-open{
+	z-index: 999;
+}
+.list-grid-item-overlay .list-grid-item-member-name{
+	word-break: break-all;
+}
 /* End new style from jaikant */
 
 @media(max-width:991px){

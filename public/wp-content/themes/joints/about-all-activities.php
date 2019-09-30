@@ -151,8 +151,10 @@ get_header();
 																		<h6 class="secondary bold white text-center titlecase margin-bottom-20 white hollow"><?php echo $this_activity['activity_name']; ?></h6>
 																	
 																		<?php if($this_activity['activity_description']):?>
-																		<button class="button expanded white hollow"><a href="#myModal<?php echo $activity_id[0];?>"
-					data-toggle="modal" class="white">Activity Description</a></button>
+																		
+																		<a href="#myModal<?php echo $activity_id[0];?>"
+					data-toggle="modal" class="white"><button class="button expanded white hollow">Activity Description</button></a>
+					
 					<?php endif;?>
 					   <?php
 	         $videoUrl = $this_activity['video_popup_url'];
