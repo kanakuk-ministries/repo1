@@ -187,10 +187,7 @@ function kan_register()
             $token['EncryptedEntityID'],
             $response['RegistrationCartID']
         );
-        echo "<pre>"; print_r($url);
-        die();
-        
-       
+      
     }
     else {
         $client = CircuiTreeApiFactory::create();

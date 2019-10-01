@@ -61,7 +61,7 @@ class CircuiTreeApiClient {
             'ApiToken'  => $this->attr('api_token'),
             'Attendees' => $attendees
         ];
-        echo "<pre>"; print_r($data);
+       
         return $this->send($this->attr('base_url') . $this->attr('url_code') . '/Registration/CreateCart.json', $data);
     }
 
