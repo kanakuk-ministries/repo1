@@ -187,7 +187,7 @@ function kan_register()
             $token['EncryptedEntityID'],
             $response['RegistrationCartID']
         );
-        echo "<pre>"; print_r($url);\
+        echo "<pre>"; print_r($url);
         die();
         
        
