@@ -187,7 +187,7 @@ function kan_register()
             $token['EncryptedEntityID'],
             $response['RegistrationCartID']
         );
-      
+        
     }
     else {
         $client = CircuiTreeApiFactory::create();
@@ -195,6 +195,8 @@ function kan_register()
         // create registrations
         $response = $client->createRegistration($attendees);
         $url = CT_BASE_URL . '/Registration/LoadCart/' . $response['RegistrationCartID'];
+        
+        
     }
     
     // remove the registrations from the session
