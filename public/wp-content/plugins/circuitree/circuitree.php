@@ -175,8 +175,10 @@ function kan_register()
         $client = CircuiTreeApiFactory::create([
             'api_token' => array_extract($_SESSION, 'circuitree.auth.api_token')
         ]);
+      
         // create registrations
         $response = $client->createRegistration($attendees);
+        
         // get auto-login token
         $token = $client->getAutoLoginToken();
         $url = sprintf(
@@ -185,7 +187,10 @@ function kan_register()
             $token['EncryptedEntityID'],
             $response['RegistrationCartID']
         );
+        echo "<pre>"; print_r($url);\
+        die();
         
+       
     }
     else {
         $client = CircuiTreeApiFactory::create();
