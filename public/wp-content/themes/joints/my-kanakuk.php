@@ -29,8 +29,8 @@ $child_first = $family_infomartion['Results'][0];
 								<div class="my-kan-header my-kan-user-info medium-4">
 									<div class="avatar avatar-rectangle with-border" id="userImage" style="background-image: url(<?php echo $child_first['ChildPhotoURL']; ?>)"></div>
 									<h6 class="white secondary titlecase margin-top-10 margin-bottom-0" id="userName"><?php echo $child_first['ChildFirstName'].' '.$child_first['ChildLastName']; ?></h6>
-									<a href="https://staging-events.kanakuk.com/Manage/" class="white small-text pointer edit_profile">Edit Profile</a>
-									<a href="https://staging-events.kanakuk.com/Registration/RegistrationType/" class="tiny button">New Registration</a>
+									<a href="https://staging-events.kanakuk.com/link/?a=profile" class="white small-text pointer edit_profile">Edit Profile</a>
+									<a href="https://staging-events.kanakuk.com/link/?a=new_reg" class="tiny button">New Registration</a>
 								</div>
 							</div>
 						</div>
@@ -44,7 +44,7 @@ $child_first = $family_infomartion['Results'][0];
 											<span class="dark-blue bold">Due</span>
 											<span class="red bold">Jul 27, 2018</span>
 										</p>
-										<a href="https://staging-events.kanakuk.com/Accounting/MakePayment/" class="button tiny margin-bottom-5">Pay Now</a>
+										<a href="https://staging-events.kanakuk.com/link/?a=paynow&id=<?php echo $child_first['FamilyEntityID']; ?>" class="button tiny margin-bottom-5">Pay Now</a>
 										<a class="primary small-text margin-bottom-0">View All</a>
 									</div>
 
@@ -165,18 +165,18 @@ $child_first = $family_infomartion['Results'][0];
 											</a>
 										</li>
 										<?php endif;?>
-										<li class="tabs-title"><a href="/" class="primary" data-link='1'>+ New Kamper</a></li>
+										<li class="tabs-title"><a href="https://staging-events.kanakuk.com/Manage/Family/" class="primary" data-link='1'>+ New Kamper</a></li>
 									</ul>
+									<div class="tabs-content" data-tabs-content="my-kanakuk-tabs">
 									<?php 
 										$i=1;
 										foreach($family_infomartion['Results'] as $child_information):
 										
 										$registration_info = kan_get_registration_info($child_information['ChildEntityID']);
 										
-										foreach($registration_info['Results'] as $reg_information):
-                                        $class = $i == 1 ?'is-active' : '';					
+										$class = $i == 1 ?'is-active' : '';		
+										$reg_information = $registration_info['Results'][0];
 										?>
-									<div class="tabs-content" data-tabs-content="my-kanakuk-tabs">
 										<div class="tabs-panel my-kan-tabs-content-container <?=$class?>" id="child-<?php echo $i;?>">
 
 											
@@ -193,8 +193,7 @@ $child_first = $family_infomartion['Results'][0];
 													</p>
 													<p class="white small-text bold medium-4">{{ moment('<?php echo $reg_information['BeginDate'];?>').format("MMM DD") }} - {{ moment('<?php echo $reg_information['EndDate'];?>').format("MMM DD, YYYY") }}</p>
 													<div class="medium-4 text-right">
-														<a href="For this button as per my understanding it will work similar to “New registration” link and would be redirected to home page to search terms and for further registration, please confirm. 
-https://staging-events.kanakuk.com/Dashboard/" class="button hollow white small">Continue Registration</a>
+														<a href="https://staging-events.kanakuk.com/link/?a=continue_reg" class="button hollow white small">Continue Registration</a>
 													</div>
 												</div>
 
@@ -249,7 +248,7 @@ https://staging-events.kanakuk.com/Dashboard/" class="button hollow white small"
     														<td></td>
     														<td></td>
     														<td>
-																<a class="primary bold margin-left-10 small-text">View Details</a>
+																<a href="http://kanakukparties.com/" class="primary bold margin-left-10 small-text">View Details</a>
     														</td>
     													</tr>
     													<tr>
@@ -263,10 +262,10 @@ https://staging-events.kanakuk.com/Dashboard/" class="button hollow white small"
     															<p class="dark-blue bold small-text margin-bottom-5">(Current Balance)</p>
     														</td>
     														<td>
-    															<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/Dashboard/">Add Credit</a>
+    															<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/link/?a=reg&id=<?php echo $reg_information['RegistrationID'];?>&s=store_card">Add Credit</a>
     														</td>
     														<td>
-																<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/Dashboard/">View Details</a>
+																<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/link/?a=dashboard">View Details</a>
     														</td>
     													</tr>
     													<tr>
@@ -285,7 +284,7 @@ https://staging-events.kanakuk.com/Dashboard/" class="button hollow white small"
     														</td>
     														<td>
     															<?php if($reg_information['HealthFormComplete'] == 'No'): ?>
-    															<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/Dashboard/">Submit</a>
+    															<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/link/?a=reg&id=<?php echo $reg_information['RegistrationID'];?>&s=medical">Submit</a>
     															<?php else: ?>
     															<a class="primary bold margin-left-10 small-text">Edit</a>
     															<?php endif; ?>
@@ -309,7 +308,7 @@ https://staging-events.kanakuk.com/Dashboard/" class="button hollow white small"
     															</p>
     														</td>
     														<td>
-    															<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/Dashboard/">Edit</a>
+    															<a class="primary bold margin-left-10 small-text" href="https://staging-events.kanakuk.com/link/?a=dashboard">Edit</a>
     														</td>
     														<td></td>
     													</tr>
@@ -459,9 +458,9 @@ https://staging-events.kanakuk.com/Dashboard/" class="button hollow white small"
 												</div>
 
 											</div>
+										<?php $i++; endforeach;?>
 
 										</div>
-										<?php endforeach; $i++; endforeach;?>
 									</div>
 								</div>
 							</div>
