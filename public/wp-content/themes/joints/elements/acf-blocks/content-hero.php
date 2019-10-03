@@ -49,7 +49,7 @@ $imageUrl = $fields['image']['url'];
                 </ul>
         </div>
         <?php endif ?>
-            <?php if($post_id=="2089") :?>
+            <?php if($post_id=="2089"  || $post_id=="3000" ||$post_id=="3003"||$post_id=="3005"||$post_id=="3407") :?>
         <div class="hero-tabs-container about-page margin-bottom-60">
                 <ul class="tabs hero-tabs about-page-tabs" id="about-page-tabs">
                     <?php foreach ($safety_page_menu as $key => $value): ?>
