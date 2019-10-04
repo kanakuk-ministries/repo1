@@ -53,10 +53,19 @@ $imageUrl = $fields['image']['url'];
         <div class="hero-tabs-container about-page margin-bottom-60">
                 <ul class="tabs hero-tabs about-page-tabs" id="about-page-tabs">
                     <?php foreach ($safety_page_menu as $key => $value): ?>
-                    <li class="tabs-title <?php if ($key === 0) {echo 'is-active';
-                                          }?>">
-                        <a href="<?php echo str_replace(' ', '-', strtolower($value)); ?>" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
-                            <?php echo $value; ?>
+                    <li class="tabs-title <?php if ($key === 0) {echo 'is-active';}?>">
+                        <a href="/about-safety/child-protection-plan/" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
+                            Child protection plan
+                        </a>
+                      </li>
+                    <li class="tabs-title <?php if ($key === 1) {echo 'is-active';}?>">
+                        <a href="/about-safety/healthy-environment/" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
+                            Healthy Environment
+                        </a>
+                    </li>
+                    <li class="tabs-title <?php if ($key === 3) {echo 'is-active';}?>">
+                        <a href="/about-safety/healthy-relationships/" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
+                            Healthy Relationships
                         </a>
                     </li>
                     <?php endforeach;?>
