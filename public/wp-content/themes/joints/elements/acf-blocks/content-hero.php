@@ -52,7 +52,7 @@ $imageUrl = $fields['image']['url'];
             <?php if($post_id=="2089"  || $post_id=="3000" ||$post_id=="3003"||$post_id=="3005"||$post_id=="3407") :?>
         <div class="hero-tabs-container about-page margin-bottom-60">
                 <ul class="tabs hero-tabs about-page-tabs" id="about-page-tabs">
-                    <?php foreach ($safety_page_menu as $key => $value): ?>
+                    <?php //foreach ($safety_page_menu as $key => $value): ?>
                     <li class="tabs-title <?php if ($key === 0) {echo 'is-active';}?>">
                         <a href="/about-safety/child-protection-plan/" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
                             Child protection plan
@@ -68,7 +68,7 @@ $imageUrl = $fields['image']['url'];
                             Healthy Relationships
                         </a>
                     </li>
-                    <?php endforeach;?>
+                    <?php //endforeach;?>
                 </ul>
         </div>
             <?php endif ?>
