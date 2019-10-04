@@ -63,7 +63,7 @@ $imageUrl = $fields['image']['url'];
                             Healthy Environment
                         </a>
                     </li>
-                    <li class="tabs-title <?php if ($key === 3) {echo 'is-active';}?>">
+                    <li class="tabs-title <?php if ($key ===2) {echo 'is-active';}?>">
                         <a href="/about-safety/healthy-relationships/" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
                             Healthy Relationships
                         </a>
@@ -103,4 +103,13 @@ $imageUrl = $fields['image']['url'];
     video_element.attr('poster', image_url);
     video_element.attr('autoplay', '');
     video_element.attr('loop', '');
-</script>
+
+    jQuery(function($) {
+        var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+        $('ul a').each(function() {
+         if (this.href === path) {
+          $(this).addClass('speaker-color');
+         }
+        });
+       });
+    </script>
