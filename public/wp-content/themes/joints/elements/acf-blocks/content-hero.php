@@ -52,10 +52,23 @@ $imageUrl = $fields['image']['url'];
             <?php if($post_id=="2089"  || $post_id=="3000" ||$post_id=="3003"||$post_id=="3005"||$post_id=="3407") :?>
         <div class="hero-tabs-container about-page margin-bottom-60">
                 <ul class="tabs hero-tabs about-page-tabs" id="about-page-tabs">
-                    <?php foreach ($safety_page_menu as $key => $value): ?>
+                    <?php foreach ($safety_page_menu as $key => $value): 
+                    if($key == 0){
+                        
+                        $link= "/about-safety/child-protection-plan/";
+                    }
+                    if($key == 1){
+                        
+                        $link= "/about-safety/healthy-environment/";
+                    }
+                    if($key == 2){
+                        
+                        $link= "/about-safety/healthy-relationships/";
+                    }                    
+                    ?>
                     <li class="tabs-title <?php if ($key === 0) {echo 'is-active';
                                           }?>">
-                        <a href="<?php echo str_replace(' ', '-', strtolower($value)); ?>" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
+                        <a href="<?php echo $link; ?>" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
                             <?php echo $value; ?>
                         </a>
                     </li>
