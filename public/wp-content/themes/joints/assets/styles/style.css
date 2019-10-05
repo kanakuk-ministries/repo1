@@ -1107,6 +1107,44 @@ height:auto !important
 .list-grid-item-overlay .list-grid-item-member-name{
 	word-break: break-all;
 }
+
+
+/* 03-01-2019 */
+.my-kan-card-padding table, .search-results-container-table{
+    margin-bottom: 0px;
+}
+.search-filter-option-container .dropdown.menu a {
+    padding: 1rem;
+}
+div#packinglist-1.transportation-details-modal, div#packinglist-2.transportation-details-modal {
+    height: 95% !important;
+}
+.reveal-overlay .modal-body {
+    overflow: auto;
+    height: calc(100% - 40px);
+}
+.reveal-overlay .modal-body img{
+	width:auto;
+	height:100%;
+	margin: 0 auto;
+}
+div#packinglist-1.transportation-details-modal{
+	padding-bottom: 10px;
+}
+.account-balance-card{
+    width: 100%;
+}
+.dropdown.menu>li.is-dropdown-submenu-parent>a{
+    font-size: 17px;
+}
+.reveal-overlay .model-footer{
+	padding: 10px 0;
+}
+.reveal-overlay .model-footer .btn{
+	margin: 0;
+	
+}
+
 /* End new style from jaikant */
 
 @media(max-width:991px){
@@ -1236,7 +1274,7 @@ and (orientation : landscape) {
      }
      .flex-container.align-center.justify-space-between{
          flex-wrap: wrap;
-    	justify-content: center;     	
+    	justify-content: space-between;     	
      }
      .my-kan-left-container .dropdown.menu a{
      	padding: .5rem;
@@ -1253,6 +1291,7 @@ and (orientation : landscape) {
     .search-results-register-button-container{
     	padding:0px;
     }
+    
      
 }
 @media(min-width:768px){
@@ -1449,6 +1488,26 @@ and (orientation : landscape) {
 		    width: 100%;
 		}
 		
+	.show-for-small-only .button{ 
+       	font-size: inherit;
+        padding: inherit;
+    }
+		
+		/* new 4 oct 2019 */
+    .hero-tabs li.tabs-title.active>a {
+        border-bottom: 4px solid #003a5c;
+        background-color: #003a5c;
+        color: #fff;
+    }
+    .hero-tabs-container.about-page{
+        border-bottom: 4px solid #003a5c;
+    }
+    .back-section-div{
+        padding: 0px 20px;
+    }
+    .back-section-div a.show-for-medium {
+        display: flex !important;
+    }
      
 }
 
@@ -1458,6 +1517,29 @@ and (orientation : landscape) {
         min-height: 30vh;;
     }
     /*End this CSS for hero image display properly in responsvie view*/
+}
+
+@media(max-width:414px){ /*10-09-2019*/
+    .kamp-header-left-container h3 {
+        font-size: 1rem;
+    }
+    .kamp-header-container-background .h5, .kamp-header-container-background h5 {
+        font-size: 1rem;
+    }
+    #select-age, #select-gender{
+        font-size: 12px;
+    }
+    .select_age:before, .select_gender:before{
+        font-size: 12px;
+    }
+    span.flex-column {
+        -ms-flex-direction: column;
+        flex-direction: inherit;
+    }
+    .select_age, .select_gender {
+        margin: 0 10px 10px 10px;
+        max-width: 149px;
+    }
 }
 
 @media (max-width: 350px){

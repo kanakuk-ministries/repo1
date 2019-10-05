@@ -450,10 +450,15 @@ $child_first = $family_infomartion['Results'][0];
 												<?php endforeach; ?>
 													</div>
 													<div class="reveal small transportation-details-modal" id="packinglist-<?php echo $i;?>" data-reveal>
+														<div class="modal-body">
 														<img src='<?php echo $reg_information['PackingListURL'];?>' class="img-responsive">
+														</div>
 														<button class="close-button" data-close aria-label="Close modal" type="button">
                                                 			<span aria-hidden="true">&times;</span>
                                                 		</button>
+                                                		<div class="model-footer text-center">
+                                                			<button class="btn button" type="button">Download</button>
+                                                		</div>
 													</div>
 												</div>
 

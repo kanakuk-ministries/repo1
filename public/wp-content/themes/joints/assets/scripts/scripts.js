@@ -10382,7 +10382,8 @@ var _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator 
                 },
                 toggleEventsVisibility: function() {
                     for (key in this.kamps) {
-                        for (var t = 0, e = 0; e < this.kamps[key].circuitree.length; e++) this.isVisible(this.kamps[key].circuitree[e]) ? (t++, this.kamps[key].circuitree[e].visible = !0) : this.kamps[key].circuitree[e].visible = !1;
+                        for (var t = 0, e = 0; e < this.kamps[key].circuitree.length; e++) 
+                        this.isVisible(this.kamps[key].circuitree[e]) ? (t++, this.kamps[key].circuitree[e].visible = !0) : this.kamps[key].circuitree[e].visible = !1;
                         0 === t ? this.kamps[key].visible = !1 : this.kamps[key].visible = !0
                     }
                 }

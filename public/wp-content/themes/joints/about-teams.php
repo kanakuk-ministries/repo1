@@ -192,7 +192,7 @@ get_header(); ?>
 						</button>
 						<div class="margin-right-45 margin-left-45 margin-bottom-15 video-text flex-container justify-flex-start align-flex-start">
 							<!-- <i class="icon icon-quote-copy large light-gray margin-right-10"></i> -->
-							<p class="small-sub-text" id="video-quote"></p>
+							<!--<p class="small-sub-text" id="video-quote"></p>-->
 						</div>
 						<div class="custom-video-container modal-embed-container video-center">
 								<video controls id="custom-video" class="basic-video custom-video" poster=''>

@@ -66,8 +66,8 @@ $imageUrl = $fields['image']['url'];
                         $link= "/about-safety/healthy-relationships/";
                     }                    
                     ?>
-                    <li class="tabs-title <?php if ($key === 0) {echo 'is-active';
-                                          }?>">
+                    <li class="tabs-title <?php //if ($key === 0) {echo 'is-active';
+                                          //}?>">
                         <a href="<?php echo $link; ?>" class="<?php echo str_replace(' ', '-', strtolower($value)); ?>-tab-link">
                             <?php echo $value; ?>
                         </a>

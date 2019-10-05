@@ -101,7 +101,11 @@ console_log(__FILE__, $fields);
         			</div>
               <?php endif;?> 
               <?php endif;?>
-              <?php if ($checkUrl=='vidyard'): 
+              <?php 
+              $videoUrl = $fields['video_popup_url'];
+              if ($videoUrl) :
+              $checkUrl = getVideoUrl($videoUrl);
+              if ($checkUrl=='vidyard'): 
               $videoUrl = $fields['video_popup_url'];
               ?>
                <div class="video-modal">
@@ -110,6 +114,7 @@ console_log(__FILE__, $fields);
   data-type="lightbox" src=""/></a>
                            </div>
         			</div>
+				<?php endif;?>
 				<?php endif;?>
 		</div>
 	</div>

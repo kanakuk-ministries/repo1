@@ -142,15 +142,13 @@ function getVideoUrl($videoURl){
     array_unshift($parts,trim(strstr(parse_url($videoURl)['host'],'.'),'.'));
     $url = (array_filter($parts));
     $finalURl = $url['0'];
-   
     if($finalURl=='youtube.com'){
         
         return "youtube";
-    }if($finalURl=='com'){
+    }if($finalURl=='vimeo.com'){
         
         return "vimeo";
     }else{
-        
         return "vidyard";
     }
 }

@@ -268,7 +268,7 @@ get_header();?>
 
                             <!-- Search Results -->
                             <div class="search-results-container">
-                                <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
+                                <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true" v-if="kamps!=''">
 
                                     <li class="accordion-item is-active" data-accordion-item v-for="kamp in kamps" v-show="kamp.visible">
                                         <!-- Accordion tab title -->
@@ -356,6 +356,9 @@ get_header();?>
 
 
                                 </ul>
+                            	<div class="search-no" v-else>
+                            	<h3>No Results Found Related Your selection</h3>
+                            	</div>
                             </div>
 
                         </div>
@@ -393,8 +396,8 @@ get_header();?>
 
         <script type="text/javascript">
             var kamps = <?php echo json_encode($kamps); ?>;
-            str = JSON.stringify(kamps);
-            console.log("kamps"+str);
+			str = JSON.stringify(kamps);
+           // console.log("kamps"+str);
         </script>
 
         
