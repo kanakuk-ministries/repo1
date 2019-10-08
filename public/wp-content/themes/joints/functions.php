@@ -163,11 +163,7 @@ function getVideoUrl($videoURl){
    if($finalURl=='youtube.com'){
         
         return "youtube";
-    }if($finalURl=='vimeo.com'){
-        
-        return "vimeo";
-    }
-    if($finalURl=='com'){
+   }if($finalURl=='vimeo.com'||$finalURl=='com'){
         
         return "vimeo";
     }
