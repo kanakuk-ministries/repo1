@@ -106,6 +106,7 @@ video::-webkit-media-controls-panel {
 .card-with-background-image{
                 background-size: auto 100%;
 }
+
 .modal-header .close {
     float: right;
     font-size: 20px;
@@ -227,7 +228,7 @@ body.page-id-2396 .hero-media-container.hero-medium{
                 position: fixed;
     top: 282px;
     right: 0;
-    z-index: 99;
+    z-index: 999;
 }
 .back-kanakuk .btn{
                 background: #2275ff;
@@ -865,8 +866,8 @@ height:auto !important
     color: #FFF;
 }
 .hero-tabs li.tabs-title.is-active a{
-    background: #efefef;
-    color: #003a5c;
+  /*  background: #efefef;
+    color: #003a5c;*/
 }
 .hero-tabs li.tabs-title.is-active.active a{
     background: #003a5c;
@@ -878,12 +879,7 @@ height:auto !important
 .hero-content-container:before{
     background: linear-gradient(#000,#fff 30%,rgba(0, 0, 0, 0) 70%);
 }
-/* this css for mange hero image larg medium and small */
-/* .hero-tabs-container.about-page.margin-bottom-60{
-    top: inherit;
-    bottom: 0;
-    margin: 0 !important;
-} */
+
 .about-card-container .card-with-background-image .card-section p{
     color : #003a5c;
 }
@@ -932,10 +928,6 @@ height:auto !important
 .faq-tab .tab-content p a{
     word-break: break-all;
 }
-.hero-container.large {
-  /*height: 573px;
-    min-height: 573px;*/
-}
 
 .page-id-844 .hero-tabs-container.about-page, .page-id-844 .hero-tabs-container.donate-page{
     bottom: 0;
@@ -944,11 +936,6 @@ height:auto !important
 }
 .custom_hero{
     position: relative;
-}
-.custom_hero .hero-tabs-container.about-page{ /* 26-08-2019 */
-    /*top: auto;
-    bottom: 0px;
-    margin: 0 !important; */
 }
 
 .select_age, .select_gender{
@@ -1080,9 +1067,7 @@ height:auto !important
 /* End my kanakuk page popup */
 
 /*newsearch*/
-	.newsearch{
-		
-	}
+	
 .modal-content{
 	height: 100%;
 }
@@ -1109,7 +1094,7 @@ height:auto !important
 }
 
 
-/* 03-01-2019 */
+/* 03-10-2019 */
 .my-kan-card-padding table, .search-results-container-table{
     margin-bottom: 0px;
 }
@@ -1144,7 +1129,38 @@ div#packinglist-1.transportation-details-modal{
 	margin: 0;
 	
 }
+.back-section-div a.show-for-medium {
+    display: flex !important;
+}
+.page-id-2403 .hero-sub-section-requirement-text{
+	font-wdth: 500;
+	font-size: 20px;
+}
+.hero-tabs-container.about-page, .hero-tabs-container.donate-page {
+    top: auto;
+    border-bottom: 14px solid #003a5c;
+    bottom: 0px;
+    margin:0px !important;    
+}
+.hero-tabs li.tabs-title>a{
+	border:0px;
+}
 
+.page-id-14 .kampers-dropdown-trigger-container{
+	overflow: hidden;
+    text-overflow: ellipsis;
+}
+.page-id-14 .kampers-dropdown-trigger-container p.basic-gray.bold{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#kamp-selection.button{
+	background: #ff8e17;
+}
+#kamp-selection.button:hover, #kamp-selection.button:focus{
+	background-color: #de7200;
+    color: #fff;
+}
 /* End new style from jaikant */
 
 @media(max-width:991px){
@@ -1291,7 +1307,9 @@ and (orientation : landscape) {
     .search-results-register-button-container{
     	padding:0px;
     }
-    
+    .kamp-card-text-section .card-section-header h3 {
+    	font-size: 2rem!important;
+	}
      
 }
 @media(min-width:768px){
@@ -1356,11 +1374,7 @@ and (orientation : landscape) {
        /* height: 99vh;*/
         min-height: 350px;
     }
-   /* .hero-tabs-container.about-page.margin-bottom-60{
-        top: inherit;
-        bottom: 0;
-        margin: 0 !important;
-    } */
+   
     .about-card-container .card-with-background-image .card-section {	   
 	    height: 100%;
 	    max-height: 100%;
