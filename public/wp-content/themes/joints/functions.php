@@ -36,6 +36,23 @@ function array_extract($arr, $path = '')
     return $arr;
 }
 
+//download the image from any external url
+function fetchImage($photo_url)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $photo_url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+    $data = curl_exec($ch);
+    curl_close($ch);
+    $tmpfile = get_theme_root().'/joints/assets/images' . DS . md5($photo_url) . '.jpg';
+    @file_put_contents( $tmpfile, $data );
+    return $tmpfile;
+}
+
+
+
 /**
  * Given an associative array, will turn any CamelCase array keys into snake_case
  */
