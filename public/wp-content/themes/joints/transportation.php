@@ -65,8 +65,8 @@ $transportation_subpages = get_children($args);
 			<li class="k-4"><a data-toggle="tab" href="#menu3">K-Kountry</a></li>
 			<li class="k-5"><a data-toggle="tab" href="#menu4">K-West</a></li>
 			<li class="k-6"><a data-toggle="tab" href="#menu5">K-Kauai</a></li>
-			<!--  <li class="k-7"><a data-toggle="tab" href="#menu6">KampOut</a></li>-->
-			<li class="k-8"><a data-toggle="tab" href="#menu7">WorldView Camp</a></li>
+			<!--<li class="k-7"><a data-toggle="tab" href="#menu6">KampOut</a></li>-->
+			<li class="k-8"><a data-toggle="tab" href="#menu7">WorldView</a></li>
 		</ul>
 		<div class="tab-content camp-tab-content">
 			<div id="home" class="tab-pane fade in active">
