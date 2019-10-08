@@ -49,7 +49,7 @@
 </html> <!-- end page -->
 <script type="text/javascript">
 //banner for hero image
-$('#about-page-tabs').parent().appendTo('.hero-container');
+$('#about-page-tabs ,.kamp-types-tabs').parent().appendTo('.hero-container');
 //faq js 
 window.onload=function(){
 jQuery('li.faqs-content-question').click(function(){

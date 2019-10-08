@@ -451,14 +451,14 @@ $child_first = $family_infomartion['Results'][0];
 													</div>
 													<div class="reveal small transportation-details-modal" id="packinglist-<?php echo $i;?>" data-reveal>
 														<div class="modal-body">
-														<img src='<?php echo $reg_information['PackingListURL'];?>' class="img-responsive">
+														<img src='<?php echo $reg_information['PackingListURL']; ?>' class="img-responsive">
 														</div>
 														<button class="close-button" data-close aria-label="Close modal" type="button">
                                                 			<span aria-hidden="true">&times;</span>
                                                 		</button>
-                                                		<div class="model-footer text-center">
-                                                			<button class="btn button" type="button">Download</button>
-                                                		</div>
+                                                		<!-- <div class="model-footer text-center">
+                                                			<button class="btn button" type="button"><a href="<?php echo $urlimg;?>" download>Download</a></button>
+                                                		</div>-->
 													</div>
 												</div>
 

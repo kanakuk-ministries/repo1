@@ -72,7 +72,7 @@ get_header(); ?>
 											<p class="list-grid-item-member-title uppercase white text-center"><?php echo $this_executive['member_titles']; ?></p>
 											<h6 class="list-grid-item-member-name secondary bold white text-center titlecase"><?php echo $this_executive['member_name']; ?></h6>
 											<a class="button expanded" href="mailto:<?php echo $this_executive['member_email']; ?>">Contact</a>
-											<?php if(isSet($this_executive['member_description'])): ?>
+											<?php if(!empty($this_executive['member_quote'])): ?>
 												<button class="button expanded white hollow"><a href="#myModal<?php echo $memberId;?>"
 					data-toggle="modal" class="white">Staff Bio</a></button>
 											<?php endif; ?>
@@ -98,7 +98,7 @@ get_header(); ?>
 								</button>
 								<h4 class="modal-title card-section"><?php echo $this_executive['member_name'];?></h4>
 							</div>
-							<div class="modal-body customModalBody"><?php echo $this_executive['member_description']; ?></div>
+							<div class="modal-body customModalBody"><?php echo $this_executive['member_quote']; ?></div>
 						</div>
 						<!-- /.modal-content -->
 					</div>

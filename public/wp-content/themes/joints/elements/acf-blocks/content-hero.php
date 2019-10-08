@@ -92,9 +92,9 @@ $imageUrl = $fields['image']['url'];
             <?php endif ?>
         </div>
     </div>
-    <div class="back-kanakuk">
+    <!-- <div class="back-kanakuk">
     <a href="http://kanakuk.com/" class="btn">Back to old Kanakuk</a>
-    </div>
+    </div>-->
     
 </div>
 

@@ -93,17 +93,21 @@ $list_items_array = explode(',', $fields['list_items']);
             			</div>
                   <?php endif;?> 
                   <?php endif;?>
-                  <?php if ($checkUrl=='vidyard'): 
-                  $videoUrl = $fields['video_popup_url'];
-                  ?>
-                   <div class="video-modal">
-            				<div class="modal-embed-container video-center">
-            				  <a href="#"><img style="width: 100%; margin: auto; display: block;" class= "vidyard-player-embed" data-uuid='<?php echo $videoUrl; ?>' data-v="4"
-      data-type="lightbox" src=""/></a>
-                               </div>
-            			</div>
-            		
-    				<?php endif;?>
+                  <?php 
+                          $videoUrl = $fields['video_popup_url'];
+                          if ($videoUrl) :
+                          $checkUrl = getVideoUrl($videoUrl);
+                          if ($checkUrl=='vidyard'): 
+                          $videoUrl = $fields['video_popup_url'];
+                          ?>
+                           <div class="video-modal">
+                    				<div class="modal-embed-container video-center">
+                    				  <a href="#"><img style="width: 100%; margin: auto; display: block;" class= "vidyard-player-embed" data-uuid='<?php echo $videoUrl; ?>' data-v="4"
+              data-type="lightbox" src=""/></a>
+                                       </div>
+                    			</div>
+				<?php endif;?>
+				<?php endif;?>
     				</div>
     		</div>
     </div>

@@ -53,7 +53,7 @@ console_log(__FILE__, $fields);
 
 <?php }else {?>
    
-<div class="sub-hero-container">
+<div class="sub-hero-containersss">
        <div class="hero-sub-section text-center" style="background:<?php echo $fields['color_code']?>">
               <div class="grid-container">
                      <div class="white margin-bottom-0 hero-sub-section-requirement-text speaker-image-section">
@@ -86,6 +86,5 @@ console_log(__FILE__, $fields);
            <?php endif;?>
         </div>
        </div>
-       <div class="background-blue-container-triangle"></div>
 </div>
 <?php }?>

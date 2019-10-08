@@ -63,7 +63,7 @@ get_header();
 									<ul class="accordion-content" data-tab-content>
 										<?php foreach ($kamps as $kamp_key => $kamp):
 											 if ($kamp['kamp_type']->post_title === $value['title']) :
-											//echo $kamp['kamp_title'] == 'Scuba Kamp'\
+											
 											$display='block';
 											if($kamp['kamp_title'] == 'Scuba Kamp'){
 											    $display='none';
@@ -167,9 +167,8 @@ get_header();
                     ?>
                 <div class="video-modal">
 				<div class="modal-embed-container video-center">
-				<a href="#" class="wp-video-popup"><button class="button expanded white hollow" videourl="<?php echo $videoPlayerUrl; ?>">Watch Video</button></a>
-                  
-                   </div>
+					<a href="#" class="wp-video-popup"><button class="button expanded white hollow" videourl="<?php echo $videoPlayerUrl; ?>">Watch Video</button></a>
+                </div>
 			</div>
               <?php endif;?>
              <?php if($checkUrl=='youtube'): 
@@ -178,8 +177,9 @@ get_header();
              ?>
                    <div class="video-modal">
         				<div class="modal-embed-container video-center">
+        				<?php if($videoUrl):?>
         				<a href="#" class="wp-video-popup"><button class="button expanded white hollow" videourl="<?php echo $videoPlayerUrl; ?>">Watch Video</button></a>
-                          
+                           <?php endif;?>
                            </div>
         			</div>
               <?php endif;?> 
