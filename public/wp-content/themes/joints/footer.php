@@ -49,7 +49,9 @@
 </html> <!-- end page -->
 <script type="text/javascript">
 //banner for hero image
-$('#about-page-tabs ,.kamp-types-tabs').parent().appendTo('main > .hero-container');
+var appendBox = $('.main').find('.hero-container').first();
+$('#about-page-tabs ,.kamp-types-tabs').parent().appendTo(appendBox);
+
 //faq js 
 window.onload=function(){
 jQuery('li.faqs-content-question').click(function(){
