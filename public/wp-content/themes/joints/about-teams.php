@@ -76,10 +76,51 @@ get_header(); ?>
 												<button class="button expanded white hollow"><a href="#myModal<?php echo $memberId;?>"
 					data-toggle="modal" class="white">Staff Bio</a></button>
 											<?php endif; ?>
-											<?php if($this_executive['video']): ?>
-												<button id="videoModalButton" class="button expanded white hollow video-modal-button" data-open="videoModal" data-key="<?php echo clean($this_executive['member_name']); ?>">Watch Interview</button>
-											<?php endif; ?>
+									<?php if($this_executive['video']): 
+											$videoUrl = $this_executive['video'];
+											$checkUrl = getVideoUrl($videoUrl);
+											$videoId = end(explode('/',$videoUrl));
+											if ($checkUrl == 'vimeo') :
+											 $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
+									?>
+                                                    <div class="video-modal">
+                                    				<div class="modal-embed-container video-center">
+                                    					<a href="#" class="wp-video-popup"><button class="button expanded white hollow video-modal-button" videourl="<?php echo $videoPlayerUrl; ?>">Watch Interview</button></a>
+                                                    </div>
+                                    			</div>
+              								<?php endif;?>
+              								<?php 
+              								$videoUrl = $this_executive['video'];
+											$checkUrl = getVideoUrl($videoUrl);
+											$videoId = end(explode('/',$videoUrl));
+											if ($checkUrl == 'youtube') :
+											 $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
+									?>
+                                                    <div class="video-modal">
+                                    				<div class="modal-embed-container video-center">
+                                    					<a href="#" class="wp-video-popup"><button class="button expanded white hollow video-modal-button" videourl="<?php echo $videoPlayerUrl; ?>">Watch Interview</button></a>
+                                                    </div>
+                                    			</div>
+              								<?php endif;?>
+              								<?php 
+              								  $videoUrl = $this_executive['video'];
+                                              $checkUrl = getVideoUrl($videoUrl);
+                                              if ($checkUrl=='vidyard'): 
+                                              ?>
+                                                   <div class="video-modal">
+                                            				<div class="modal-embed-container video-center">
+                                            				  <a href="#">
+                                            				  <button style="width: 100%; display: block; margin: auto; class="vidyard-player-embed button expanded white hollow video-modal-button" data-v="4"
+                                      data-type="lightbox">Watch Interview</button></a>
+                                                               </div>
+                                            			</div>
+											<?php endif;?>
+							<!--<button id="videoModalButton" class="button expanded white hollow video-modal-button" data-open="videoModal" data-key="<?php //echo clean($this_executive['member_name']); ?>">Watch Interview</button>-->
+									<?php endif; ?>
 										</div>
+									
+									
+									
 									</div>
 								<?php endforeach; ?>
 							</ul>
@@ -140,18 +181,70 @@ get_header(); ?>
 																		if ($i === 4)
 																			$i = 0;
 																		$i++;
+																		
+																		
 																?>
+																
 																	<?php
 																		$director_id = array($director->ID);
 																		$this_director_array = get_staff($director_id);
 																		$this_director = reset($this_director_array);
+																		$dirId = $this_director['member_image']['id'];
 																	?>
+																				<div id="mydirModal<?php echo $dirId;?>"
+					class="modal fade popout-about-card">
+					<div class="modal-dialog modal-lg aboutInfoModal">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button class="close" type="button" data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</button>
+								<h4 class="modal-title card-section"><?php echo $this_director['member_name'];?></h4>
+							</div>
+							<div class="modal-body customModalBody"><?php echo $this_director['member_quote']; ?></div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
 																	<div class="staff-grid-item invisible list-grid-item block-<?php echo $i; ?>">
 																		<img src="<?php echo $this_director['member_image']['url']; ?>">
 																		<div class="list-grid-item-overlay">
 																			<p class="list-grid-item-member-title uppercase white text-center"><?php echo $this_director['member_titles']; ?></p>
 																			<h6 class="list-grid-item-member-name secondary bold white text-center titlecase"><?php echo $this_director['member_name']; ?></h6>
 																			<a class="button expanded" href="mailto:<?php echo $this_director['member_email']; ?>">Contact</a>
+																			<?php if($this_director['member_quote']):?>
+                                                                            				<button class="button expanded white hollow"><a href="#mydirModal<?php echo $dirId;?>"
+                                                                            				              	data-toggle="modal" class="white">Staff Bio</a></button>
+																			<?php endif;?>
+																			<?php if($this_director['video']): 
+																			$videoUrl = $this_director['video'];
+                                        											$checkUrl = getVideoUrl($videoUrl);
+                                        											$videoId = end(explode('/',$videoUrl));
+                                        											if ($checkUrl == 'vimeo') :
+                                        											 $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
+									                                           ?>
+                                                    <div class="video-modal">
+                                    				<div class="modal-embed-container video-center">
+                                    					<a href="#" class="wp-video-popup"><button class="button expanded white hollow video-modal-button" videourl="<?php echo $videoPlayerUrl; ?>">Watch Interview</button></a>
+                                                    </div>
+                                    			</div>
+              								<?php endif;?>
+              								<?php endif;?>
+              								<?php if($this_director['video']): 
+																			$videoUrl = $this_director['video'];
+                                        											$checkUrl = getVideoUrl($videoUrl);
+                                        											$videoId = end(explode('/',$videoUrl));
+                                        											if ($checkUrl == 'youtube') :
+                                        											 $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
+									                                           ?>
+                                                    <div class="video-modal">
+                                    				<div class="modal-embed-container video-center">
+                                    					<a href="#" class="wp-video-popup"><button class="button expanded white hollow video-modal-button" videourl="<?php echo $videoPlayerUrl; ?>">Watch Interview</button></a>
+                                                    </div>
+                                    			</div>
+              								<?php endif;?>
+              								<?php endif;?>
 																		</div>
 																	</div>
 																<?php endforeach; ?>
@@ -185,7 +278,11 @@ get_header(); ?>
 					<?php endwhile; endif; ?>
 
 					</div>
-
+					<div class="wp-video-popup-wrapper">
+					<div class="wp-video-popup-close"></div>
+					<iframe class="wp-video-popup-video" src="" data-wp-video-popup-url="'. $video_url .'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe>
+					</div>
+					
 					<div class="reveal video-modal" id="videoModal" data-reveal data-reset-on-close="true">
 						<button class="close-button" data-close aria-label="Close modal" type="button" id="video-modal-close-button">
 							<span aria-hidden="true">Close</span>

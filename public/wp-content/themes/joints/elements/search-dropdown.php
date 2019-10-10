@@ -65,7 +65,7 @@
               </span>
             </span>
           </p>
-          <i class="icon icon-caret-large-down primary"></i>
+          <i class="icon icon-caret-large-down primary" onclick="myFunction()"></i>
         </div>
       </div>
     </div>
@@ -176,3 +176,8 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+<script>
+function myFunction() {
+	window.scrollTo(20,170);
+}
+</script>

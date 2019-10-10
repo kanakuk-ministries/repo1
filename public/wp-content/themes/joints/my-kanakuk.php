@@ -459,6 +459,9 @@ $child_first = $family_infomartion['Results'][0];
                                                 		<!-- <div class="model-footer text-center">
                                                 			<button class="btn button" type="button"><a href="<?php echo $urlimg;?>" download>Download</a></button>
                                                 		</div>-->
+                                                		<div class="model-footer text-center">
+                                                			<button class="btn button" type="button" onclick="printImage()">Print</a></button>
+                                                		</div>
 													</div>
 												</div>
 
@@ -510,6 +513,10 @@ $child_first = $family_infomartion['Results'][0];
             
          
         	})
+        	
+         function printImage() {
+          window.print();
+        }
         </script>
         <?php get_sidebar();?>
     </div> <!-- end #inner-content -->
