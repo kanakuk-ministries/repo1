@@ -106,7 +106,9 @@ video::-webkit-media-controls-panel {
 .card-with-background-image{
                 background-size: auto 100%;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .modal-header .close {
     float: right;
     font-size: 20px;
@@ -1018,9 +1020,9 @@ height:auto !important
 	font-size:15px;
 }
 
-.hero-media-container.hero-small, .hero-media-container.hero-large, .hero-media-container.hero-medium {
+/*.hero-media-container.hero-small, .hero-media-container.hero-large, .hero-media-container.hero-medium {
     background-position: center 10%;
-}
+}*/
 
 /* my kanakuk page popup */
 .transportation-details-modal {
@@ -1154,7 +1156,63 @@ div#packinglist-1.transportation-details-modal{
     color: #fff;
 }
 
+.pwebcontact.pweb-right.pweb-offset-top.pweb-slidebox.pweb-theme-free.pweb-labels-above.pweb-horizontal .pwebcontact_toggler {
+    width: auto;
+    bottom: 10%;
+    top: auto;
+    position: fixed;
+}
 
+.kamp-header-right-container .flex-container.flex-column.justify-flex-start.margin-right-50.margin-top-10{
+    margin-right: 14px!important;
+    margin-top: 5px!important;
+}
+
+.second-header{
+    transition: all 2s ease 0s;
+}
+.second-header.fixed {
+    position: fixed;
+    top:-100px;
+    left:0;
+    width: 100%; 
+    z-index: 999;
+}
+
+/*notification*/
+.notification, .avatar.notification{
+	position: relative;
+}
+.notification span.badge.badge-danger {
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    height: 20px;
+    width: 20px;
+    overflow: hidden;
+    color: #FFF;
+    text-align: center;
+    border-radius: 100%;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 15px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.32);
+}
+.avatar.notification span.badge.badge-danger {
+    background: red;
+    color: #FFF;
+    padding: 3px;
+}
+.my-kan-sidebar-container #my-kan-calendar-container {
+    padding-right: 0px !important;
+}
+.page-id-20 .hero-media-container, .page-id-49 .hero-media-container{
+    background-position: center 80%;
+}
+
+.pweb-offset-top.pweb-right {
+    top: 10% !important;
+}
 /* End new style from jaikant */
 
 @media(max-width:991px){
@@ -1517,15 +1575,52 @@ and (orientation : landscape) {
     .back-section-div a.show-for-medium {
         display: flex !important;
     }
+    
+    .hero-tabs-container.about-page, .hero-tabs-container.donate-page{
+        top: auto;
+        margin: 0 !important;
+    }
+    .top-bar .top-bar-right{
+        width: 100%;
+    }
+    .second-header.fixed {       
+        top:-70px;        
+    }
      
 }
 
 @media(max-width:620px){
+	 .top-bar .top-bar-right {
+         width: auto;
+    }
 	/*this CSS for hero image display properly in responsvie view*/
     .card-camp-details .media-container {
         min-height: 30vh;;
     }
     /*End this CSS for hero image display properly in responsvie view*/
+    .kamp-header-right-container .flex-container.flex-column.margin-top-10{
+        margin-top: 5px!important;
+    }
+    .page-id-20 .hero-media-container.hero-small, .page-id-49 .hero-media-container.hero-small{
+        background-position: center 80%;
+    }
+    .select_age select#select-age, .select_gender select#select-gender {
+        padding: 6px 18px 6px 6px;
+    }
+    .select_age:before, .select_gender:before {
+        font-size: 10px;
+        margin: 10px 6px;
+    } 
+    .select_age, .select_gender {
+        max-width: 149px;
+    }
+
+    .top-nav-header-combined-container{
+        position: relative;
+    }
+    .top-nav-header-combined-container .kamp-sub-header-container{
+        position: absolute;
+    }
 }
 
 @media(max-width:414px){ /*10-09-2019*/

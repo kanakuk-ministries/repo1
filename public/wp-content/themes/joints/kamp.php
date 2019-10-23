@@ -23,13 +23,8 @@ get_header(); ?>
 	}
 	$kamp_type_title_lowercase = strtolower($kamp_type['title']);
     ?>
-
-<div class="content" data-sticky-container>
-
-    <div class="inner-content grid-x grid-margin-x">
-
-        <main class="main small-12 large-12 medium-12 cell kamp-page" role="main">
-            <div class="top-nav-header-combined-container sticky" data-sticky data-sticky-on="medium">
+<header class="second-header">
+<div class="top-nav-header-combined-container sticky" data-sticky data-sticky-on="medium">
                 <div class="kamp-header-container-background">
                     <div class="kamp-header-container" style="border-color: <?php echo $kamp_type['color'] ?>;">
                         <div class="kamp-header-inner-container grid-container">
@@ -61,6 +56,7 @@ get_header(); ?>
                                         <span>Week</span>
                                     </h5>
                                 </div>
+                                <div>
                                 <?php if($kamp['max_age']=='') {?>
                                  <a id="kamp-selection" href="https://register.kanakuk.com/registration/EventSelection.aspx" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
                                 <?php }else{?>
@@ -81,7 +77,8 @@ get_header(); ?>
                                              <option value="male">Male</option>
                                              <option value="female">Female</option>
                                         </select>
-                                    </span>                                
+                                    </span> 
+                                    </div>                               
                                 <a id="kamp-selection" href="#" class="show-for-medium button large margin-left-75 margin-bottom-0" onclick="createUrl()">Search Terms</a>
                               <?php }?>
                             </div>
@@ -92,6 +89,13 @@ get_header(); ?>
                     <a href="/" class="button margin-bottom-0">Search Terms</a>
                 </div>
             </div>
+</header>
+<div class="content" data-sticky-container>
+
+    <div class="inner-content grid-x grid-margin-x">
+
+        <main class="main small-12 large-12 medium-12 cell kamp-page" role="main">
+            
 			<script>
 				function createUrl(){
 					var gender = $('#select-gender').val();
@@ -116,3 +120,12 @@ get_header(); ?>
     </div> <!-- end #inner-content -->
 </div> <!-- end #content -->
 <?php get_footer(); ?>
+
+
+<script>
+    jQuery(window).scroll(function(){
+    var scroll = jQuery(window).scrollTop();
+    if (scroll >= 100) jQuery('.second-header').addClass('fixed');
+    else jQuery('.second-header').removeClass('fixed');
+    });
+</script>
