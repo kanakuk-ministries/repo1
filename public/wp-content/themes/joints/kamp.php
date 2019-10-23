@@ -56,7 +56,7 @@ get_header(); ?>
                                         <span>Week</span>
                                     </h5>
                                 </div>
-                                <div>
+                                <div class="kamp-header-select-box">
                                 <?php if($kamp['max_age']=='') {?>
                                  <a id="kamp-selection" href="https://register.kanakuk.com/registration/EventSelection.aspx" class="show-for-medium button large margin-left-75 margin-bottom-0">Search Terms</a>
                                 <?php }else{?>

@@ -1213,6 +1213,9 @@ div#packinglist-1.transportation-details-modal{
 .pweb-offset-top.pweb-right {
     top: 10% !important;
 }
+.kamp-header-select-box{
+	display:flex;
+}
 /* End new style from jaikant */
 
 @media(max-width:991px){
