@@ -183,21 +183,18 @@ function kan_register()
         $token = $client->getAutoLoginToken();
         $url = sprintf(
             CT_BASE_URL . '/Account/AutoLogin?autoLoginToken=%s&entityID=%s&ReturnURL=/Registration/LoadCart/%s',
-            $token['AutoLoginToken'],
-            $token['EncryptedEntityID'],
-            $response['RegistrationCartID']
+            urlencode($token['AutoLoginToken']),
+            urlencode($token['EncryptedEntityID']),
+            urlencode($response['RegistrationCartID'])
         );
-        
     }
     else {
         $client = CircuiTreeApiFactory::create();
         $client->authenticate();
         // create registrations
         $response = $client->createRegistration($attendees);
-        $url = CT_BASE_URL . '/Registration/LoadCart/' . $response['RegistrationCartID'];
-        
-        
-    }
+        $url = CT_BASE_URL . '/Registration/LoadCart/' . urlencode($response['RegistrationCartID']);
+      }
     
     // remove the registrations from the session
     unset($_SESSION['registrations']);
