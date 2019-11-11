@@ -92,9 +92,10 @@ get_header(); ?>
               								<?php 
               								$videoUrl = $this_executive['video'];
 											$checkUrl = getVideoUrl($videoUrl);
-											$videoId = end(explode('/',$videoUrl));
+											$videoId = explode('=',$videoId)[1];
+											$videoPlayerUrl = 'https://www.youtube.com/embed/'. $videoId .'?autoplay=1';
 											if ($checkUrl == 'youtube') :
-											 $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
+											$videoPlayerUrl = 'https://www.youtube.com/embed/'. $videoId .'?autoplay=1';
 									?>
                                                     <div class="video-modal">
                                     				<div class="modal-embed-container video-center">
@@ -104,16 +105,16 @@ get_header(); ?>
               								<?php endif;?>
               								<?php 
               								  $videoUrl = $this_executive['video'];
-                                              $checkUrl = getVideoUrl($videoUrl);
-                                              if ($checkUrl=='vidyard'): 
+              								 $checkUrl = getVideoUrl($videoUrl);
+                                              if ($checkUrl=='vidyard'):
+                                              $videoUrl = $this_executive['video'];
                                               ?>
-                                                   <div class="video-modal">
-                                            				<div class="modal-embed-container video-center">
-                                            				  <a href="#">
-                                            				  <button style="width: 100%; display: block; margin: auto; class="vidyard-player-embed button expanded white hollow video-modal-button" data-v="4"
-                                      data-type="lightbox">Watch Interview</button></a>
-                                                               </div>
-                                            			</div>
+                                                  <div class="video-modal">
+                                    				<div class="modal-embed-container video-center">
+                                    				  <a href="#"><button style="width: 100%; margin: auto; display: block;" class="button expanded white hollow video-modal-button vidyard-player-embed" data-uuid='<?php echo $videoUrl; ?>' data-v="4"
+                              data-type="lightbox" src=""/></button>Watch Interview</a>
+                                                       </div>
+                                    			   </div>
 											<?php endif;?>
 							<!--<button id="videoModalButton" class="button expanded white hollow video-modal-button" data-open="videoModal" data-key="<?php //echo clean($this_executive['member_name']); ?>">Watch Interview</button>-->
 									<?php endif; ?>
@@ -224,6 +225,7 @@ get_header(); ?>
                                         											if ($checkUrl == 'vimeo') :
                                         											 $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
 									                                           ?>
+									                        
                                                     <div class="video-modal">
                                     				<div class="modal-embed-container video-center">
                                     					<a href="#" class="wp-video-popup"><button class="button expanded white hollow video-modal-button" videourl="<?php echo $videoPlayerUrl; ?>">Watch Interview</button></a>
@@ -234,22 +236,36 @@ get_header(); ?>
               								<?php if($this_director['video']): 
 																			$videoUrl = $this_director['video'];
                                         											$checkUrl = getVideoUrl($videoUrl);
-                                        											$videoId = end(explode('/',$videoUrl));
+                                        											$videoId = explode('=',$videoId)[1];
+                                        											$videoPlayerUrl = 'https://www.youtube.com/embed/'. $videoId .'?autoplay=1';
                                         											if ($checkUrl == 'youtube') :
                                         											 $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
 									                                           ?>
-                                                    <div class="video-modal">
+									                <div class="video-modal">
                                     				<div class="modal-embed-container video-center">
                                     					<a href="#" class="wp-video-popup"><button class="button expanded white hollow video-modal-button" videourl="<?php echo $videoPlayerUrl; ?>">Watch Interview</button></a>
                                                     </div>
                                     			</div>
               								<?php endif;?>
               								<?php endif;?>
-																		</div>
-																	</div>
-																<?php endforeach; ?>
-															</ul>
-														<?php endif; ?>
+              								<?php 
+              								 $videoUrl = $this_director['video'];
+              								 $checkUrl = getVideoUrl($videoUrl);
+                                              if ($checkUrl=='vidyard'):
+                                              $videoUrl = $this_director['video'];
+                                              ?>
+                                                  <div class="video-modal">
+                                    				<div class="modal-embed-container video-center">
+                                    				  <a href="#"><button style="width: 100%; margin: auto; display: block;" class="button expanded white hollow video-modal-button vidyard-player-embed" data-uuid='<?php echo $videoUrl; ?>' data-v="4"
+                              data-type="lightbox" src=""/></button>Watch Interview</a>
+                                                       </div>
+                                    			   </div>
+											<?php endif;?>
+											</div>
+												</div>
+											<?php endforeach; ?>
+												</ul>
+												<?php endif; ?>
 													</div>
 												<?php endif; ?>
 											<?php endforeach;?>

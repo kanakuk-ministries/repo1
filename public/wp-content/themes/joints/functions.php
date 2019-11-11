@@ -155,6 +155,9 @@ function clean($string) {
 
 function getVideoUrl($videoURl){
     
+    if(ctype_alnum($videoURl)){
+        return "vidyard";
+    }
     $parts=explode('/',parse_url($videoURl)['path']);
     array_unshift($parts,trim(strstr(parse_url($videoURl)['host'],'.'),'.'));
     $url = (array_filter($parts));
@@ -167,9 +170,9 @@ function getVideoUrl($videoURl){
         
         return "vimeo";
     }
-    else{
-        return "vidyard";
-    }
+//     else{
+//         return "vidyard";
+//     }
 }
 
 
