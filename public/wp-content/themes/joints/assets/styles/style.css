@@ -1240,7 +1240,7 @@ div#packinglist-1.transportation-details-modal{
 }
 
 /* start css vidyard */
-.vidyard-lightbox-centering .play-button{
+.page-id-24 .vidyard-lightbox-centering .play-button{
     top: 23px !important; 
 	    border: 2px solid #FFF !important;
     height: 38px !important;
@@ -1248,13 +1248,13 @@ div#packinglist-1.transportation-details-modal{
     border-radius: 5px !important;
     background: transparent !important;
 }
-.vidyard-lightbox-centering .play-button .play-button-size {
+.page-id-24  .vidyard-lightbox-centering .play-button .play-button-size {
     display: none;
 }
-.vidyard-lightbox-centering .play-button .arrow-size {
+.page-id-24  .vidyard-lightbox-centering .play-button .arrow-size {
     display: none;
 }
-.vidyard-lightbox-centering .play-button::before {
+.page-id-24  .vidyard-lightbox-centering .play-button::before {
   font-weight: bold;
     color: #FFF;
     content: "Watch Interview";
