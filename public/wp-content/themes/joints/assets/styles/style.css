@@ -1216,6 +1216,59 @@ div#packinglist-1.transportation-details-modal{
 .kamp-header-select-box{
 	display:flex;
 }
+.modal-embed-container.video-center{
+	width: 100%;
+}
+
+
+.page-id-24 .executive-team .aboutInfoModal{
+   position: relative;
+}
+.page-id-24 .executive-team .aboutInfoModal .close{
+	    position: absolute;
+    right: -16px;
+    top: 0;
+    color: #FFF;
+        opacity: .9;
+}
+.page-id-24 .executive-team .aboutInfoModal video{
+	width: 100%;
+}
+
+.list-grid-item-overlay .video-modal {
+    width: 100%;
+}
+
+/* start css vidyard */
+.vidyard-lightbox-centering .play-button{
+    top: 23px !important; 
+	    border: 2px solid #FFF !important;
+    height: 38px !important;
+    width: 100% !important;
+    border-radius: 5px !important;
+    background: transparent !important;
+}
+.vidyard-lightbox-centering .play-button .play-button-size {
+    display: none;
+}
+.vidyard-lightbox-centering .play-button .arrow-size {
+    display: none;
+}
+.vidyard-lightbox-centering .play-button::before {
+  font-weight: bold;
+    color: #FFF;
+    content: "Watch Interview";
+    line-height: 10px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    padding: 12px 0;
+    left: 0;
+    z-index: 99999;
+    font-size: .875rem;
+}
+/*end css vidyard*/
+
 /* End new style from jaikant */
 
 @media(max-width:991px){

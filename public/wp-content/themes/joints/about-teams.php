@@ -112,7 +112,7 @@ get_header(); ?>
                                                   <div class="video-modal">
                                     				<div class="modal-embed-container video-center">
                                     				  <a href="#"><button style="width: 100%; margin: auto; display: block;" class="button expanded white hollow video-modal-button vidyard-player-embed" data-uuid='<?php echo $videoUrl; ?>' data-v="4"
-                              data-type="lightbox" src=""/></button>Watch Interview</a>
+                              data-type="lightbox" src=""/>Watch Interview</button></a>
                                                        </div>
                                     			   </div>
 											<?php endif;?>
@@ -257,7 +257,7 @@ get_header(); ?>
                                                   <div class="video-modal">
                                     				<div class="modal-embed-container video-center">
                                     				  <a href="#"><button style="width: 100%; margin: auto; display: block;" class="button expanded white hollow video-modal-button vidyard-player-embed" data-uuid='<?php echo $videoUrl; ?>' data-v="4"
-                              data-type="lightbox" src=""/></button>Watch Interview</a>
+                              data-type="lightbox" src=""/>Watch Interview</button></a>
                                                        </div>
                                     			   </div>
 											<?php endif;?>
@@ -327,7 +327,7 @@ get_header(); ?>
 					var executive_staff = <?php echo json_encode($executive_staff); ?>;
 					// A $( document ).ready() block.
 					
-					
+				
 			</script>
 
 		    <?php get_sidebar(); ?>
