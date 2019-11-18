@@ -92,6 +92,19 @@ get_header(); ?>
               								<?php 
               								$videoUrl = $this_executive['video'];
 											$checkUrl = getVideoUrl($videoUrl);
+											if ($checkUrl == 'mp4') :
+											 $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
+									       ?>
+                                                    <div class="video-modal">
+                                    				<div class="modal-embed-container video-center">
+                                    					<button class="button expanded white hollow"><a href="#videopopModal<?php echo $memberId;?>"
+              											data-toggle="modal" class="white">Watch Interview</a></button>
+                                                    </div>
+                                    			</div>
+              								<?php endif;?>
+              								<?php 
+              								$videoUrl = $this_executive['video'];
+											$checkUrl = getVideoUrl($videoUrl);
 											$videoId = explode('=',$videoId)[1];
 											$videoPlayerUrl = 'https://www.youtube.com/embed/'. $videoId .'?autoplay=1';
 											if ($checkUrl == 'youtube') :
@@ -129,8 +142,9 @@ get_header(); ?>
 									
 						foreach ($executive_staff as $executive => $this_executive):
 						$memberId = $this_executive['member_image']['ID'];
+						$videoUrl = $this_executive['video'];
 						?>
-							<div id="myModal<?php echo $memberId;?>"
+					<div id="myModal<?php echo $memberId;?>"
 					class="modal fade popout-about-card">
 					<div class="modal-dialog modal-lg aboutInfoModal">
 						<div class="modal-content">
@@ -140,8 +154,25 @@ get_header(); ?>
 								</button>
 								<h4 class="modal-title card-section"><?php echo $this_executive['member_name'];?></h4>
 							</div>
+							<h2 class="modal-title card-section">Member Quote</h2>
 							<div class="modal-body customModalBody"><?php echo $this_executive['member_quote']; ?></div>
+							<h2 class="modal-title card-section">Member Description</h2>
+							<div class="modal-body customModalBody"><?php echo $this_executive['member_description']; ?></div>
 						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<div id="videopopModal<?php echo $memberId;?>"
+					class="modal fade popout-about-card">
+					<div class="modal-dialog modal-lg aboutInfoModal">
+							<button class="close" type="button" data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true"></i>
+						    </button>
+						    <video controls autoplay>
+                                          <source src="<?php echo $videoUrl;?>" type="video/mp4">
+                                          Your browser does not support HTML5 video.
+                            </video>
 						<!-- /.modal-content -->
 					</div>
 					<!-- /.modal-dialog -->
@@ -191,6 +222,7 @@ get_header(); ?>
 																		$this_director_array = get_staff($director_id);
 																		$this_director = reset($this_director_array);
 																		$dirId = $this_director['member_image']['id'];
+																		$videoUrl = $this_director['video'];
 																	?>
 																				<div id="mydirModal<?php echo $dirId;?>"
 					class="modal fade popout-about-card">
@@ -200,10 +232,27 @@ get_header(); ?>
 								<button class="close" type="button" data-dismiss="modal">
 									<i class="fa fa-times" aria-hidden="true"></i>
 								</button>
-								<h4 class="modal-title card-section"><?php echo $this_director['member_name'];?></h4>
+							<h4 class="modal-title card-section"><?php echo $this_director['member_name'];?></h4>
 							</div>
+							<h2 class="modal-title card-section">Member Quote</h2>
 							<div class="modal-body customModalBody"><?php echo $this_director['member_quote']; ?></div>
+							<h2 class="modal-title card-section">Member Description</h2>
+							<div class="modal-body customModalBody"><?php echo $this_director['member_description']; ?></div>
 						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+					<div id="videopopModaldir<?php echo $dirId;?>"
+					class="modal fade popout-about-card">
+					<div class="modal-dialog modal-lg aboutInfoModal">
+							<button class="close" type="button" data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true"></i>
+						    </button>
+						    <video controls autoplay>
+                                          <source src="<?php echo $videoUrl;?>" type="video/mp4">
+                                          Your browser does not support HTML5 video.
+                            </video>
 						<!-- /.modal-content -->
 					</div>
 					<!-- /.modal-dialog -->
@@ -231,6 +280,16 @@ get_header(); ?>
                                     					<a href="#" class="wp-video-popup"><button class="button expanded white hollow video-modal-button" videourl="<?php echo $videoPlayerUrl; ?>">Watch Interview</button></a>
                                                     </div>
                                     			</div>
+              								<?php endif;?>
+              								<?php endif;?>
+              								<?php if($this_director['video']): 
+																			$videoUrl = $this_director['video'];
+                                        											$checkUrl = getVideoUrl($videoUrl);
+                                        											if ($checkUrl == 'mp4') :
+                                        		                               ?>
+									            <button class="button expanded white hollow"><a href="#videopopModaldir<?php echo $dirId;?>"
+              								data-toggle="modal" class="white">Watch Interview</a></button>
+                                    			
               								<?php endif;?>
               								<?php endif;?>
               								<?php if($this_director['video']): 
