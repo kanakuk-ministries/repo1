@@ -18,9 +18,7 @@ $transportation_subpages = get_children($args);
 
 <div class="content">
 	<div class="inner-content grid-x grid-margin-x">
-		<main
-			class="main small-12 medium-12 large-12 cell tabs-view about-page-main"
-			role="main">
+		<main class="main small-12 medium-12 large-12 cell tabs-view about-page-main" role="main">
 		<div class="hero-tabs-container about-page margin-bottom-60">
 			<ul class="tabs hero-tabs about-page-tabs"
 				id="transportation-page-tabs">
@@ -146,5 +144,9 @@ $transportation_subpages = get_children($args);
 		</div>
 <!-- end #inner-content -->
 </div>
+<script>
+var appendBox = $('.main').find('.hero-container').first();
+$('.about-page').append().appendTo(appendBox);	
+</script>
 <!-- end #content -->
 <?php get_footer(); ?>
