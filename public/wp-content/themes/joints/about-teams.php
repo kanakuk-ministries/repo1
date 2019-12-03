@@ -152,12 +152,17 @@ get_header(); ?>
 								<button class="close" type="button" data-dismiss="modal">
 									<i class="fa fa-times" aria-hidden="true"></i>
 								</button>
-								<h4 class="modal-title card-section"><?php echo $this_executive['member_name'];?></h4>
+								<h4 class="modal-title"><?php echo $this_executive['member_name'];?></h4>
 							</div>
-							<h2 class="modal-title card-section">Member Quote</h2>
-							<div class="modal-body customModalBody"><?php echo $this_executive['member_quote']; ?></div>
-							<h2 class="modal-title card-section">Member Description</h2>
-							<div class="modal-body customModalBody"><?php echo $this_executive['member_description']; ?></div>
+							
+							<div class="modal-body customModalBody">
+							<h6>Member Quote</h6>
+							<p><?php echo $this_executive['member_quote']; ?></p>
+							
+							<h6>Member Description</h6>
+							<p><?php echo $this_executive['member_description']; ?></p>
+							</div>							
+							
 						</div>
 						<!-- /.modal-content -->
 					</div>
@@ -232,12 +237,15 @@ get_header(); ?>
 								<button class="close" type="button" data-dismiss="modal">
 									<i class="fa fa-times" aria-hidden="true"></i>
 								</button>
-							<h4 class="modal-title card-section"><?php echo $this_director['member_name'];?></h4>
+								<h4 class="modal-title"><?php echo $this_director['member_name'];?></h4>
 							</div>
-							<h2 class="modal-title card-section">Member Quote</h2>
-							<div class="modal-body customModalBody"><?php echo $this_director['member_quote']; ?></div>
-							<h2 class="modal-title card-section">Member Description</h2>
-							<div class="modal-body customModalBody"><?php echo $this_director['member_description']; ?></div>
+							<div class="modal-body customModalBody">
+							<h6>Member Quote</h6>
+							<p><?php echo $this_director['member_quote']; ?></p>
+							<h6>Member Description</h6>
+							<p><?php echo $this_director['member_description']; ?><p>
+							</div>
+							
 						</div>
 						<!-- /.modal-content -->
 					</div>

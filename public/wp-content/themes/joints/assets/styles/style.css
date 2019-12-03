@@ -1231,7 +1231,7 @@ div#packinglist-1.transportation-details-modal{
     color: #FFF;
         opacity: .9;
 }
-.page-id-24 .executive-team .aboutInfoModal video{
+.page-id-24 video{
 	width: 100%;
 }
 
@@ -1269,7 +1269,101 @@ div#packinglist-1.transportation-details-modal{
 }
 /*end css vidyard*/
 
+
+/* my-kanakuk-reg-detail */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap&subset=cyrillic,cyrillic-ext,latin-ext,vietnamese');
+.my-kanakuk-reg-detail{
+	
+}
+.my-kanakuk-reg-detail h2{
+	font-size: 15px;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: capitalize;
+   	font-weight: 800;
+   	color: #0f3a5c;
+}
+.my-kanakuk-reg-detail span p {
+   font-size: 12px;
+       margin: 0 0 2px ;
+           color: #0f3a5c;
+}
+
+.my-kanakuk-reg-detail div {
+    text-align: center;
+    min-height: 170px;
+    margin-bottom: 15px;
+}
+.my-kanakuk-reg-detail div span {
+    display: block;
+}
+span.reg-detail-image {
+    display: block;
+    margin-bottom: 10px;
+}
+.reg-detail-image img {
+    width: 40%;
+}
+.my-kanakuk-reg-detail div span a, .button-set a{
+    border: 2px solid #626c78;
+    border-radius: 5px;
+    padding: 4px 8px;
+    display: inline-block;
+    font-size: 12px;
+    color: #626c78;
+    font-weight: 600;
+        margin: 5px 3px;
+}
+.profie-user{
+	background-color: #eef1f3;
+	width: 100%;
+	padding: 20px;
+}
+.profie-user .avatar{
+	border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+.profie-user .titlecase {
+    font-size: 27px;
+    font-weight: 800;
+        color: #0e3b5c;
+            margin: 0;
+}
+.button-set{}
+.profie-user .col-md-9{
+	display: table;
+}
+.middle-box{
+	height: 150px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.age{
+	font-size: 20px;
+    font-weight: 800;
+    color: #626c78;
+}
+
+/* my-kanakuk-reg-detail */
+
+/**/
+.page-id-24 .executive-team .aboutInfoModal .close {
+    top: -10px;
+    color: inherit;
+}
+/**/
+.page-id-24 ul.accordion-content .close {
+    top: -9px;
+    position: absolute;
+    right: -19px;
+    opacity: .9;
+}
 /* End new style from jaikant */
+@media (min-width: 992px){
+	.page-id-24 .modal-lg {
+	    width: 990px;
+	}
+}
 
 @media(max-width:991px){
 	/*this CSS for hero image display properly in responsvie view*/
@@ -1369,6 +1463,7 @@ and (orientation : landscape) {
    	    margin: 0 10px 10px 10px;
 	    max-width: 150px;
     }
+    
 }
 @media(max-width:768px){
     .faq-tab .tab-content, .faq-tab .tab-content div{
@@ -1435,7 +1530,12 @@ and (orientation : landscape) {
      .list-grid-accordion-container .accordion-item.is-active {
      margin-bottom: 0;
     }
-
+	.profie-user .col-md-9 {
+    	padding-left: 0;
+	}
+	.profie-user .col-md-3 {
+    	text-align: right
+	}
 }
 
 @media (max-width: 640px){

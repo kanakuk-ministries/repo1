@@ -152,7 +152,7 @@ function clean($string) {
  * get the differiante the youtube video and vimeo video
  * */
 
-
+$videoURl = "https://kanakuk-dev.s3.amazonaws.com/uploads/Kanakuk-Overnight-Reel-for-Broadcast-1.mp4";
 function getVideoUrl($videoURl){
     
     if(ctype_alnum($videoURl)){
@@ -162,13 +162,16 @@ function getVideoUrl($videoURl){
     array_unshift($parts,trim(strstr(parse_url($videoURl)['host'],'.'),'.'));
     $url = (array_filter($parts));
     $finalURl = $url['0'];
-   
    if($finalURl=='youtube.com'){
         
         return "youtube";
    }if($finalURl=='vimeo.com'||$finalURl=='com'){
         
         return "vimeo";
+    }
+    if($finalURl=='s3.amazonaws.com'){
+        
+        return "mp4";
     }
 //     else{
 //         return "vidyard";
