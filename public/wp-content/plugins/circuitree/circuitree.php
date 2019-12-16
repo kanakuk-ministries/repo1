@@ -158,6 +158,7 @@ function kan_register()
             $attendee = [
                 'Age' => $registration['age'],
                 'Gender' => $registration['gender'],
+                "RegistrationTypeID" => 1,
                 'EventDivisionSelections' => [
                     $registration['event_id']
                 ]
@@ -175,17 +176,17 @@ function kan_register()
         $client = CircuiTreeApiFactory::create([
             'api_token' => array_extract($_SESSION, 'circuitree.auth.api_token')
         ]);
-      
         // create registrations
         $response = $client->createRegistration($attendees);
+        
         
         // get auto-login token
         $token = $client->getAutoLoginToken();
         $url = sprintf(
             CT_BASE_URL . '/Account/AutoLogin?autoLoginToken=%s&entityID=%s&ReturnURL=/Registration/LoadCart/%s',
             urlencode($token['AutoLoginToken']),
-            urlencode($token['EncryptedEntityID']),
-            urlencode($response['RegistrationCartID'])
+             $token['EncryptedEntityID'],
+             $response['RegistrationCartID']
         );
     }
     else {
