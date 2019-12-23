@@ -35,8 +35,6 @@ if(isset($_GET['kamp_type']) && $_GET['kamp_type'] != ''){
     );
 }
 $registration = array_extract($_SESSION, 'registrations.' . $_GET['tab']);
-
-//echo "step 1<pre>"; print_r($registration); 
 if (isset($_GET['kamp_type'])) {
     $kamp_session = array();
     $kamp_age= $_GET['kamp_age'];
@@ -333,14 +331,14 @@ get_header();?>
                                                         </td>
                                                         <td class="mobile-padding-left mobile-padding-right">
 
-                                                            <form action="/wp-admin/admin-post.php" method="post" v-show="row.EventID != <?php echo isset($registration['event_id']) ? $registration['event_id'] : 0; ?>">
+                                                            <form action="/wp-admin/admin-post.php" method="post" v-show="row.EventDivisionID != <?php echo isset($registration['event_id']) ? $registration['event_id'] : 0; ?>">
                                                                 <input type="hidden" name="action" value="kan_select_event" />
-                                                                <input type="hidden" name="event_id" v-bind:value="row.EventID" />
+                                                                <input type="hidden" name="event_id" v-bind:value="row.EventDivisionID" />
                                                                 <input type="hidden" name="registration_index" value="<?php echo $_GET['tab']; ?>" />
                                                                 <button class="button search-table-button">Select</button>
                                                             </form>
 
-                                                            <form action="/wp-admin/admin-post.php" method="post" v-show="row.EventID == <?php echo isset($registration['event_id']) ? $registration['event_id'] : 0; ?>">
+                                                            <form action="/wp-admin/admin-post.php" method="post" v-show="row.EventDivisionID == <?php echo isset($registration['event_id']) ? $registration['event_id'] : 0; ?>">
                                                                 <input type="hidden" name="action" value="kan_select_event" />
                                                                 <input type="hidden" name="event_id" value="0" />
                                                                 <input type="hidden" name="registration_index" value="<?php echo $_GET['tab']; ?>" />

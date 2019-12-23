@@ -13,7 +13,7 @@
     // find the selected kamp event
     foreach ($kamps as $kamp_name => $kamp_details) {
         foreach ($kamp_details['circuitree'] as $kamp) {
-            if ($kamp['EventID'] == $registration['event_id']) {
+            if ($kamp['EventDivisionID'] == $registration['event_id']) {
                 $match = $kamp;
                 break;
             }
