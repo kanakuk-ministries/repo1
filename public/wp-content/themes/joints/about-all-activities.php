@@ -5,11 +5,18 @@
  */
 $about_pages = array('Our Story', 'Teams', 'Our Ministries', 'All Activities', 'Ceremonies', 'FAQs');
 $kamp_types = get_kamp_types();
+// $select_array[] = array(
+//     'title' => 'Select',
+//     'color' => '#003ca6',
+//     'icon_name' => 'select',
+//     'url' =>'',
+//     'special_requirement_text' => '' 
+// );
+// $kamp_types = array_merge($select_array,$kamp_types);
 $team_activites = get_fields();
 $kamps = get_kamps();
 get_header(); 
 ?>
-
 <div class="content">
     <div class="inner-content grid-x grid-margin-x">
 		<main class="main small-12 medium-12 large-12 cell tabs-view about-page-main" role="main">
@@ -42,44 +49,70 @@ get_header();
 					?>
 					<?php endwhile; endif; ?>	
                 </div>
-                <div class="grid-container">
+                <div class="grid-container activity-dropdown">
 						<div class="accordion-image-grid-container margin-top-50">
 							<h1 class="dark-blue"><?php echo $team_activites['team_title']; ?></h1>
 							<p class="dark-blue margin-bottom-30"><?php echo $team_activites['team_description']; ?></p>
 							<ul class="accordion list-grid-accordion-container" data-accordion data-multi-expand="true" data-allow-all-closed="true" data-deep-link="true">
-							<?php foreach ($kamp_types as $key => $value): ?>
-								<li class="accordion-item <?php if ($key === 0) { echo ''; }; ?>" data-accordion-item>
+								<li class="accordion-item" data-accordion-item>
 									<!-- Accordion title -->
-									<a href="#" class="accordion-title list-grid-accordion-title-container" style="background-color: <?php echo $value['color']; ?>">
-										<div class="accordion-title-icon-container"><i class="icon large white"></i></div>
-										<div class="accordion-title-text-container">
-											
-											<h4 class="white list-grid-accordion-title-header"><?php echo $value['title']; ?> Kamp</h4>
-											<i class="icon white large icon-<?php echo $value['icon_name']; ?>"></i>
+									<a class="accordion-title list-grid-accordion-title-container" style="background-color:#00BAC9;">
+									  <div class="accordion-title-text-container">
+											<h4 class="white list-grid-accordion-title-header">Kamp Type:
+											<select id="selectedKampType" class="form-control">
+											<?php 
+											foreach ($kamp_types as $key => $value): 
+											?>
+											<option value="<?php echo $value['title']; ?>"><?php echo $value['title']; ?> Kamp
+											<?php endforeach;?>
+											</select>
+											</h4>
 										</div>
 									</a>
+								</li>
+							</ul>
+							<?php foreach ($kamp_types as $key => $value): $flag = 0; ?>
 									<!-- Accordion content: use `is-active` state class to start in open position. -->
-									<ul class="accordion-content" data-tab-content>
+									<ul class="accordion-content all_kamps_data kamp_<?php echo $value['title']; ?>" data-tab-content style="display:<?php if ($key == 0){ echo 'block'; }else{ echo 'none'; }; ?>">
 										<?php foreach ($kamps as $kamp_key => $kamp):
-											 if ($kamp['kamp_type']->post_title === $value['title']) :
-											$display='block';
+										if ($kamp['kamp_type']->post_title === $value['title'] && !$flag) :
+										$flag = 1;
+										$display='block';
 											if($kamp['kamp_title'] == 'Scuba Kamp'){
 											    $display='none';
 											}
+											$allActivties = array();
+											if($value['title']=='Overnight'){
+											    foreach($kamps as $kamp){
+											        if($kamp['kamp_type']->post_title=='Overnight' && isset($kamp['activities']) && reset($kamp['activities'])){
+											            $allActivties = array_merge($allActivties,reset($kamp['activities']));
+											            
+											        }
+										 	    }
+											    usort($allActivties, function($a, $b) {
+									 		        $search = ['K-Seven ','K-Kountry ','K-2 ','K-West ','K-1 '];
+											        $replace = ['','','','',''];
+											        $f = str_replace($search,$replace,$a->post_title);
+											        $l = str_replace($search,$replace,$b->post_title);
+											        return $f[0]>$l[0];
+											    });
+											}else{
+											    $allActivties = (reset($kamp['activities']));
+											}
 											?>
 												<div class="list-grid-section-container" style="display:<?=$display?>">
+													<?php if($value['title']!='Overnight'){ ?>
 													<div class="flex-container align-center list-grid-section-sub-header-container">
 														<h4 class="margin-bottom-0 margin-top-15 kamp-<?php echo $value['icon_name']; ?>"><?php echo $kamp['kamp_title']; ?></h4>
 														<div class="kamp-<?php echo $value['icon_name']; ?> list-grid-section-sub-header"></div>
 													</div>
-													<?php if (isset($kamp['activities']) && reset($kamp['activities'])): 
-													
-													
+													<?php } if (isset($kamp['activities']) && reset($kamp['activities'])): 
 													?>
 														<ul class="list-grid-container activity-grid">
 															<?php
+															
 																$i = 0;
-																foreach ((reset($kamp['activities'])) as $activity_key => $activity):
+																foreach ($allActivties as $activity_key => $activity):
 																	if ($i === 4)
 																		$i = 0;
 																	$i++;
@@ -87,70 +120,29 @@ get_header();
 																<?php
 																	$activity_id = array($activity->ID);
 																	$this_activity_array = get_activities($activity_id);
-																	$get_activity_kamps = get_activities();
-																	
-																	$kamp_tit= array('kamp_titl' => $kamp['kamp_title'],
-																	                 'kamp_type' => $kamp['kamp_type']->post_title
-																	);
-																	array_push($get_activity_kamps,$kamp_tit);
-																	//echo "<pre>"; print_r($get_activity_kamps);
 																	$this_activity = reset($this_activity_array);
 																?>
 				<!-- activity description modal -->												
-				<div id="myModal<?php echo $activity_id[0]?>"
-					class="modal fade popout-about-card">
-					<div class="modal-dialog modal-lg aboutInfoModal">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button class="close" type="button" data-dismiss="modal">
-									<i class="fa fa-times" aria-hidden="true"></i>
-								</button>
-								<h4 class="modal-title card-section"><?php echo $this_activity['activity_name']; ?></h4>
-							</div>
-							<div class="modal-body customModalBody"><?php echo $this_activity['activity_description']; ?></div>
-						</div>
-						<!-- /.modal-content -->
-					</div>
-					<!-- /.modal-dialog -->
-				</div>
+						<?php
+								$modeltype = 'activitydescription';
+								$id =  $activity_id[0];
+								$name = $this_activity['activity_name'];
+								$des = $this_activity['activity_description'];
+								popupmodel($modeltype,$id,$name,$des);
+   								?>
+					
 				<!-- /. end activity modal -->
 				<!-- image modal -->
-								<div id="imageModal<?php echo $activity_id[0]?>"
-					class="modal fade popout-about-card">
-					<div class="modal-dialog modal-lg aboutInfoModal">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button class="close" type="button" data-dismiss="modal">
-									<i class="fa fa-times" aria-hidden="true"></i>
-								</button>
-								<h4 class="modal-title"><?php echo $this_activity['activity_name']; ?></h4>
-							</div>
-							<div class="modal-bodys customModalBodys"><img src="<?php echo $this_activity['activity_image']['url']; ?>" width=100% height=100%></div>
-						</div>
-						<!-- /.modal-content -->
-					</div>
-					<!-- /.modal-dialog -->
-				</div>
+								<?php
+								$modeltype = 'imageModal';
+								$id =  $activity_id[0];
+								$name = $this_activity['activity_name'];
+								 $url = $this_activity['activity_image']['url'];
+								 popupmodelImage($modeltype,$id,$name,$url);
+   								?>
 				<!-- /.end image modal -->
-					<!-- video modal -->
-								<div id="videoModal<?php echo $activity_id[0]?>"
-					class="modal fade popout-about-card">
-					<div class="modal-dialog modal-lg aboutInfoModal">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button class="close" type="button" data-dismiss="modal">
-									<i class="fa fa-times" aria-hidden="true"></i>
-								</button>
-								<h4 class="modal-title"><?php echo $this_activity['activity_name']; ?></h4>
-							</div>
-							<div class="modal-bodys customModalBodys"><img src="<?php echo $this_activity['activity_image']['url']; ?>" width=100% height=100%></div>
-						</div>
-						<!-- /.modal-content -->
-					</div>
-					<!-- /.modal-dialog -->
-				</div>
+					
 				<!-- /.end video modal -->
-				
 								
 																<div class="list-grid-item block-<?php echo $i; ?>">
 																<a href="#imageModal<?php echo $activity_id[0];?>"
@@ -160,7 +152,7 @@ get_header();
 																	
 																		<?php if($this_activity['activity_description']):?>
 																		
-																		<a href="#myModal<?php echo $activity_id[0];?>"
+																		<a href="#activitydescription<?php echo $activity_id[0];?>"
 					data-toggle="modal" class="white"><button class="button expanded white hollow">Activity Description</button></a>
 					
 					<?php endif;?>
@@ -204,9 +196,7 @@ get_header();
 											<?php endif; ?>
 										<?php endforeach;?>
 									</ul>
-								</li>
 							<?php endforeach;?>
-						</ul>
 						</div>
 					</div>
 					<div class="wp-video-popup-wrapper">
@@ -214,11 +204,61 @@ get_header();
 					<iframe class="wp-video-popup-video" src="" data-wp-video-popup-url="'. $video_url .'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe>
 					</div>
 			</main> <!-- end #main -->
-
+			<script type="text/javascript">
+				$('#selectedKampType').change(function(e){
+					var kampType = $(this).val();
+					var kampClassToActive = 'kamp_'+kampType;
+					$('.all_kamps_data').hide();
+					$('.'+kampClassToActive).show();
+				});
+			</script>
 		    <?php get_sidebar(); ?>
 		    
 		</div> <!-- end #inner-content -->
 
 	</div> <!-- end #content -->
+<?php
+function popupmodel($popuptype,$popupid, $popupheading, $popupdescription){
+?>
+<div id="<?php echo $popuptype;?><?php echo $popupid;?>"
+    class="modal fade popout-about-card">
+    <div class="modal-dialog modal-lg aboutInfoModal">
+    <div class="modal-content">
+    <div class="modal-header">
+    <button class="close" type="button" data-dismiss="modal">
+    <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+    <h4 class="modal-title card-section"><?php echo $popupheading; ?></h4>
+							</div>
+							<div class="modal-body customModalBody"><?php echo $popupdescription; ?></div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+<?php 
+}
 
+function popupmodelImage($popuptype,$popupid, $popupheading, $popupdescription){
+?>
+ 
+ <div id="<?php echo $popuptype;?><?php echo $popupid;?>"
+  class="modal fade popout-about-card">
+ <div class="modal-dialog modal-lg aboutInfoModal">
+  <div class="modal-content">
+  <div class="modal-header">
+   <button class="close" type="button" data-dismiss="modal">
+   <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+   <h4 class="modal-title"><?php echo $popupheading; ?></h4>
+							</div>
+							<div class="modal-bodys customModalBodys"><img src="<?php echo $popupdescription; ?>" width=100% height=100%></div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+<?php 
+}
+?>
 <?php get_footer(); ?>
