@@ -13,7 +13,7 @@
 
 <head>
     <meta charset="utf-8">
-
+    <meta name=”robots” content=”noindex, nofollow”>
     <!-- Force IE to use the latest rendering engine available -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -31,6 +31,7 @@
      <script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--> 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <?php } ?>
 
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
@@ -40,9 +41,9 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <?php wp_head(); ?>
 	<script>
-	$( document ).ready(function() {
-		var scrollTo = $('.tabs .active').position().left;
-		$('.tabs').animate({'scrollLeft': scrollTo}, 500);
+// 	$( document ).ready(function() {
+// 		var scrollTo = $('.tabs .active').css('left').left;
+// 		$('.tabs').animate({'scrollLeft': scrollTo}, 500);
 	});
 	</script>
 </head>
