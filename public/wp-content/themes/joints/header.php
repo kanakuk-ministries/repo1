@@ -13,7 +13,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name=”robots” content=”noindex, nofollow”>
+    <meta name="robots" content="noindex, nofollow">
     <!-- Force IE to use the latest rendering engine available -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
