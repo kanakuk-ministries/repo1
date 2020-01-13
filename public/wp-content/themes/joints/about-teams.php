@@ -93,8 +93,7 @@ get_header(); ?>
               								$videoUrl = $this_executive['video'];
 											$checkUrl = getVideoUrl($videoUrl);
 											if ($checkUrl == 'mp4') :
-											 $videoPlayerUrl = 'https://player.vimeo.com/video/'. $videoId .'?autoplay=1';
-									       ?>
+											?>
                                                     <div class="video-modal">
                                     				<div class="modal-embed-container video-center">
                                     					<button class="button expanded white hollow"><a href="#videopopModal<?php echo $memberId;?>"
@@ -143,6 +142,8 @@ get_header(); ?>
 						foreach ($executive_staff as $executive => $this_executive):
 						$memberId = $this_executive['member_image']['ID'];
 						$videoUrl = $this_executive['video'];
+						$popuptype = 'videopopModal';
+						popupvideomodal($popuptype, $memberId, $videoUrl);
 						?>
 					<div id="myModal<?php echo $memberId;?>"
 					class="modal fade popout-about-card">
@@ -168,23 +169,8 @@ get_header(); ?>
 					</div>
 					<!-- /.modal-dialog -->
 				</div>
-				<div id="videopopModal<?php echo $memberId;?>"
-					class="modal fade popout-about-card">
-					<div class="modal-dialog modal-lg aboutInfoModal">
-							<button class="close" type="button" data-dismiss="modal">
-									<i class="fa fa-times" aria-hidden="true"></i>
-						    </button>
-						    <video controls autoplay>
-                                          <source src="<?php echo $videoUrl;?>" type="video/mp4">
-                                          Your browser does not support HTML5 video.
-                            </video>
-						<!-- /.modal-content -->
-					</div>
-					<!-- /.modal-dialog -->
-				</div>
 				<?php endforeach;?>
 						</div>
-	
 						<div class="accordion-image-grid-container directors-team margin-top-50">
 							<h1 class="dark-blue"><?php echo $data_description['camp_tile']; ?></h1>
 							<p class="dark-blue margin-bottom-30"><?php echo $data_description['camp_description']; ?></p>
@@ -228,6 +214,9 @@ get_header(); ?>
 																		$this_director = reset($this_director_array);
 																		$dirId = $this_director['member_image']['id'];
 																		$videoUrl = $this_director['video'];
+																		$popuptype ='videopopModaldir';
+																		popupvideomodal($popuptype, $dirId, $videoUrl);
+																		
 																	?>
 																				<div id="mydirModal<?php echo $dirId;?>"
 					class="modal fade popout-about-card">
@@ -251,20 +240,8 @@ get_header(); ?>
 					</div>
 					<!-- /.modal-dialog -->
 				</div>
-					<div id="videopopModaldir<?php echo $dirId;?>"
-					class="modal fade popout-about-card">
-					<div class="modal-dialog modal-lg aboutInfoModal">
-							<button class="close" type="button" data-dismiss="modal">
-									<i class="fa fa-times" aria-hidden="true"></i>
-						    </button>
-						    <video controls autoplay>
-                                          <source src="<?php echo $videoUrl;?>" type="video/mp4">
-                                          Your browser does not support HTML5 video.
-                            </video>
-						<!-- /.modal-content -->
-					</div>
-					<!-- /.modal-dialog -->
-				</div>
+				
+				
 																	<div class="staff-grid-item invisible list-grid-item block-<?php echo $i; ?>">
 																		<img src="<?php echo $this_director['member_image']['url']; ?>">
 																		<div class="list-grid-item-overlay">
@@ -383,8 +360,28 @@ get_header(); ?>
 								<div id="custom-video-controls" class="controls custom-video-controls" data-state="hidden">
 										<button id="playpause" type="button" data-state="play"></button>
 								</div>
-						</div>						
+						</div>
+				<?php 
+				
+				function popupvideomodal($popuptype,$popupid, $popupdescription){
+				?>		
+					<div id="<?php echo $popuptype;?><?php echo $popupid;?>"
+					class="modal fade popout-about-card">
+					<div class="modal-dialog modal-lg aboutInfoModal">
+							<button class="close closebtnvideo" type="button" data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true"></i>
+						    </button>
+						    <video controls autoplay>
+                                          <source src="<?php echo $popupdescription;?>" type="video/mp4">
+                                          Your browser does not support HTML5 video.
+                            </video>
+						<!-- /.modal-content -->
 					</div>
+					<!-- /.modal-dialog -->
+				</div>
+			<?php }
+			?>		
+			</div>
 
 
 			</main> <!-- end #main -->
@@ -394,7 +391,13 @@ get_header(); ?>
 					var executive_staff = <?php echo json_encode($executive_staff); ?>;
 					// A $( document ).ready() block.
 					
-				
+                    $(".closebtnvideo").on('click', function(event){
+                    	$("video").each(function () { 
+                        	this.pause();
+                        	this.currentTime = 0;  
+						});
+						
+                     });
 			</script>
 
 		    <?php get_sidebar(); ?>
