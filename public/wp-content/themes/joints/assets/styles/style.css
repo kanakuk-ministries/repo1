@@ -255,7 +255,7 @@ a {
     
 }
 a, a:focus {
-    color: #337ab7;
+    color: #efefef;
     text-decoration: none;    
 }
 li{
@@ -1276,6 +1276,7 @@ div#packinglist-1.transportation-details-modal{
 	width: 100%;
 	
 }
+
 .my-kanakuk-reg-detail h2{
 	font-size: 15px;
 	font-family: 'Montserrat', sans-serif;
@@ -1283,16 +1284,25 @@ div#packinglist-1.transportation-details-modal{
    	font-weight: 800;
    	color: #0f3a5c;
 }
+.profie-user .titlecase.plan-name{
+	font-size: 18px;
+}
+.detail-plan{
+	color: #0f3a5c;
+	    font-size: 18px;
+}
 .my-kanakuk-reg-detail span p {
    font-size: 12px;
        margin: 0 0 2px ;
            color: #0f3a5c;
 }
 
-.my-kanakuk-reg-detail div {
-    text-align: center;
-    min-height: 170px;
-    margin-bottom: 15px;
+.my-kanakuk-reg-detail div {    
+     text-align: center;
+    min-height: 285px;
+    margin-bottom: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .my-kanakuk-reg-detail div span {
     display: block;
@@ -1300,6 +1310,16 @@ div#packinglist-1.transportation-details-modal{
 span.reg-detail-image {
     display: block;
     margin-bottom: 10px;
+    text-align: center;
+}
+.profie-user div.text-center a{
+    border: 2px solid #626c78;
+    border-radius: 5px;
+    padding: 4px 8px;
+    display: inline-block;
+    font-size: 12px;
+    color: #626c78;
+    font-weight: 600;
 }
 .reg-detail-image img {
     width: 40%;
@@ -1321,18 +1341,27 @@ span.reg-detail-image {
 }
 .profie-user .avatar{
 	border-radius: 50%;
-    height: 120px;
-    width: 120px;
+    height: 160px;
+    width: 160px;
 }
 .profie-user .titlecase {
     font-size: 22px;
     font-weight: 800;
         color: #0e3b5c;
             margin: 0;
+            font-family: Montserrat;
+}
+.profie-user .titlecase.last-name{
+	    font-size: 18px;    
 }
 .button-set{}
 .profie-user .col-md-9{
 	display: table;
+}
+.profie-user .middle-box{
+	height: 160px;
+    display: table-cell;
+    vertical-align: middle;
 }
 .middle-box{
 	height: 110px;
@@ -1344,7 +1373,56 @@ span.reg-detail-image {
     font-weight: 800;
     color: #626c78;
 }
+.profie-user .row{
+position: relative;
+    float: left;
+    width: 100%;
+        margin: 0 auto;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+.profie-user .row:after {
+           content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: calc(100% - 30px);
+    height: 1px;
+    background: #0e3b5c;
+}
+.profie-user .row:last-child:after{
+	height: 0px;
+}
 
+.my-kanakuk-reg-detail div.col-lg-4:after {
+    content: "";
+    border-bottom: 1px solid #0e3b5c;
+    position: absolute;
+    width: 100%;
+    left: 15px;
+    bottom: 0;
+    top: 0;
+    border-right: 1px solid #0e3b5c;
+}
+
+
+
+.my-kanakuk-reg-detail div.col-lg-4:nth-last-child(1):after {
+    border-bottom: 0px none;
+	border-right: 0px none;
+}
+.my-kanakuk-reg-detail div.col-lg-4:nth-last-child(2):after {
+    border-bottom: 0px none;
+}
+.my-kanakuk-reg-detail div.col-lg-4:nth-last-child(3):after {
+    border-bottom: 0px none;
+}
+.my-kanakuk-reg-detail div.col-lg-4:nth-last-child(2n):after {
+	border-right: 1px solid #0e3b5c;
+}
+.col-lg-4.col-md-4.col-sm-6:nth-last-child(3n+4):after {
+    border-right: 0px none;
+}
 /* my-kanakuk-reg-detail */
 
 /**/
@@ -2116,7 +2194,20 @@ and (orientation : landscape) {
     .my-kan-container.blue-bg:before {
    	 	height: 94.2vw; 
 	}
-     
+    /*Hero tabs update*/
+    .parallax-sliderhh{
+   	    height: 100%;
+    }
+    ul.tabs{
+    	background: transparent;
+    } 
+    ul.tabs .tabs-title{
+        margin-right: .2rem;
+       }
+    li.tabs-title a{
+    	background-color: #efefef;
+    	font-size: .825rem;
+    }
 }
 
 @media(max-width:620px){
@@ -2132,7 +2223,7 @@ and (orientation : landscape) {
         margin-top: 5px!important;
     }
     .page-id-20 .hero-media-container.hero-small, .page-id-49 .hero-media-container.hero-small{
-        background-position: center 80%;
+        /*background-position: center 80%;*/
     }
     .select_age select#select-age, .select_gender select#select-gender {
         padding: 6px 18px 6px 6px;
@@ -2154,6 +2245,9 @@ and (orientation : landscape) {
     .padding-top-header{
         padding-top: 0px!important;
     }
+    .profie-user .middle-box{
+		text-align: center;
+	}
 }
 
 @media(max-width:414px){ /*10-09-2019*/
@@ -2179,20 +2273,36 @@ and (orientation : landscape) {
     }
     
     /**/
-    .hero-media-container.hero-small {
+    .page-template-about-php .hero-media-container, .page-template-about-all-activities .hero-media-container, .page-template-about-faqs .hero-media-container {
     	height: 100% !important;
-        background-position: 100% 0%;
-	    background-size: 115%;
+    	    min-height: auto;
+       background-position: 100% 0%;
+	    background-size: 132%;
 	    object-fit: contain;
 	    background-repeat: no-repeat;
 	}
-	.page-id-24 .hero-media-container.hero-small{
+	.page-id-24 .hero-media-container{
 	    background-position: center center;
 	    background-size: auto 100%;    
     }
     .page-id-2181 .hero-media-container.hero-small{
    	 background-size: auto;    
     }
+     .page-template-kamp-types.page-template-kamp-types-php .hero-media-container{
+     
+     } 
+     .page-template-kamp-php .hero-container{
+     }
+    .page-template-kamp-php .hero-media-container{
+    	background-position: center 50%;
+    	    background-size: cover
+    }
+    /*.page-id-60 .hero-media-container.hero-small {
+	    height: 100% !important;
+	    min-height: auto;
+	    background-position: 50% 58%;
+	    background-size: 160%;
+    }*/
     /**/
 	
 }
