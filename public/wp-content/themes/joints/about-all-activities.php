@@ -124,11 +124,12 @@ get_header();
 																?>
 				<!-- activity description modal -->												
 						<?php
-								$modeltype = 'activitydescription';
+								$modeltype = 'imageModal';
 								$id =  $activity_id[0];
 								$name = $this_activity['activity_name'];
 								$des = $this_activity['activity_description'];
-								popupmodel($modeltype,$id,$name,$des);
+								$imageurl = $this_activity['activity_image']['url'];
+								popupmodelImage($modeltype,$id,$name,$imageurl,$des);
    								?>
 					
 				<!-- /. end activity modal -->
@@ -137,8 +138,9 @@ get_header();
 								$modeltype = 'imageModal';
 								$id =  $activity_id[0];
 								$name = $this_activity['activity_name'];
-								 $url = $this_activity['activity_image']['url'];
-								 popupmodelImage($modeltype,$id,$name,$url);
+								$url = $this_activity['activity_image']['url'];
+								$imagedescription = $this_activity['activity_description'];
+								 popupmodelImage($modeltype,$id,$name,$url,$imagedescription);
    								?>
 				<!-- /.end image modal -->
 					
@@ -148,11 +150,12 @@ get_header();
 																<a href="#imageModal<?php echo $activity_id[0];?>"
 					data-toggle="modal"><img src="<?php echo $this_activity['activity_image']['url']; ?>"></a>
 																	<div class="list-grid-item-overlays">
-																		<h6 class="secondary bold white text-center titlecase margin-bottom-20 white hollow"><?php echo $this_activity['activity_name']; ?></h6>
+																		<h6 class="secondary bold white text-center titlecase margin-bottom-20 white hollow"><a href="#imageModal<?php echo $activity_id[0];?>"
+					data-toggle="modal"><?php echo $this_activity['activity_name']; ?></a></h6>
 																	
 																		<?php if($this_activity['activity_description']):?>
 																		
-																		<a href="#activitydescription<?php echo $activity_id[0];?>"
+																		<a href="#imageModal<?php echo $activity_id[0];?>"
 					data-toggle="modal" class="white"><button class="button expanded white hollow">Activity Description</button></a>
 					
 					<?php endif;?>
@@ -239,7 +242,7 @@ function popupmodel($popuptype,$popupid, $popupheading, $popupdescription){
 <?php 
 }
 
-function popupmodelImage($popuptype,$popupid, $popupheading, $popupdescription){
+function popupmodelImage($popuptype,$popupid, $popupheading, $popupdescription,$imagedescription){
 ?>
  
  <div id="<?php echo $popuptype;?><?php echo $popupid;?>"
@@ -251,6 +254,9 @@ function popupmodelImage($popuptype,$popupid, $popupheading, $popupdescription){
    <i class="fa fa-times" aria-hidden="true"></i>
     </button>
    <h4 class="modal-title"><?php echo $popupheading; ?></h4>
+   		<?php if($imagedescription):?>
+		<div class="modal-body customModalBody"><?php echo $imagedescription; ?></div>
+		<?php endif;?>
 							</div>
 							<div class="modal-bodys customModalBodys"><img src="<?php echo $popupdescription; ?>" width=100% height=100%></div>
 						</div>
